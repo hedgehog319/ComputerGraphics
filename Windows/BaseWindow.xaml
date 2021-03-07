@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="ComputerGraphics.Windows.BaseWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="100" Width="100" Background="LightGray"
+             MouseLeave="OnMouseLeave" MouseMove="OnMouseMove">
+
+
+    <UserControl.ContentTemplate>
+        <DataTemplate>
+            <Grid>
+                <ContentPresenter Margin="0, 18, 0, 0" Content="{TemplateBinding Content}" />
+
+                <Menu Height="18" VerticalAlignment="Top" PreviewMouseDown="OnMouseDown" PreviewMouseUp="OnMouseUp" />
+            </Grid>
+        </DataTemplate>
+    </UserControl.ContentTemplate>
+</UserControl>
