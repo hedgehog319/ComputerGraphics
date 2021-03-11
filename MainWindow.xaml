@@ -3,17 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:windows="clr-namespace:ComputerGraphics.Windows"
+        xmlns:windows="clr-namespace:ComputerGraphics"
         mc:Ignorable="d"
         Title="DSP" Height="450" Width="800" Background="DarkGray">
     <Grid>
-        <windows:BaseWindow Margin="100, 100, 0, 0">
-            <Label>Hello</Label>
-        </windows:BaseWindow>
 
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Открыть" />
+                <MenuItem Header="Открыть" Click="Open_Click"/>
                 <MenuItem Header="Сохранить" />
             </MenuItem>
             <MenuItem Header="Вид" />
