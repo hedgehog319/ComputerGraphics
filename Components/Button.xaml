@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="ComputerGraphics.Components.Button"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ComputerGraphics.Components"
+             Name="Btn"
+             Height="16" Width="36" MouseEnter="Btn_MouseEnter" MouseLeave="Btn_MouseLeave">
+
+    <Grid x:Name="Grid" Background="{Binding BackGround, ElementName=Btn}">
+
+        <TextBlock x:Name="TextB" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>
