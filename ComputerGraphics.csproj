@@ -7,8 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Test" />
       <Folder Include="Utils\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="disnet, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>Libraries\disnet.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     </ItemGroup>
 
 </Project>

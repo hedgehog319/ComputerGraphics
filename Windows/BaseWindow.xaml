@@ -1,7 +1,6 @@
 ﻿<UserControl x:Class="ComputerGraphics.Windows.BaseWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:components="clr-namespace:ComputerGraphics.Components"
              Height="100" Width="100"
              MouseLeave="OnMouseLeave" MouseMove="OnMouseMove">
 
@@ -10,12 +9,6 @@
         <DataTemplate>
             <Grid>
                 <!--<Menu Height="18" VerticalAlignment="Top" PreviewMouseDown="OnMouseDown" PreviewMouseUp="OnMouseUp" />-->
-                <Border BorderBrush="Blue" Background="LightGray" BorderThickness="1" Margin="2">
-                    <Grid>
-                        <Rectangle Height="18" Fill="Brown" VerticalAlignment="Top" MouseDown="OnMouseDown" MouseUp="OnMouseUp"/>
-                        <components:Button Width="18" Height="18" VerticalAlignment="Top" HorizontalAlignment="Right" Background="LightGray" HoverBackGround="Red" Text="X"/>
-                    </Grid>
-                </Border>
 
                 <ContentPresenter Margin="3, 21, 3, 3" Content="{TemplateBinding Content}" />
 

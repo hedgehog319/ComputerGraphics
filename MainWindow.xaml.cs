@@ -1,9 +1,9 @@
 ﻿using System;
-using ComputerGraphics.Components;
 using System.Windows;
 using System.IO;
 using ComputerGraphics.Utils;
 using Microsoft.Win32;
+using ComputerGraphics.Windows;
 
 namespace ComputerGraphics
 {
@@ -15,20 +15,21 @@ namespace ComputerGraphics
         public MainWindow()
         {
             InitializeComponent();
+            // #if DEBUG
+                // new testWindow().Show();
+                // this.Hide();
+            // #endif
         }
 
         private void AboutProgramm_Click(object sender, RoutedEventArgs e)
         {
-            const string msg = "Просграмма DSP позволяет визуализировать сигналы с различных устройств.\n" +
-                               "Разработчики: Торжков А., Просин А., Антипов Д.";
+            var msg = "Просграмма DSP позволяет визуализировать сигналы с различных устройств.\n" +
+                      "Разработчики: Торжков А., Просин А., Антипов Д.";
             MessageBox.Show(msg, "О программе");
         }
 
         private void Button_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (!(sender is Button btn)) return;
-
-            MessageBox.Show(btn.Height + " " + btn.Width);
         }
 
         private void Open_Click(object sender, RoutedEventArgs e)
@@ -40,7 +41,14 @@ namespace ComputerGraphics
 
             if (fileDialog.ShowDialog() != true) return;
 
-            var multiChannel = ChannelReader.ReadFile(fileDialog.FileName);
+            _multiChannel = ChannelReader.ReadFile(fileDialog.FileName);
+        }
+
+        private MultiChannel<double> _multiChannel;
+        
+        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            new testWindow(_multiChannel[0]).Show();
         }
     }
 }
