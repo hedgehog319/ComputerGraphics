@@ -5,7 +5,6 @@ namespace ComputerGraphics.Utils
     public class Channel<T>
     {
         private static uint _id = 0;
-        private readonly T[] _values;
 
         public string Name { get; set; }
 
@@ -17,20 +16,22 @@ namespace ComputerGraphics.Utils
         public Channel(string name, int countDowns) : this()
         {
             Name = name;
-            _values = new T[countDowns];
+            Values = new T[countDowns];
         }
 
-        public int CountDowns => _values.Length;
+        public int CountDowns => Values.Length;
 
         public T this[int i]
         {
-            get => _values[i];
-            set => _values[i] = value;
+            get => Values[i];
+            set => Values[i] = value;
         }
+
+        public T[] Values { get; }
 
         public IEnumerator GetEnumerator()
         {
-            return _values.GetEnumerator();
+            return Values.GetEnumerator();
         }
     }
 }
