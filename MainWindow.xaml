@@ -14,7 +14,7 @@
                 <MenuItem Header="Сохранить" />
             </MenuItem>
             <MenuItem Header="Вид" />
-            <MenuItem Header="Инструменты" Click="MenuItem_OnClick" />
+            <MenuItem Header="Инструменты" />
             <MenuItem Header="Окна" />
             <MenuItem Header="О программе">
                 <MenuItem Header="Разработчики" Click="AboutProgramm_Click" />

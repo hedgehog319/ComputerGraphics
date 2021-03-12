@@ -4,30 +4,33 @@ namespace ComputerGraphics.Utils
 {
     public class Channel<T>
     {
-        private string _name;
-        private T[] _countdown;
+        private static uint _id = 0;
+        private readonly T[] _values;
 
-        public Channel()
+        public string Name { get; set; }
+
+        private Channel()
         {
-            _name = string.Empty;
-            _countdown = null;
+            Name = $"Канал {_id++}";
         }
 
-        public Channel(string name, uint size)
+        public Channel(string name, int countDowns) : this()
         {
-            _name = name;
-            _countdown = new T[size];
+            Name = name;
+            _values = new T[countDowns];
         }
+
+        public int CountDowns => _values.Length;
 
         public T this[int i]
         {
-            get => _countdown[i];
-            set => _countdown[i] = value;
+            get => _values[i];
+            set => _values[i] = value;
         }
 
         public IEnumerator GetEnumerator()
         {
-            return _countdown.GetEnumerator();
+            return _values.GetEnumerator();
         }
     }
 }

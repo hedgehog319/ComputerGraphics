@@ -3,6 +3,7 @@ using ComputerGraphics.Components;
 using System.Windows;
 using System.IO;
 using ComputerGraphics.Utils;
+using Microsoft.Win32;
 
 namespace ComputerGraphics
 {
@@ -16,14 +17,10 @@ namespace ComputerGraphics
             InitializeComponent();
         }
 
-        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
-        {
-        }
-
         private void AboutProgramm_Click(object sender, RoutedEventArgs e)
         {
-            var msg = "Просграмма DSP позволяет визуализировать сигналы с различных устройств.\n" +
-                      "Разработчики: Торжков А., Просин А., Антипов Д.";
+            const string msg = "Просграмма DSP позволяет визуализировать сигналы с различных устройств.\n" +
+                               "Разработчики: Торжков А., Просин А., Антипов Д.";
             MessageBox.Show(msg, "О программе");
         }
 
@@ -36,15 +33,14 @@ namespace ComputerGraphics
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
-            var open = new Microsoft.Win32.OpenFileDialog
+            var fileDialog = new Microsoft.Win32.OpenFileDialog
             {
                 Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*"
             };
 
-            if (open.ShowDialog() == true)
-            {
-                var ext = Path.GetExtension(open.FileName);
-            }
+            if (fileDialog.ShowDialog() != true) return;
+
+            var multiChannel = ChannelReader.ReadFile(fileDialog.FileName);
         }
     }
 }

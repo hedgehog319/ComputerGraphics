@@ -4,11 +4,11 @@ namespace ComputerGraphics.Utils
 {
     public class MultiChannel<T>
     {
-        private Channel<T>[] _channels;
+        private readonly Channel<T>[] _channels;
         private decimal _sampleRate;
         private DateTime _date;
 
-        public MultiChannel(decimal sampleRate, DateTime date, uint count)
+        public MultiChannel(decimal sampleRate, DateTime date, int count)
         {
             _sampleRate = sampleRate;
             _date = date;
