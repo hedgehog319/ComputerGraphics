@@ -5,16 +5,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:ComputerGraphics.Windows"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:scrollView="clr-namespace:ComputerGraphics.ScrollView"
         mc:Ignorable="d"
         Title="testWindow" Height="450" Width="800">
     <Grid>
-        <lvc:CartesianChart x:Name="Plot" LegendLocation="Right">
-            <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Y" x:Name="AxisY" />
-            </lvc:CartesianChart.AxisY>
-            <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="X" x:Name="AxisX" />
-            </lvc:CartesianChart.AxisX>
-        </lvc:CartesianChart>
+
+        <scrollView:ScrollView x:Name="Plot"/>
+
+        <!-- <lvc:CartesianChart x:Name="Plot" LegendLocation="Right"> -->
+        <!--     <lvc:CartesianChart.AxisY> -->
+        <!--         <lvc:Axis Title="Y" x:Name="AxisY" /> -->
+        <!--     </lvc:CartesianChart.AxisY> -->
+        <!--     <lvc:CartesianChart.AxisX> -->
+        <!--         <lvc:Axis Title="X" x:Name="AxisX" /> -->
+        <!--     </lvc:CartesianChart.AxisX> -->
+        <!-- </lvc:CartesianChart> -->
     </Grid>
 </Window>

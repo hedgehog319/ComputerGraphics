@@ -32,7 +32,7 @@ namespace ComputerGraphics.Utils
             {
                 var values = file[i].Split(' ');
                 for (var j = 0; j < channels; j++)
-                    multiChannel[j][i - 12] = double.Parse(values[j], CultureInfo.GetCultureInfo("nl-NL"));
+                    multiChannel[j][i - 12] = double.Parse(values[j], CultureInfo.InvariantCulture);
             }
 
             return multiChannel;

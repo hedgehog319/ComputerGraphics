@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows;
-using System.IO;
+using ComputerGraphics.ScrollView;
 using ComputerGraphics.Utils;
-using Microsoft.Win32;
 using ComputerGraphics.Windows;
 
 namespace ComputerGraphics
@@ -15,10 +14,6 @@ namespace ComputerGraphics
         public MainWindow()
         {
             InitializeComponent();
-            // #if DEBUG
-                // new testWindow().Show();
-                // this.Hide();
-            // #endif
         }
 
         private void AboutProgramm_Click(object sender, RoutedEventArgs e)
@@ -28,7 +23,7 @@ namespace ComputerGraphics
             MessageBox.Show(msg, "О программе");
         }
 
-        private void Button_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void TestDown(object sender, RoutedEventArgs e)
         {
         }
 
@@ -42,13 +37,18 @@ namespace ComputerGraphics
             if (fileDialog.ShowDialog() != true) return;
 
             _multiChannel = ChannelReader.ReadFile(fileDialog.FileName);
+            Console.WriteLine(_multiChannel[0][2094]);
         }
 
         private MultiChannel<double> _multiChannel;
-        
+
         private void MenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            new testWindow(_multiChannel[0]).Show();
+            // new testWindow(_multiChannel[0]).Show();
+            var data = new ScrollableViewModel(_multiChannel[0]);
+            var wind = new testWindow();
+            wind.Plot.DataContext = data;
+            wind.Show();
         }
     }
 }
