@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using ComputerGraphics.Utils;
-using LiveCharts.Defaults;
 using LiveCharts.Geared;
 
-namespace ComputerGraphics.ScrollView
+namespace ComputerGraphics.ChartsViews.ScrollView
 {
     public class ScrollableViewModel : INotifyPropertyChanged
     {

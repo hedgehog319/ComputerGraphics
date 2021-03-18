@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace ComputerGraphics.Utils
 {
@@ -19,6 +20,11 @@ namespace ComputerGraphics.Utils
         {
             get => _channels[i];
             set => _channels[i] = value;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return _channels.GetEnumerator();
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
-using LiveCharts.Events;
 
-namespace ComputerGraphics.ScrollView
+namespace ComputerGraphics.ChartsViews.ScrollView
 {
     /// <summary>
     /// Interaction logic for ScrollingWindow.xaml

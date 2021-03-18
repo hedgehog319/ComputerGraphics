@@ -3,14 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:ComputerGraphics.Windows"
-        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-        xmlns:scrollView="clr-namespace:ComputerGraphics.ScrollView"
-        mc:Ignorable="d"
+        xmlns:chartsViews="clr-namespace:ComputerGraphics.ChartsViews"
+        xmlns:chartView="clr-namespace:ComputerGraphics.ChartsViews.ChartView"
         Title="testWindow" Height="450" Width="800">
     <Grid>
 
-        <scrollView:ScrollView x:Name="Plot"/>
+        <chartView:ChartView x:Name="Plot" />
 
         <!-- <lvc:CartesianChart x:Name="Plot" LegendLocation="Right"> -->
         <!--     <lvc:CartesianChart.AxisY> -->

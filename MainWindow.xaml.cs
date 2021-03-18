@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows;
-using ComputerGraphics.ScrollView;
+﻿using System.Windows;
 using ComputerGraphics.Utils;
 using ComputerGraphics.Windows;
 
@@ -36,19 +34,13 @@ namespace ComputerGraphics
 
             if (fileDialog.ShowDialog() != true) return;
 
-            _multiChannel = ChannelReader.ReadFile(fileDialog.FileName);
-            Console.WriteLine(_multiChannel[0][2094]);
+            var multiChannel = ChannelReader.ReadFile(fileDialog.FileName);
+            new NavBar(multiChannel) {Owner = this}
+                .Show();
         }
-
-        private MultiChannel<double> _multiChannel;
 
         private void MenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            // new testWindow(_multiChannel[0]).Show();
-            var data = new ScrollableViewModel(_multiChannel[0]);
-            var wind = new testWindow();
-            wind.Plot.DataContext = data;
-            wind.Show();
         }
     }
 }
