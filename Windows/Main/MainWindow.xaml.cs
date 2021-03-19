@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
 using ComputerGraphics.Utils;
 
 namespace ComputerGraphics.Windows.Main
@@ -8,11 +10,15 @@ namespace ComputerGraphics.Windows.Main
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainWindowModel _data;
         private MultiChannel<double> _channels;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            _data = new MainWindowModel();
+            DataContext = _data;
         }
 
         private void AboutProgramm_Click(object sender, RoutedEventArgs e)
@@ -20,10 +26,6 @@ namespace ComputerGraphics.Windows.Main
             var msg = "Просграмма DSP позволяет визуализировать сигналы с различных устройств.\n" +
                       "Разработчики: Торжков А., Просин А., Антипов Д.";
             MessageBox.Show(msg, "О программе");
-        }
-
-        private void TestDown(object sender, RoutedEventArgs e)
-        {
         }
 
         private void Open_Click(object sender, RoutedEventArgs e)
@@ -34,18 +36,12 @@ namespace ComputerGraphics.Windows.Main
             };
 
             if (fileDialog.ShowDialog() != true) return;
+
+            _data.IsFileOpen = true;
             _channels = ChannelReader.ReadFile(fileDialog.FileName);
+
             new NavBar(_channels) {Owner = this}
                 .Show();
-        }
-
-        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void TestClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("work");
         }
 
         private void Information_OnClick(object sender, RoutedEventArgs e)
@@ -60,6 +56,14 @@ namespace ComputerGraphics.Windows.Main
                        $" {_channels.Duration.Minutes} – минут, {_channels.Duration.Seconds}.{_channels.Duration.Milliseconds} - секунд";
             //todo изменить вывод длительности 
             MessageBox.Show(info, "Информация");
+        }
+
+        private void OpenNavMenu_Click(object sender, RoutedEventArgs e)
+        {
+            if (_channels == null) return;
+
+            new NavBar(_channels) {Owner = this}
+                .Show();
         }
     }
 }
