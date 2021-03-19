@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using ComputerGraphics.ChartsViews.ChartView;
 using ComputerGraphics.Utils;
 
@@ -6,12 +7,10 @@ namespace ComputerGraphics.Windows
 {
     public partial class NavBar : Window
     {
-        private MultiChannel<double> _channels;
 
         public NavBar(MultiChannel<double> channels)
         {
             InitializeComponent();
-            _channels = channels;
 
             foreach (Channel<double> channel in channels)
             {
@@ -25,5 +24,7 @@ namespace ComputerGraphics.Windows
                 Bar.Children.Add(chartView);
             }
         }
+
+        
     }
 }

@@ -4,11 +4,7 @@
         xmlns:chartview="clr-namespace:ComputerGraphics.ChartsViews.ChartView"
         Title="Окно навигации" Height="350" Width="200" ResizeMode="NoResize">
     <Grid>
-        <Menu Height="18" VerticalAlignment="Top">
-            <MenuItem Header="Информация" />
-        </Menu>
-
-        <ScrollViewer Margin="0, 18, 0, 0">
+        <ScrollViewer>
             <StackPanel x:Name="Bar" Margin="0, 0, 1, 0" />
         </ScrollViewer>
     </Grid>

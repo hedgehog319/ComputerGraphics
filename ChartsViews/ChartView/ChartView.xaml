@@ -9,24 +9,27 @@
     </UserControl.DataContext>
 
     <Border BorderThickness="1" BorderBrush="Black">
-        <wpf:CartesianChart DisableAnimations="True"
-                            Hoverable="False">
-            <wpf:CartesianChart.Series>
-                <geared:GLineSeries Title="{Binding Name}"
-                                    StrokeThickness="1"
-                                    Values="{Binding Values}"
-                                    Fill="Transparent"
-                                    AreaLimit="0"
-                                    PointGeometry="{x:Null}" />
-            </wpf:CartesianChart.Series>
+        <Grid>
+            <wpf:CartesianChart DisableAnimations="True"
+                                Hoverable="False" DataTooltip="{x:Null}">
+                <wpf:CartesianChart.Series>
+                    <geared:GLineSeries Title="{Binding Name}"
+                                        StrokeThickness="1"
+                                        Values="{Binding Values}"
+                                        Fill="Transparent"
+                                        AreaLimit="0"
+                                        PointGeometry="{x:Null}" />
+                </wpf:CartesianChart.Series>
 
-            <wpf:CartesianChart.AxisX>
-                <wpf:Axis ShowLabels="False" />
-            </wpf:CartesianChart.AxisX>
+                <wpf:CartesianChart.AxisX>
+                    <wpf:Axis ShowLabels="False" />
+                </wpf:CartesianChart.AxisX>
 
-            <wpf:CartesianChart.AxisY>
-                <wpf:Axis ShowLabels="False" />
-            </wpf:CartesianChart.AxisY>
-        </wpf:CartesianChart>
+                <wpf:CartesianChart.AxisY>
+                    <wpf:Axis ShowLabels="False" />
+                </wpf:CartesianChart.AxisY>
+            </wpf:CartesianChart>
+            <Label VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="{Binding Name}"/>
+        </Grid>
     </Border>
 </UserControl>

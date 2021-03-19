@@ -11,13 +11,17 @@
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="Файл">
                 <MenuItem Header="Открыть" Click="Open_Click" />
+                <MenuItem Header="Открыть последний файл" Click="TestClick" IsEnabled="{Binding Path=Tt, Source={x:Static Application.Current}}" />
                 <MenuItem Header="Сохранить" />
             </MenuItem>
             <MenuItem Header="Вид" Click="TestDown" />
-            <MenuItem Header="Инструменты" />
+            <MenuItem Header="Инструменты" >
+                <MenuItem Header="Информация" Click="Information_OnClick"/>
+            </MenuItem>
+                
             <MenuItem Header="Окна">
                 <MenuItem Header="Test" Click="MenuItem_OnClick" />
-            </MenuItem>
+            </MenuItem> 
 
             <MenuItem Header="О программе">
                 <MenuItem Header="Разработчики" Click="AboutProgramm_Click" />

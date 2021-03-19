@@ -21,10 +21,11 @@ namespace ComputerGraphics.Utils
             var file = File.ReadAllLines(path);
             var channels = int.Parse(file[1]);
             var countdowns = int.Parse(file[3]);
-            var sampleRate = decimal.Parse(file[5], CultureInfo.GetCultureInfo("nl-NL"));
+            var sampleRate = decimal.Parse(file[5], CultureInfo.InvariantCulture);
+            var startDate = DateTime.Parse(file[7]);
             var names = file[11].Split(';');
 
-            var multiChannel = new MultiChannel<double>(sampleRate, DateTime.Now, channels);
+            var multiChannel = new MultiChannel<double>(sampleRate, startDate, channels, countdowns);
             for (var i = 0; i < channels; i++)
                 multiChannel[i] = new Channel<double>(names[i], countdowns);
 

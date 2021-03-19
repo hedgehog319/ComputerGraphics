@@ -6,7 +6,7 @@ namespace ComputerGraphics.Utils
     {
         private static uint _id = 0;
 
-        public string Name { get; set; }
+        public string Name { get; }
 
         private Channel()
         {

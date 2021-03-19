@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <Folder Include="Utils\" />
+      <Folder Include="Windows\Main" />
     </ItemGroup>
 
     <ItemGroup>
