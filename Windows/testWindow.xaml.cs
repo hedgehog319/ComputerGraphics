@@ -1,5 +1,5 @@
-using ComputerGraphics.Utils;
 using System.Windows;
+using ComputerGraphics.ChartsViews.ChartView;
 
 namespace ComputerGraphics.Windows
 {
@@ -10,8 +10,9 @@ namespace ComputerGraphics.Windows
             InitializeComponent();
         }
 
-        public testWindow(Channel<double> ch) : this()
+        public testWindow(ChartViewModel model) : this()
         {
+            Plot.DataContext = model;
         }
     }
 }

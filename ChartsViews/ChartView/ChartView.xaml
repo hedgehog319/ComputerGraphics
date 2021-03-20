@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
-             xmlns:chartView="clr-namespace:ComputerGraphics.ChartsViews.ChartView">
+             xmlns:chartView="clr-namespace:ComputerGraphics.ChartsViews.ChartView" MouseDoubleClick="DelMe">
     <UserControl.DataContext>
         <chartView:ChartViewModel />
     </UserControl.DataContext>
@@ -29,7 +29,7 @@
                     <wpf:Axis ShowLabels="False" />
                 </wpf:CartesianChart.AxisY>
             </wpf:CartesianChart>
-            <Label VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="{Binding Name}"/>
+            <Label VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="{Binding Name}" />
         </Grid>
     </Border>
 </UserControl>
