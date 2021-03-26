@@ -10,7 +10,7 @@ namespace ComputerGraphics.Windows.Main
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowModel _data;
+        private readonly MainWindowModel _data;
         private MultiChannel<double> _channels;
 
         public MainWindow()
@@ -40,8 +40,13 @@ namespace ComputerGraphics.Windows.Main
             _data.IsFileOpen = true;
             _channels = ChannelReader.ReadFile(fileDialog.FileName);
 
-            new NavBar(_channels) {Owner = this}
-                .Show();
+            var navBar = new NavBar(_channels) {Owner = this};
+            navBar.Closed += (o, args) => _data.IsNavBarOpen = false;
+            navBar.Show();
+
+            _data.IsNavBarOpen = false;
+
+            // MessageBox.Show(_data.IsNavBarOpen.ToString());
         }
 
         private void Information_OnClick(object sender, RoutedEventArgs e)

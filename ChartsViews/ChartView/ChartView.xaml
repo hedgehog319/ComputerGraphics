@@ -3,21 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
-             xmlns:chartView="clr-namespace:ComputerGraphics.ChartsViews.ChartView" MouseDoubleClick="DelMe">
+             xmlns:chartsViews="clr-namespace:ComputerGraphics.ChartsViews">
     <UserControl.DataContext>
-        <chartView:ChartViewModel />
+        <chartsViews:ChartModel />
     </UserControl.DataContext>
 
     <Border BorderThickness="1" BorderBrush="Black">
         <Grid>
             <wpf:CartesianChart DisableAnimations="True"
-                                Hoverable="False" DataTooltip="{x:Null}">
+                                Hoverable="False"
+                                DataTooltip="{x:Null}">
                 <wpf:CartesianChart.Series>
                     <geared:GLineSeries Title="{Binding Name}"
                                         StrokeThickness="1"
                                         Values="{Binding Values}"
                                         Fill="Transparent"
                                         AreaLimit="0"
+                                        LineSmoothness="0"
                                         PointGeometry="{x:Null}" />
                 </wpf:CartesianChart.Series>
 

@@ -1,26 +1,29 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using ComputerGraphics.Utils;
 using LiveCharts.Geared;
 
-namespace ComputerGraphics.ChartsViews.ChartView
+namespace ComputerGraphics.ChartsViews
 {
-    public class ChartViewModel : INotifyPropertyChanged
+    public class ChartModel : INotifyPropertyChanged
     {
+        private Func<double, string> _formatter;
         private string _name;
         private double _from;
         private double _to;
         private double _smoothness;
 
-        public ChartViewModel()
+        public ChartModel()
         {
         }
 
-        public ChartViewModel(Channel<double> ch)
+        public ChartModel(Channel<double> ch)
         {
+            // Formatter = x => new DateTime((long) x).ToString("yyyy");
+
             Values = ch.Values.AsGearedValues().WithQuality(Quality.Highest);
 
             Name = ch.Name;
-
             From = 0;
             To = Values.Count;
         }
@@ -64,6 +67,16 @@ namespace ComputerGraphics.ChartsViews.ChartView
             {
                 _smoothness = value;
                 OnPropertyChanged(nameof(Smoothness));
+            }
+        }
+
+        public Func<double, string> Formatter
+        {
+            get => _formatter;
+            set
+            {
+                _formatter = value;
+                OnPropertyChanged(nameof(Formatter));
             }
         }
 

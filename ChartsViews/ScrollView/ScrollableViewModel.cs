@@ -12,6 +12,7 @@ namespace ComputerGraphics.ChartsViews.ScrollView
         private string _name;
         private double _from;
         private double _to;
+        private double _smoothness;
 
         public ScrollableViewModel()
         {
@@ -24,6 +25,8 @@ namespace ComputerGraphics.ChartsViews.ScrollView
             Values = ch.Values.AsGearedValues().WithQuality(Quality.Medium);
 
             Name = ch.Name;
+
+            Formatter = x => new DateTime((long) x).ToString("yyyy");
             From = 0;
             To = Values.Count;
         }
@@ -57,6 +60,16 @@ namespace ComputerGraphics.ChartsViews.ScrollView
             {
                 _to = value;
                 OnPropertyChanged(nameof(To));
+            }
+        }
+
+        public double Smoothness
+        {
+            get => _smoothness;
+            set
+            {
+                _smoothness = value;
+                OnPropertyChanged(nameof(Smoothness));
             }
         }
 

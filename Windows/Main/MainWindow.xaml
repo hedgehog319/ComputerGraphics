@@ -23,7 +23,7 @@
             </MenuItem>
 
             <MenuItem Header="Окна">
-                <MenuItem Header="Окно навигации" Click="OpenNavMenu_Click" />
+                <MenuItem Header="Окно навигации" Click="OpenNavMenu_Click" IsEnabled="{Binding Path=!IsNavBarOpen}"/>
             </MenuItem>
 
             <MenuItem Header="О программе">

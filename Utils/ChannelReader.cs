@@ -29,7 +29,7 @@ namespace ComputerGraphics.Utils
             for (var i = 0; i < channels; i++)
                 multiChannel[i] = new Channel<double>(names[i], countdowns);
 
-            for (var i = 12; i < countdowns; i++)
+            for (var i = 12; i < file.Length; i++)
             {
                 var values = file[i].Split(' ');
                 for (var j = 0; j < channels; j++)

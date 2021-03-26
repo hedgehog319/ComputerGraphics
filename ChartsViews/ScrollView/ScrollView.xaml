@@ -5,19 +5,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
-             xmlns:scrollView1="clr-namespace:ComputerGraphics.ChartsViews.ScrollView"
-             mc:Ignorable="d" Name="Tt">
+             xmlns:chartsViews="clr-namespace:ComputerGraphics.ChartsViews"
+             mc:Ignorable="d">
     <UserControl.DataContext>
-        <scrollView1:ScrollableViewModel />
+        <chartsViews:ChartModel />
     </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
 
-        <lvc:CartesianChart Grid.Row="1"
+        <Label Grid.Row="1" x:Name="Label" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+        <lvc:CartesianChart Grid.Row="2"
                             Zoom="X"
                             DisableAnimations="True"
                             Hoverable="False"
@@ -28,51 +31,50 @@
                                     Values="{Binding Values}"
                                     Fill="Transparent"
                                     AreaLimit="0"
+                                    LineSmoothness="{Binding Path=Smoothness}"
                                     PointGeometry="{x:Null}" />
-                <!-- #2194F1 -->
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis LabelFormatter="{Binding Formatter}"
                           MinValue="{Binding From, Mode=TwoWay}"
-                          MinRange="100"
+                          MinRange="10"
+                          RangeChanged="Axis_OnRangeChanged"
                           MaxRange="{Binding Values.Count}"
-                          MaxValue="{Binding To, Mode=TwoWay}"
-                          Separator="{x:Static lvc:DefaultAxes.CleanSeparator}" />
+                          MaxValue="{Binding To, Mode=TwoWay}" />
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
 
         <!-- ~1~ TODO Нижняя панель @1@ -->
-        <!-- <lvc:CartesianChart Grid.Row="2" DisableAnimations="True" -->
-        <!--                     ScrollMode="X" -->
-        <!--                     ScrollHorizontalFrom="{Binding From, Mode=TwoWay}" -->
-        <!--                     ScrollHorizontalTo="{Binding To, Mode=TwoWay}" -->
-        <!--                     ScrollBarFill="#25303030" -->
-        <!--                     DataTooltip="{x:Null}" -->
-        <!--                     Hoverable="False" -->
-        <!--                     Margin="20 10"> -->
-        <!-- -->
-        <!--     <lvc:CartesianChart.Resources> -->
-        <!--         <Style TargetType="lvc:Separator"> -->
-        <!--             <Setter Property="IsEnabled" Value="False" /> -->
-        <!--         </Style> -->
-        <!--     </lvc:CartesianChart.Resources> -->
-        <!--     <lvc:CartesianChart.Series> -->
-        <!--         <geared:GLineSeries Values="{Binding Values}" -->
-        <!--                             Fill="Silver" -->
-        <!--                             StrokeThickness="0" -->
-        <!--                             PointGeometry="{x:Null}" -->
-        <!--                             AreaLimit="0" /> -->
-        <!--     </lvc:CartesianChart.Series> -->
-        <!--     <lvc:CartesianChart.AxisX> -->
-        <!--         <lvc:Axis IsMerged="True" -->
-        <!--                   LabelFormatter="{Binding Formatter, Mode=OneTime}" -->
-        <!--                   Foreground="#98000000" -->
-        <!--                   FontSize="22" -->
-        <!--                   FontWeight="UltraBold" /> -->
-        <!--     </lvc:CartesianChart.AxisX> -->
-        <!--     <lvc:CartesianChart.AxisY> -->
-        <!--         <lvc:Axis ShowLabels="False" /> -->
-        <!--     </lvc:CartesianChart.AxisY> -->
-        <!-- </lvc:CartesianChart> -->
+        <lvc:CartesianChart Grid.Row="3" DisableAnimations="True"
+                            ScrollMode="X"
+                            ScrollHorizontalFrom="{Binding From, Mode=TwoWay}"
+                            ScrollHorizontalTo="{Binding To, Mode=TwoWay}"
+                            ScrollBarFill="#25303030"
+                            DataTooltip="{x:Null}"
+                            Hoverable="False"
+                            Margin="20 10">
+
+            <lvc:CartesianChart.Resources>
+                <Style TargetType="lvc:Separator">
+                    <Setter Property="IsEnabled" Value="False" />
+                </Style>
+            </lvc:CartesianChart.Resources>
+            <lvc:CartesianChart.Series>
+                <geared:GLineSeries Values="{Binding Values}"
+                                    Fill="Silver"
+                                    StrokeThickness="0"
+                                    PointGeometry="{x:Null}"
+                                    AreaLimit="0" />
+            </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis IsMerged="True"
+                          Foreground="#98000000"
+                          FontSize="22"
+                          FontWeight="UltraBold" />
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis ShowLabels="False" />
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
     </Grid>
 </UserControl>

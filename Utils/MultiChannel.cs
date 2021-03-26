@@ -14,11 +14,7 @@ namespace ComputerGraphics.Utils
 
         public DateTime EndDate { get; }
 
-
-        public int CountChannels
-        {
-            get => _channels.Length;
-        }
+        public int CountChannels => _channels.Length;
 
         public MultiChannel(decimal sampleRate, DateTime startDate, int count, int countdowns)
         {
@@ -31,7 +27,6 @@ namespace ComputerGraphics.Utils
             Duration = TimeSpan.FromSeconds((double) duration);
             _channels = new Channel<T>[count];
         }
-
 
         public Channel<T> this[int i]
         {

@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Windows;
+using System.Windows.Media;
+using LiveCharts.Events;
+using LiveCharts.Geared;
+using LiveCharts.Wpf;
 
 namespace ComputerGraphics.ChartsViews.ScrollView
 {
@@ -14,8 +19,23 @@ namespace ComputerGraphics.ChartsViews.ScrollView
 
         public void Dispose()
         {
-            var vm = (ScrollableViewModel) DataContext;
+            var vm = (ChartModel) DataContext;
             vm.Values.Dispose();
+        }
+
+        private void Axis_OnRangeChanged(RangeChangedEventArgs e)
+        {
+            Label.Content = e.Range.ToString("N0");
+
+            // var vm = (ChartModel) DataContext;
+            // var currentRange = e.Range;
+            // vm.Formatter = currentRange switch
+            // {
+            //     < TimeSpan.TicksPerDay * 2 => x => new DateTime((long) x).ToString("t"),
+            //     < TimeSpan.TicksPerDay * 60 => x => new DateTime((long) x).ToString("dd MMM yy"),
+            //     < TimeSpan.TicksPerDay * 540 => x => new DateTime((long) x).ToString("MMM yy"),
+            //     _ => x => new DateTime((long) x).ToString("yyyy")
+            // };
         }
     }
 }

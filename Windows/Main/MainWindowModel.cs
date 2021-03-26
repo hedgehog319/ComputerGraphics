@@ -11,6 +11,7 @@ namespace ComputerGraphics.Windows.Main
         }
 
         private bool _isFileOpen = false;
+        private bool _isNavBarOpen = false;
 
         public bool IsFileOpen
         {
@@ -22,6 +23,16 @@ namespace ComputerGraphics.Windows.Main
             }
         }
 
+        public bool IsNavBarOpen
+        {
+            get => _isNavBarOpen;
+            set
+            {
+                _isNavBarOpen = value;
+                OnPropertyChanged(nameof(IsNavBarOpen));
+            }
+        }
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName = null)
