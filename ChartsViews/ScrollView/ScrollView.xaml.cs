@@ -17,12 +17,6 @@ namespace ComputerGraphics.ChartsViews.ScrollView
             InitializeComponent();
         }
 
-        public void Dispose()
-        {
-            var vm = (ChartModel) DataContext;
-            vm.Values.Dispose();
-        }
-
         private void Axis_OnRangeChanged(RangeChangedEventArgs e)
         {
             Label.Content = e.Range.ToString("N0");
@@ -39,5 +33,7 @@ namespace ComputerGraphics.ChartsViews.ScrollView
         }
 
         public ChartModel GetModel => DataContext as ChartModel;
+
+        public void Dispose() => GetModel?.Values.Dispose();
     }
 }
