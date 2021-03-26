@@ -37,5 +37,7 @@ namespace ComputerGraphics.ChartsViews.ScrollView
             //     _ => x => new DateTime((long) x).ToString("yyyy")
             // };
         }
+
+        public ChartModel GetModel => DataContext as ChartModel;
     }
 }
