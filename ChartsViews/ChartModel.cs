@@ -12,6 +12,7 @@ namespace ComputerGraphics.ChartsViews
         private double _from;
         private double _to;
         private double _smoothness;
+        private int _range;
 
         public ChartModel()
         {
@@ -22,10 +23,11 @@ namespace ComputerGraphics.ChartsViews
             // Formatter = x => new DateTime((long) x).ToString("yyyy");
 
             Values = ch.Values.AsGearedValues().WithQuality(Quality.Highest);
+            Range = Values.Count;
 
             Name = ch.Name;
-            From = 0;
-            To = Values.Count;
+            From = 1;
+            To = Values.Count - 1;
         }
 
         public GearedValues<double> Values { get; set; }
@@ -45,7 +47,9 @@ namespace ComputerGraphics.ChartsViews
             get => _from;
             set
             {
-                _from = value;
+                if (Math.Abs(To - Values.Count) < 0.000001)
+                    return;
+                _from = (value < 0) ? 0 : value;
                 OnPropertyChanged(nameof(From));
             }
         }
@@ -55,7 +59,10 @@ namespace ComputerGraphics.ChartsViews
             get => _to;
             set
             {
-                _to = value;
+                var step = value - _to;
+                if (From + step <= 0)
+                    return;
+                _to = (value > Values.Count) ? Values.Count : value;
                 OnPropertyChanged(nameof(To));
             }
         }
@@ -67,6 +74,16 @@ namespace ComputerGraphics.ChartsViews
             {
                 _smoothness = value;
                 OnPropertyChanged(nameof(Smoothness));
+            }
+        }
+
+        public int Range
+        {
+            get => _range;
+            set
+            {
+                _range = (value < 0) ? 10 : value;
+                OnPropertyChanged(nameof(Range));
             }
         }
 
