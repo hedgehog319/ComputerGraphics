@@ -4,6 +4,17 @@
         xmlns:scrollView="clr-namespace:ComputerGraphics.ChartsViews.ScrollView"
         Title="testWindow" Height="450" Width="800">
     <Grid>
+        <Menu  VerticalAlignment="Top">
+            <Button Height="30" >
+                <Image Source="..\..\image\lupPlus.png"></Image>
+            </Button>
+            <Button Height="30" >
+                <Image Source="..\..\image\lupMinus.png"></Image>
+            </Button>
+            <Button Height="30" >
+                <Image Source="..\..\image\reverse.png"></Image>
+            </Button>
+        </Menu>
         <scrollView:ScrollView x:Name="Plot" />
     </Grid>
 </Window>
