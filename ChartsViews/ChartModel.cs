@@ -5,7 +5,7 @@ using LiveCharts.Geared;
 
 namespace ComputerGraphics.ChartsViews
 {
-    public class ChartModel : INotifyPropertyChanged
+    public sealed class ChartModel : INotifyPropertyChanged
     {
         private Func<double, string> _formatter;
         private string _name;
@@ -20,7 +20,7 @@ namespace ComputerGraphics.ChartsViews
 
         public ChartModel(Channel<double> ch)
         {
-            // Formatter = x => new DateTime((long) x).ToString("yyyy");
+            Formatter = x => new DateTime((long) x).ToString("yyyy");
 
             Values = ch.Values.AsGearedValues().WithQuality(Quality.Highest);
             Range = Values.Count;
@@ -99,7 +99,7 @@ namespace ComputerGraphics.ChartsViews
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName = null)
+        private void OnPropertyChanged(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

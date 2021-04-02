@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Input;
 using ComputerGraphics.Utils;
 
 namespace ComputerGraphics.Windows.Main
@@ -23,8 +22,8 @@ namespace ComputerGraphics.Windows.Main
 
         private void AboutProgramm_Click(object sender, RoutedEventArgs e)
         {
-            var msg = "Просграмма DSP позволяет визуализировать сигналы с различных устройств.\n" +
-                      "Разработчики: Торжков А., Просин А., Антипов Д.";
+            const string msg = "Просграмма DSP позволяет визуализировать сигналы с различных устройств.\n" +
+                               "Разработчики: Торжков А., Просин А., Антипов Д.";
             MessageBox.Show(msg, "О программе");
         }
 
@@ -41,12 +40,10 @@ namespace ComputerGraphics.Windows.Main
             _channels = ChannelReader.ReadFile(fileDialog.FileName);
 
             var navBar = new NavBar(_channels) {Owner = this};
-            navBar.Closed += (o, args) => _data.IsNavBarOpen = false;
+            navBar.Closed += (_, _) => _data.IsNavBarOpen = false;
             navBar.Show();
 
-            _data.IsNavBarOpen = false;
-
-            // MessageBox.Show(_data.IsNavBarOpen.ToString());
+            _data.IsNavBarOpen = true;
         }
 
         private void Information_OnClick(object sender, RoutedEventArgs e)
@@ -54,7 +51,7 @@ namespace ComputerGraphics.Windows.Main
             var info = $"Текущее состояние многоканального сигнала\n" +
                        $"Общее число каналов - {_channels.CountChannels}\n" +
                        $"Общее количество отсчетов – {_channels.Countdowns}\n" +
-                       $"Частота дискретизации – {_channels.SampleRate} Гц ( шаг между отсчетами {_channels.Period.ToString("F")} сек)\n" +
+                       $"Частота дискретизации – {_channels.SampleRate} Гц ( шаг между отсчетами {_channels.Period:F} сек)\n" +
                        $"Дата и время начала записи - {_channels.StartDate}\n" +
                        $"Дата и время окончания записи - {_channels.EndDate}\n" +
                        $"Длительность: {_channels.Duration.Days} – суток, {_channels.Duration.Hours} – часов," +
@@ -67,8 +64,9 @@ namespace ComputerGraphics.Windows.Main
         {
             if (_channels == null) return;
 
-            new NavBar(_channels) {Owner = this}
-                .Show();
+            var navBar = new NavBar(_channels) {Owner = this};
+            navBar.Closed += (_, _) => _data.IsNavBarOpen = false;
+            navBar.Show();
         }
     }
 }

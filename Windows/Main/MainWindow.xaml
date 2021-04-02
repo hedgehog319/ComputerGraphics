@@ -14,16 +14,18 @@
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="Файл">
                 <MenuItem Header="Открыть" Click="Open_Click" />
-                <MenuItem Header="Открыть последний файл" />
+
                 <MenuItem Header="Сохранить" />
             </MenuItem>
+
             <MenuItem Header="Вид" />
+
             <MenuItem Header="Инструменты">
                 <MenuItem Header="Информация" Click="Information_OnClick" IsEnabled="{Binding Path=IsFileOpen}" />
             </MenuItem>
 
             <MenuItem Header="Окна">
-                <MenuItem Header="Окно навигации" Click="OpenNavMenu_Click" IsEnabled="{Binding Path=!IsNavBarOpen}"/>
+                <MenuItem Header="Окно навигации" Click="OpenNavMenu_Click" IsEnabled="{Binding Path=IsNavBarMayOpen}" />
             </MenuItem>
 
             <MenuItem Header="О программе">

@@ -1,17 +1,15 @@
-﻿using System.ComponentModel;
-using System.Windows;
-using System.Windows.Input;
+﻿#region
+
+using System.ComponentModel;
+
+#endregion
 
 namespace ComputerGraphics.Windows.Main
 {
     public sealed class MainWindowModel : INotifyPropertyChanged
     {
-        public MainWindowModel()
-        {
-        }
-
-        private bool _isFileOpen = false;
-        private bool _isNavBarOpen = false;
+        private bool _isFileOpen;
+        private bool _isNavBarOpen;
 
         public bool IsFileOpen
         {
@@ -32,7 +30,9 @@ namespace ComputerGraphics.Windows.Main
                 OnPropertyChanged(nameof(IsNavBarOpen));
             }
         }
-        
+
+        public bool IsNavBarMayOpen => !IsNavBarOpen && IsFileOpen;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName = null)

@@ -12,6 +12,8 @@ namespace ComputerGraphics.ChartsViews.ScrollView
     /// </summary>
     public partial class ScrollView : IDisposable
     {
+        private DateTime _time;
+
         public ScrollView()
         {
             InitializeComponent();
@@ -21,15 +23,14 @@ namespace ComputerGraphics.ChartsViews.ScrollView
         {
             GetModel.Range = Convert.ToInt32(e.Range);
 
-            // var vm = (ChartModel) DataContext;
-            // var currentRange = e.Range;
-            // vm.Formatter = currentRange switch
-            // {
-            //     < TimeSpan.TicksPerDay * 2 => x => new DateTime((long) x).ToString("t"),
-            //     < TimeSpan.TicksPerDay * 60 => x => new DateTime((long) x).ToString("dd MMM yy"),
-            //     < TimeSpan.TicksPerDay * 540 => x => new DateTime((long) x).ToString("MMM yy"),
-            //     _ => x => new DateTime((long) x).ToString("yyyy")
-            // };
+            var currentRange = e.Range;
+            GetModel.Formatter = currentRange switch
+            {
+                < TimeSpan.TicksPerDay * 2 => x => (_time + new TimeSpan((long) x)).ToString("t"),
+                < TimeSpan.TicksPerDay * 60 => x => (_time + new TimeSpan((long) x)).ToString("dd MMM yy"),
+                < TimeSpan.TicksPerDay * 540 => x => (_time + new TimeSpan((long) x)).ToString("MMM yy"),
+                _ => x => (_time + new TimeSpan((long) x)).ToString("yyyy")
+            };
         }
 
         public ChartModel GetModel => DataContext as ChartModel;
