@@ -1,7 +1,7 @@
 ﻿<Window x:Class="ComputerGraphics.Windows.NavBar"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:chartView="clr-namespace:ComputerGraphics.ChartsViews.ChartView"
+        xmlns:chartView="clr-namespace:ComputerGraphics.ChartsViews"
         Title="Окно навигации" Height="350" Width="200" ResizeMode="NoResize">
 
     <Grid>
