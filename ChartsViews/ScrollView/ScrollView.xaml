@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
-               Content="{Binding Range}"/>
+               Content="{Binding Range}" />
 
         <lvc:CartesianChart Grid.Row="2"
                             Zoom="X"
@@ -33,7 +33,7 @@
                                     Fill="Transparent"
                                     AreaLimit="0"
                                     LineSmoothness="{Binding Path=Smoothness}"
-                                    PointGeometry="{x:Null}"/>
+                                    PointGeometry="{x:Null}" />
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Name="Range"
@@ -53,18 +53,12 @@
                             ScrollHorizontalTo="{Binding To, Mode=TwoWay}"
                             ScrollBarFill="#25303030"
                             DataTooltip="{x:Null}"
-                            Hoverable="False"
-                            >
-
-            <!-- <lvc:CartesianChart.Resources> -->
-            <!--     <Style TargetType="lvc:Separator"> -->
-            <!--         <Setter Property="IsEnabled" Value="False" /> -->
-            <!--     </Style> -->
-            <!-- </lvc:CartesianChart.Resources> -->
+                            Hoverable="False">
             <lvc:CartesianChart.Series>
                 <geared:GLineSeries Values="{Binding Values}"
-                                    Fill="Red"
-                                    StrokeThickness="0"
+                                    Fill="Transparent"
+                                    Stroke="red"
+                                    StrokeThickness="1"
                                     PointGeometry="{x:Null}"
                                     AreaLimit="0" />
             </lvc:CartesianChart.Series>
