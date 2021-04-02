@@ -21,4 +21,21 @@
       <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="image\lup1.svg" />
+      <None Remove="image\lup.png" />
+      <None Remove="image\123.png" />
+      <None Remove="image\lupPlus.svg" />
+      <None Remove="image\lup2.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="image\reverse.png" />
+      <Resource Include="image\reverse.png" />
+      <None Remove="image\lupMinus.png" />
+      <Resource Include="image\lupMinus.png" />
+      <None Remove="image\lupPlus.png" />
+      <Resource Include="image\lupPlus.png" />
+    </ItemGroup>
+
 </Project>

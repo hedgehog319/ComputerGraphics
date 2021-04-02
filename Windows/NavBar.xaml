@@ -11,6 +11,16 @@
                     Header="Change status"
                     Click="MenuItem_OnClick"
                     CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+                <MenuItem Header="Осцилограмма" ></MenuItem>
+                <MenuItem Header="Спектр Фурье" IsEnabled="False"> </MenuItem>
+                <MenuItem Header="Вейвлетограмма" IsEnabled="False"></MenuItem>
+                <MenuItem Header="Спектограмма" IsEnabled="False"></MenuItem>
+                <Separator/>
+                <MenuItem Header="Скрыть"></MenuItem>
+                <MenuItem Header="Скрыть всё кроме этого"></MenuItem>
+                <MenuItem Header="Показать всё"></MenuItem>
+                <Separator/>
+                <MenuItem Header="Фильтрация"></MenuItem>
             </ContextMenu>
 
             <Style TargetType="{x:Type chartView:ChartView}">
