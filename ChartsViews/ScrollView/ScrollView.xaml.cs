@@ -19,7 +19,7 @@ namespace ComputerGraphics.ChartsViews.ScrollView
 
         private void Axis_OnRangeChanged(RangeChangedEventArgs e)
         {
-            Label.Content = e.Range.ToString("N0");
+            GetModel.Range = Convert.ToInt32(e.Range);
 
             // var vm = (ChartModel) DataContext;
             // var currentRange = e.Range;
