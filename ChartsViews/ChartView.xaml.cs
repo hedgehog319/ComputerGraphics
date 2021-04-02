@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ComputerGraphics.ChartsViews.ChartView
+namespace ComputerGraphics.ChartsViews
 {
     public partial class ChartView : IDisposable
     {

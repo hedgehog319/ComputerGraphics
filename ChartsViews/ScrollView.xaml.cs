@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Media;
 using LiveCharts.Events;
-using LiveCharts.Geared;
-using LiveCharts.Wpf;
 
-namespace ComputerGraphics.ChartsViews.ScrollView
+namespace ComputerGraphics.ChartsViews
 {
     /// <summary>
     /// Interaction logic for ScrollingWindow.xaml
