@@ -1,19 +1,25 @@
-﻿<Window x:Class="ComputerGraphics.Windows.OscillogramViewer"
+﻿<Window x:Class="ComputerGraphics.Windows.Oscillogram.OscillogramViewer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:ComputerGraphics.Windows"
+        xmlns:local="clr-namespace:ComputerGraphics.Windows.Oscillogram"
         mc:Ignorable="d"
         Title="OscillogramViewer" Height="450" Width="800" Closed="OscillogramViewer_OnClosed">
+
+    <Window.DataContext>
+        <local:OscillogramModel />
+    </Window.DataContext>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0" VerticalAlignment="Top">
-            <Button Height="30">
+            <Button Height="30" Click="Plus_Click">
                 <Image Source="..\..\image\lupPlus.png" />
             </Button>
             <Button Height="30">
@@ -27,5 +33,15 @@
         <ScrollViewer Grid.Row="1">
             <StackPanel x:Name="Panel" />
         </ScrollViewer>
+
+        <ScrollBar Grid.Row="2" x:Name="Scroll"
+                   Orientation="Horizontal"
+                   IsEnabled="{Binding IsVisible}"
+                   Minimum="0"
+                   Maximum="{Binding Maximum, Mode=OneWay}"
+                   Value="{Binding Value, Mode=TwoWay}"
+                   ViewportSize="{Binding Size,Mode=OneWay}"
+                   ValueChanged="Scroll_OnValueChanged"
+                   SizeChanged="Scroll_OnSizeChanged" />
     </Grid>
 </Window>

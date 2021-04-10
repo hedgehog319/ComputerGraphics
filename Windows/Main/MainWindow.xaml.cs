@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Globalization;
 using System.Windows;
 using ComputerGraphics.Utils;
 
@@ -19,6 +21,8 @@ namespace ComputerGraphics.Windows.Main
             _data = new MainWindowModel();
             DataContext = _data;
         }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) => WindowsController.SetMainWindow(this);
 
         private void AboutProgramm_Click(object sender, RoutedEventArgs e)
         {

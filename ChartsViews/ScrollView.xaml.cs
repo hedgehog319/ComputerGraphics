@@ -9,16 +9,20 @@ namespace ComputerGraphics.ChartsViews
     public partial class ScrollView : IDisposable
     {
         private DateTime _time;
+        private ChartModel _model;
 
         public ScrollView()
         {
             InitializeComponent();
+            _model = DataContext as ChartModel;
+            if (_model != null) return;
+
+            _model = new ChartModel();
+            DataContext = _model;
         }
 
         private void Axis_OnRangeChanged(RangeChangedEventArgs e)
         {
-            GetModel.Range = Convert.ToInt32(e.Range);
-
             var currentRange = e.Range;
             GetModel.Formatter = currentRange switch
             {
@@ -29,7 +33,7 @@ namespace ComputerGraphics.ChartsViews
             };
         }
 
-        public ChartModel GetModel => DataContext as ChartModel;
+        public ChartModel GetModel => _model;
 
         public void Dispose() => GetModel?.Values.Dispose();
     }

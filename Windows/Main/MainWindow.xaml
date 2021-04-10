@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:main="clr-namespace:ComputerGraphics.Windows.Main"
         mc:Ignorable="d"
-        Title="DSP" Height="450" Width="800" Background="DarkGray">
+        Title="DSP" Height="450" Width="800" Background="DarkGray" Loaded="MainWindow_OnLoaded">
     <Window.DataContext>
         <main:MainWindowModel />
     </Window.DataContext>

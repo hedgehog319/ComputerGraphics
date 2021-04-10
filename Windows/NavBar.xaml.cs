@@ -29,8 +29,9 @@ namespace ComputerGraphics.Windows
         {
             if (sender is not ChartView view || view.GetModel == null) return;
 
-            // new OscillogramViewer().Show();
-            // OscillogramViewer.
+            WindowsController.OscillogramModel.Insert(view.GetModel);
+            
+            if (!WindowsController.IsOscillogramViewerVisiable) WindowsController.NewOscillogramViewer();
         }
 
         private void MenuItem_OnClick(object sender, RoutedEventArgs e)
