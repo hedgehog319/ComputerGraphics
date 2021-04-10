@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Controls;
 using ComputerGraphics.ChartsViews;
 
 namespace ComputerGraphics.Windows.Oscillogram
@@ -15,19 +14,15 @@ namespace ComputerGraphics.Windows.Oscillogram
 
         public double Value
         {
-            get
-            {
-                if (Charts.Count == 0) return 0;
-                return Charts[0].From;
-            }
             set
             {
+                var range = Maximum * Range;
                 foreach (var chart in Charts)
                 {
-                    chart.From = value;
+                    if (value <= Maximum - range)
+                        chart.From = value;
 
-                    //TODO
-                    chart.To = value + Maximum * Range;
+                    chart.To = value + range;
                 }
             }
         }
@@ -39,11 +34,17 @@ namespace ComputerGraphics.Windows.Oscillogram
             get => _range;
             set
             {
+                if (value is > 1 or <= 0) return;
+
                 _range = value;
+
                 Value = Charts[0].From;
                 OnPropertyChanged(nameof(Size));
+                OnPropertyChanged(nameof(ViewRange));
             }
         }
+
+        public int ViewRange => Convert.ToInt32(Maximum * Range);
 
         private bool _isVisible;
 

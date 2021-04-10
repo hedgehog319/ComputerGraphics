@@ -14,6 +14,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="*" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
@@ -22,7 +23,7 @@
             <Button Height="30" Click="Plus_Click">
                 <Image Source="..\..\image\lupPlus.png" />
             </Button>
-            <Button Height="30">
+            <Button Height="30" Click="Minus_Click">
                 <Image Source="..\..\image\lupMinus.png" />
             </Button>
             <Button Height="30">
@@ -30,18 +31,19 @@
             </Button>
         </Menu>
 
-        <ScrollViewer Grid.Row="1">
+        <Label Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{Binding ViewRange}" />
+
+        <ScrollViewer Grid.Row="2">
             <StackPanel x:Name="Panel" />
         </ScrollViewer>
 
-        <ScrollBar Grid.Row="2" x:Name="Scroll"
+        <ScrollBar Grid.Row="3" x:Name="Scroll"
                    Orientation="Horizontal"
                    IsEnabled="{Binding IsVisible}"
                    Minimum="0"
                    Maximum="{Binding Maximum, Mode=OneWay}"
                    Value="{Binding Value, Mode=TwoWay}"
                    ViewportSize="{Binding Size,Mode=OneWay}"
-                   ValueChanged="Scroll_OnValueChanged"
                    SizeChanged="Scroll_OnSizeChanged" />
     </Grid>
 </Window>

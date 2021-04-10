@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows;
 using ComputerGraphics.ChartsViews;
 
@@ -30,21 +28,19 @@ namespace ComputerGraphics.Windows.Oscillogram
 
         private void OscillogramViewer_OnClosed(object sender, EventArgs e) => _model.Clear();
 
-        private void Scroll_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-        }
-
         private void Scroll_OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
             _model.ActualWidth = Scroll.Track.ActualWidth;
         }
 
-        private double _thumb = 0;
-
         private void Plus_Click(object sender, RoutedEventArgs e)
         {
-            _thumb += 0.1;
-            _model.Range = _thumb;
+            _model.Range /= 2;
+        }
+
+        private void Minus_Click(object sender, RoutedEventArgs e)
+        {
+            _model.Range *= 2;
         }
     }
 }
