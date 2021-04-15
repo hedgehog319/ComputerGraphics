@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Windows.Media;
 using LiveCharts.Events;
 
 namespace ComputerGraphics.ChartsViews

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
+using System.Windows.Media;
 using ComputerGraphics.Utils;
 using LiveCharts.Geared;
 
@@ -23,6 +25,9 @@ namespace ComputerGraphics.ChartsViews
 
             Values = ch.Values.AsGearedValues().WithQuality(Quality.Highest);
 
+            Min = ch.Values.Min();
+            Max = ch.Values.Max();
+
             Name = ch.Name;
             From = 1;
             To = Values.Count - 1;
@@ -31,6 +36,30 @@ namespace ComputerGraphics.ChartsViews
         public GearedValues<double> Values { get; set; }
 
         public int CountDowns => Values.Count;
+
+        private double _min;
+
+        public double Min
+        {
+            get => _min;
+            set
+            {
+                _min = value;
+                OnPropertyChanged(nameof(Min));
+            }
+        }
+
+        private double _max;
+
+        public double Max
+        {
+            get => _max;
+            set
+            {
+                _max = value;
+                OnPropertyChanged(nameof(Max));
+            }
+        }
 
         public string Name
         {
@@ -69,6 +98,18 @@ namespace ComputerGraphics.ChartsViews
             {
                 _smoothness = value;
                 OnPropertyChanged(nameof(Smoothness));
+            }
+        }
+
+        private Geometry _point = null;
+
+        public Geometry Point
+        {
+            get => _point;
+            set
+            {
+                _point = value;
+                OnPropertyChanged(nameof(Point));
             }
         }
 

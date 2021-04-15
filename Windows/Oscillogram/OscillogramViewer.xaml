@@ -26,12 +26,14 @@
             <Button Height="30" Click="Minus_Click">
                 <Image Source="..\..\image\lupMinus.png" />
             </Button>
-            <Button Height="30">
+            <Button Height="30" Click="ButtonBase_OnClick">
                 <Image Source="..\..\image\reverse.png" />
             </Button>
         </Menu>
 
         <Label Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{Binding ViewRange}" />
+        <Label Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{Binding ViewRange}" />
+        <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Content="{Binding ViewRange}" />
 
         <ScrollViewer Grid.Row="2">
             <StackPanel x:Name="Panel" />

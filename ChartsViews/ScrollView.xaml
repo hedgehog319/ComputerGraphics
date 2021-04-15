@@ -17,28 +17,34 @@
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
-        <lvc:CartesianChart Grid.Row="1"
-                            DisableAnimations="True"
-                            Hoverable="False"
-                            LegendLocation="Right">
-            <lvc:CartesianChart.Series>
-                <geared:GLineSeries Title="{Binding Name}"
-                                    StrokeThickness="1"
-                                    Values="{Binding Values}"
-                                    Fill="Transparent"
-                                    AreaLimit="0"
-                                    LineSmoothness="{Binding Path=Smoothness}" />
-            </lvc:CartesianChart.Series>
-            <lvc:CartesianChart.AxisX>
-                <lvc:Axis LabelFormatter="{Binding Formatter}"
-                          MinValue="{Binding From, Mode=TwoWay}"
-                          MinRange="10"
-                          RangeChanged="Axis_OnRangeChanged"
-                          MaxRange="{Binding Values.Count}"
-                          MaxValue="{Binding To, Mode=TwoWay}" />
-            </lvc:CartesianChart.AxisX>
-        </lvc:CartesianChart>
-
+        <Border Grid.Row="1" BorderThickness="1" BorderBrush="Black">
+            <lvc:CartesianChart
+                DisableAnimations="True"
+                Hoverable="False"
+                LegendLocation="Right">
+                <lvc:CartesianChart.Series>
+                    <geared:GLineSeries Title="{Binding Name}"
+                                        StrokeThickness="1"
+                                        Values="{Binding Values}"
+                                        Fill="Transparent"
+                                        AreaLimit="0"
+                                        LineSmoothness="{Binding Path=Smoothness}"
+                                        PointGeometry="{Binding Point, Mode=TwoWay}" />
+                </lvc:CartesianChart.Series>
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis LabelFormatter="{Binding Formatter, Mode=TwoWay}"
+                              MinValue="{Binding From, Mode=TwoWay}"
+                              MinRange="10"
+                              RangeChanged="Axis_OnRangeChanged"
+                              MaxRange="{Binding Values.Count}"
+                              MaxValue="{Binding To, Mode=TwoWay}" />
+                </lvc:CartesianChart.AxisX>
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis MinValue="{Binding Min, Mode=OneWay}"
+                              MaxValue="{Binding Max}" />
+                </lvc:CartesianChart.AxisY>
+            </lvc:CartesianChart>
+        </Border>
         <!-- ~1~ TODO Нижняя панель @1@ -->
         <!-- <lvc:CartesianChart Grid.Row="2" DisableAnimations="True" -->
         <!--                     ScrollMode="X" -->

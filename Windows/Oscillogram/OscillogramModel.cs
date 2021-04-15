@@ -81,7 +81,7 @@ namespace ComputerGraphics.Windows.Oscillogram
             }
         }
 
-        private double _acWid;
+        private double _acWid = 0;
 
         public double ActualWidth
         {
@@ -111,7 +111,12 @@ namespace ComputerGraphics.Windows.Oscillogram
             ItemInserted?.Invoke(chartModel);
         }
 
-        public void Clear() => Charts.Clear();
+        public void Clear()
+        {
+            Charts.Clear();
+            _range = 1;
+            _acWid = 0;
+        }
 
         public delegate void ItemInsertHandler(ChartModel chartModel);
 
