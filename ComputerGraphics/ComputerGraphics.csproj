@@ -66,6 +66,8 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Include="Charts\Models.cs" />
+        <Compile Include="Charts\OscillogramModel.cs" />
         <Compile Include="Signal\Channel.cs" />
         <Compile Include="Signal\ChannelReader.cs" />
         <Compile Include="Signal\MultiChannel.cs" />
@@ -102,9 +104,6 @@
             <SubType>Designer</SubType>
         </Page>
         <Page Include="Windows\NavBar.xaml" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Charts" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
