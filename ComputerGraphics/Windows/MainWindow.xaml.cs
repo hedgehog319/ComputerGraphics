@@ -1,13 +1,26 @@
-﻿namespace ComputerGraphics
+﻿#region
+
+using System.Windows;
+
+#endregion
+
+namespace ComputerGraphics.Windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///     Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Open_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (!WindowController.ReadFile()) return;
+
+            WindowController.ShowNavBar();
         }
     }
 }

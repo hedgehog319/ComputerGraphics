@@ -1,12 +1,15 @@
-﻿<Window x:Class="ComputerGraphics.MainWindow"
+﻿<Window x:Class="ComputerGraphics.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ComputerGraphics"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+    <Grid x:Name="Grid">
+        <Menu Height="18" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Открыть" Click="Open_OnClick" />
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>
