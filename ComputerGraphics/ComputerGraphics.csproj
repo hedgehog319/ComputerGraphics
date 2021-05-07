@@ -66,17 +66,25 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Include="Charts\BaseModel.cs" />
         <Compile Include="Charts\Models.cs" />
+        <Compile Include="Charts\OscillogramChart.xaml.cs">
+          <DependentUpon>OscillogramChart.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Charts\OscillogramModel.cs" />
-        <Compile Include="Signal\Channel.cs" />
+        <Compile Include="Charts\PreviewChart.xaml.cs">
+          <DependentUpon>PreviewChart.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Signal\ChannelReader.cs" />
-        <Compile Include="Signal\MultiChannel.cs" />
         <Compile Include="Windows\MainWindow.xaml.cs">
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
         <Compile Include="Windows\NavBar.xaml.cs">
           <DependentUpon>NavBar.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Windows\OscillogramViewer.xaml.cs">
+          <DependentUpon>OscillogramViewer.xaml</DependentUpon>
         </Compile>
         <Compile Include="Windows\WindowController.cs" />
     </ItemGroup>
@@ -99,11 +107,14 @@
         <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
+        <Page Include="Charts\OscillogramChart.xaml" />
+        <Page Include="Charts\PreviewChart.xaml" />
         <Page Include="Windows\MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </Page>
         <Page Include="Windows\NavBar.xaml" />
+        <Page Include="Windows\OscillogramViewer.xaml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
