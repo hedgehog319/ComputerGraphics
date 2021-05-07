@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="ComputerGraphics.Charts.OscillogramChart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ComputerGraphics.Charts"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared">
+
+    <UserControl.DataContext>
+        <local:OscillogramModel />
+    </UserControl.DataContext>
+
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1">
+            <lvc:CartesianChart DisableAnimations="True"
+                                Hoverable="False">
+
+                <lvc:CartesianChart.Series>
+                    <geared:GLineSeries Title="{Binding ChannelName, Mode=OneWay}"
+                                        Values="{Binding Values, Mode=OneTime}"
+                                        LineSmoothness="{Binding Smoothness, Mode=OneWay}"
+                                        PointGeometry="{Binding GetPoint, Mode=OneWay}"
+                                        StrokeThickness="1"
+                                        Fill="Transparent"
+                                        AreaLimit="0" />
+                </lvc:CartesianChart.Series>
+
+                <lvc:CartesianChart.AxisX>
+                    <!-- LabelFormatter="{Binding Formatter, Mode=TwoWay}" -->
+                    <lvc:Axis MinValue="{Binding From, Mode=OneWay}"
+                              MaxValue="{Binding To, Mode=OneWay}"
+                              MaxRange="{Binding Values.Count, Mode=OneWay}" />
+                </lvc:CartesianChart.AxisX>
+
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis MinValue="{Binding Min, Mode=OneWay}"
+                              MaxValue="{Binding Max, Mode=OneWay}" />
+                </lvc:CartesianChart.AxisY>
+            </lvc:CartesianChart>
+        </Border>
+    </Grid>
+</UserControl>
