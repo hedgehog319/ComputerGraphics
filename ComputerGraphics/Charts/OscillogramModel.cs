@@ -1,21 +1,76 @@
+#region
+
 using System.Collections.Generic;
 using System.Linq;
-using ComputerGraphics.Signal;
+using System.Windows.Media;
+using LiveCharts.Wpf;
+
+#endregion
 
 namespace ComputerGraphics.Charts
 {
-    public class OscillogramModel
+    public class OscillogramModel : BaseModel
     {
-        public double Max { get; }
-        public double Min { get; }
-        public string ChannelName { get; }
-        public List<double> Values { get; }
-        public OscillogramModel(Channel channel)
+        private double _max;
+        private double _min;
+        private bool _point;
+        private double _smoothness;
+
+        public OscillogramModel()
         {
-            Min = channel.Values.Min();
-            Max = channel.Values.Max();
-            ChannelName = channel.Name;
-            Values = channel.Values;
+        }
+
+        public OscillogramModel(string name, string source, IReadOnlyCollection<double> values) : base(name, source,
+            values)
+        {
+            Min = values.Min();
+            Max = values.Max();
+
+            Smoothness = 1;
+        }
+
+        // TODO add delta to Max and MIn value
+        public double Max
+        {
+            get => _max;
+            set
+            {
+                if (Equals(_max, value)) return;
+
+                _max = value;
+                OnPropertyChanged(nameof(Max));
+            }
+        }
+
+        public double Min
+        {
+            get => _min;
+            set
+            {
+                if (Equals(_min, value)) return;
+
+                _min = value;
+                OnPropertyChanged(nameof(_min));
+            }
+        }
+
+        public double Smoothness
+        {
+            get => _smoothness;
+            set
+            {
+                if (Equals(_smoothness, value)) return;
+
+                _smoothness = value;
+                OnPropertyChanged(nameof(Smoothness));
+            }
+        }
+
+        public Geometry GetPoint => _point ? DefaultGeometries.Circle : DefaultGeometries.None;
+
+        public bool SetPoint
+        {
+            set => _point = value;
         }
     }
 }
