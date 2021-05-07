@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        mc:Ignorable="d" Title="MainWindow"
+        MinHeight="512" Height="512" MinWidth="910" Width="910">
     <Grid x:Name="Grid">
         <Menu Height="18" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <MenuItem Header="Файл">
