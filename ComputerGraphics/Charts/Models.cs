@@ -1,92 +1,80 @@
+#region
+
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using ComputerGraphics.Signal;
-using System.Windows.Media;
+
+#endregion
 
 namespace ComputerGraphics.Charts
 {
-    public class Models : INotifyPropertyChanged
+    public class Models
     {
-        private double _from;
-        private double _to;
-        private double _smoothness;
-        private Geometry _point; // = null;   надо ли?
-        private Func<double, string> _formatter;
+        public Models(int channelsNumber, int samplesNumber, double samplingRate, DateTime startTime,
+            IReadOnlyList<List<double>> values, IReadOnlyList<string> channelsNames, string fileName)
+        {
+            ChannelsNumber = channelsNumber;
+            SamplesNumber = samplesNumber;
+            SamplingRate = samplingRate;
+            StartTime = startTime;
+            OscillogramModels = new List<OscillogramModel>();
+
+            for (var i = 0; i < channelsNumber; i++)
+                OscillogramModels.Add(new OscillogramModel(channelsNames[i], fileName, values[i]));
+
+            From = 1;
+            To = OscillogramModels[0].Values.Count; // Check -1 needs?
+
+            StartTime = startTime;
+            SamplingRate = samplingRate;
+
+            Formatter = x => StartTime.ToString("yyyy"); // it's ok?
+        }
+
+        public int ChannelsNumber { get; }
+        public int SamplesNumber { get; } // кол-во отсчетов
+
+        // частота дискретизации в Герцах: fd = 1/T, где T – шаг между отсчетами в секундах
+        public double SamplingRate { get; }
 
         public DateTime StartTime { get; }
-        public double SamplingRate { get; }
         public List<OscillogramModel> OscillogramModels { get; }
 
-
-        public Models(MultiChannel multiChannel)
-        {
-            foreach (var channel in multiChannel.Channels)
-            {
-                OscillogramModels.Add(new OscillogramModel(channel));
-            }
-            
-            From = 1;
-            To = OscillogramModels[0].Values.Count - 1;
-            StartTime = multiChannel.StartTime;
-            SamplingRate = multiChannel.SamplingRate;
-            Formatter = x => StartTime.ToString("yyyy");  // it's ok?
-        }
-
+        // TODO From setter
         public double From
         {
-            get => _from;
             set
             {
-                _from = value;  // todo change this
-                OnPropertyChanged(nameof(From));
+                foreach (var model in OscillogramModels) model.From = value;
             }
         }
 
+        // TODO To setter
         public double To
         {
-            get => _to;
             set
             {
-                _to = value;  // todo change this
-                OnPropertyChanged(nameof(To));
+                foreach (var model in OscillogramModels) model.To = value;
             }
         }
+
         public double Smoothness
         {
-            get => _smoothness;
             set
             {
-                _smoothness = value;
-                OnPropertyChanged(nameof(Smoothness));
-            }
-        }
-        public Geometry Point
-        {
-            get => _point;
-            set
-            {
-                _point = value;
-                OnPropertyChanged(nameof(Point));
-            }
-        }
-        public Func<double, string> Formatter
-        {
-            get => _formatter;
-            set
-            {
-                _formatter = value;
-                OnPropertyChanged(nameof(Formatter));
+                foreach (var model in OscillogramModels) model.Smoothness = value;
             }
         }
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        // TODO Point switcher
+        public bool Point
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            set
+            {
+                foreach (var model in OscillogramModels) model.SetPoint = value;
+            }
         }
+
+        // TODO redo formatter
+        public Func<double, string> Formatter { get; set; }
     }
 }
