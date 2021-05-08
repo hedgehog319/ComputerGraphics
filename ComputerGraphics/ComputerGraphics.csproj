@@ -76,6 +76,9 @@
           <DependentUpon>PreviewChart.xaml</DependentUpon>
         </Compile>
         <Compile Include="Signal\ChannelReader.cs" />
+        <Compile Include="Windows\InfoWindow.xaml.cs">
+          <DependentUpon>InfoWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Windows\MainWindow.xaml.cs">
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
@@ -109,6 +112,7 @@
     <ItemGroup>
         <Page Include="Charts\OscillogramChart.xaml" />
         <Page Include="Charts\PreviewChart.xaml" />
+        <Page Include="Windows\InfoWindow.xaml" />
         <Page Include="Windows\MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
