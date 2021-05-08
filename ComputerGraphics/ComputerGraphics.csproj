@@ -67,7 +67,7 @@
             <SubType>Code</SubType>
         </Compile>
         <Compile Include="Charts\BaseModel.cs" />
-        <Compile Include="Charts\Models.cs" />
+        <Compile Include="Charts\ChartModels.cs" />
         <Compile Include="Charts\OscillogramChart.xaml.cs">
           <DependentUpon>OscillogramChart.xaml</DependentUpon>
         </Compile>

@@ -12,7 +12,7 @@ namespace ComputerGraphics.Signal
 {
     public static class ChannelReader
     {
-        public static Models ReadTxt(string path)
+        public static ChartModels ReadTxt(string path)
         {
             var fileName = Path.GetFileName(path);
             var channelsNumber = 0;
@@ -62,7 +62,7 @@ namespace ComputerGraphics.Signal
             // CHECK maybe better store data and time separate?
             startTime = startDate.Add(startTime.TimeOfDay); // TODO addition date and time
 
-            return new Models(channelsNumber, samplesNumber, samplingRate,
+            return new ChartModels(channelsNumber, samplesNumber, samplingRate,
                 startTime, values, channelsNames, fileName);
         }
     }

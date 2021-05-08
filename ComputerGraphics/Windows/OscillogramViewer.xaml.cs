@@ -14,25 +14,25 @@ namespace ComputerGraphics.Windows
 {
     public partial class OscillogramViewer : Window
     {
-        private readonly Models _models;
+        private readonly ChartModels _chartModels;
         private const double MinOscillogramHeight = 200;
 
-        public OscillogramViewer(Models models)
+        public OscillogramViewer(ChartModels chartModels)
         {
             InitializeComponent();
 
-            _models = models;
+            _chartModels = chartModels;
 
-            Start.Text = _models.StartTime.ToString(CultureInfo.InvariantCulture);
-            Range.Text = _models.Range.ToString();
-            End.Text = _models.EndTime.ToString(CultureInfo.InvariantCulture);
+            Start.Text = _chartModels.StartTime.ToString(CultureInfo.InvariantCulture);
+            Range.Text = _chartModels.Range.ToString();
+            End.Text = _chartModels.EndTime.ToString(CultureInfo.InvariantCulture);
         }
 
         public void AddOscillogram(int modelId)
         {
             if (Panel.Children.Cast<OscillogramChart>().Any(chart => chart.GetModel.Id == modelId)) return;
 
-            Panel.Children.Add(new OscillogramChart(_models[modelId]));
+            Panel.Children.Add(new OscillogramChart(_chartModels[modelId]));
 
             var height = Panel.ActualHeight / Panel.Children.Count;
             if (height < MinOscillogramHeight) height = MinOscillogramHeight;
@@ -54,17 +54,17 @@ namespace ComputerGraphics.Windows
 
             e.Handled = true;
 
-            var t = -Math.Sign(e.Delta) * (_models.To - _models.From) / 2;
-            _models.To += t;
+            var t = -Math.Sign(e.Delta) * (_chartModels.To - _chartModels.From) / 2;
+            _chartModels.To += t;
 
-            Range.Text = _models.Range.ToString();
-            ChangeThumbSize(_models.Range);
+            Range.Text = _chartModels.Range.ToString();
+            ChangeThumbSize(_chartModels.Range);
         }
 
         private void ChangeThumbSize(int range)
         {
-            var thumb = Scroll.ActualWidth * range / _models.SamplesNumber;
-            Scroll.Maximum = _models.SamplesNumber - range;
+            var thumb = Scroll.ActualWidth * range / _chartModels.SamplesNumber;
+            Scroll.Maximum = _chartModels.SamplesNumber - range;
             if (Scroll.Maximum < 10) return;
 
             var size = thumb * (Scroll.Maximum - 10) / (Scroll.ActualWidth - thumb);
@@ -74,21 +74,21 @@ namespace ComputerGraphics.Windows
 
         private void Point_OnClick(object sender, RoutedEventArgs e)
         {
-            _models.Point = !_models.Point;
+            _chartModels.Point = !_chartModels.Point;
         }
 
         private void Smoothness_OnClick(object sender, RoutedEventArgs e) =>
-            _models.Smoothness = _models.Smoothness > 0 ? 0 : 1;
+            _chartModels.Smoothness = _chartModels.Smoothness > 0 ? 0 : 1;
 
         private void Scroll_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (!(sender is ScrollBar scroll)) return;
 
-            var range = _models.Range;
-            for (var i = 0; i < _models.ChannelsNumber; i++)
+            var range = _chartModels.Range;
+            for (var i = 0; i < _chartModels.ChannelsNumber; i++)
             {
-                _models[i].From = scroll.Value;
-                _models[i].To = scroll.Value + range;
+                _chartModels[i].From = scroll.Value;
+                _chartModels[i].To = scroll.Value + range;
             }
         }
     }

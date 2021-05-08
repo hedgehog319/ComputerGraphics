@@ -7,9 +7,9 @@ using System.Collections.Generic;
 
 namespace ComputerGraphics.Charts
 {
-    public class Models
+    public class ChartModels
     {
-        public Models(int channelsNumber, int samplesNumber, double samplingRate, DateTime startTime,
+        public ChartModels(int channelsNumber, int samplesNumber, double samplingRate, DateTime startTime,
             IReadOnlyList<List<double>> values, IReadOnlyList<string> channelsNames, string fileName)
         {
             ChannelsNumber = channelsNumber;

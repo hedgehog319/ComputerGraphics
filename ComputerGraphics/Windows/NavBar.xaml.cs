@@ -9,11 +9,11 @@ namespace ComputerGraphics.Windows
 {
     public partial class NavBar : Window
     {
-        public NavBar(Models models)
+        public NavBar(ChartModels chartModels)
         {
             InitializeComponent();
 
-            foreach (var model in models.OscillogramModels) Bar.Children.Add(new PreviewChart(model) {Height = 80});
+            foreach (var model in chartModels.OscillogramModels) Bar.Children.Add(new PreviewChart(model) {Height = 80});
         }
     }
 }
