@@ -16,6 +16,11 @@ namespace ComputerGraphics.Charts
             SamplesNumber = samplesNumber;
             SamplingRate = samplingRate;
             StartTime = startTime;
+
+            var duration = SamplesNumber / SamplingRate;
+            EndTime = StartTime + TimeSpan.FromSeconds(duration);
+            Duration = TimeSpan.FromSeconds(duration);
+
             OscillogramModels = new List<OscillogramModel>();
 
             for (var i = 0; i < channelsNumber; i++)
@@ -36,29 +41,36 @@ namespace ComputerGraphics.Charts
         // частота дискретизации в Герцах: fd = 1/T, где T – шаг между отсчетами в секундах
         public double SamplingRate { get; }
 
+        public TimeSpan Duration { get; }
+
         public DateTime StartTime { get; }
+
+        public DateTime EndTime { get; }
         public List<OscillogramModel> OscillogramModels { get; }
 
-        // TODO From setter
         public double From
         {
+            get => OscillogramModels[0].From;
             set
             {
                 foreach (var model in OscillogramModels) model.From = value;
             }
         }
 
-        // TODO To setter
         public double To
         {
+            get => OscillogramModels[0].To;
             set
             {
                 foreach (var model in OscillogramModels) model.To = value;
             }
         }
 
+        public int Range => Convert.ToInt32(To - From);
+
         public double Smoothness
         {
+            get => OscillogramModels[0].Smoothness;
             set
             {
                 foreach (var model in OscillogramModels) model.Smoothness = value;
@@ -68,13 +80,16 @@ namespace ComputerGraphics.Charts
         // TODO Point switcher
         public bool Point
         {
+            get => OscillogramModels[0].SetPoint;
             set
             {
                 foreach (var model in OscillogramModels) model.SetPoint = value;
             }
         }
 
-        // TODO redo formatter
+        public OscillogramModel this[int i] => OscillogramModels[i];
+
+        // TODO formatter
         public Func<double, string> Formatter { get; set; }
     }
 }
