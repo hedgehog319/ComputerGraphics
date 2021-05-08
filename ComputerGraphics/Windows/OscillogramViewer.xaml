@@ -1,13 +1,33 @@
 ﻿<Window x:Class="ComputerGraphics.Windows.OscillogramViewer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        mc:Ignorable="d" Title="OscillogramViewer"
-        MinHeight="440" Height="440" MinWidth="600" Width="800" SizeChanged="OscillogramViewer_OnSizeChanged">
+        xmlns:charts="clr-namespace:ComputerGraphics.Charts"
+        Title="OscillogramViewer" Name="OViewer"
+        MinHeight="454" Height="454" MinWidth="700" Width="800"
+        SizeChanged="OscillogramViewer_OnSizeChanged" PreviewMouseWheel="OscillogramViewer_OnMouseWheel">
+
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="Panel" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18" />
+            <RowDefinition Height="18" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="18" />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <MenuItem Header="Point" Click="Point_OnClick" />
+            <MenuItem Header="Smoothness" Click="Smoothness_OnClick" />
+        </Menu>
+
+        <TextBlock Grid.Row="1" x:Name="Start" HorizontalAlignment="Left" />
+        <TextBlock Grid.Row="1" x:Name="Range" HorizontalAlignment="Center" />
+        <TextBlock Grid.Row="1" x:Name="End" HorizontalAlignment="Right" />
+
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="Panel" VerticalAlignment="Stretch" />
         </ScrollViewer>
+
+        <ScrollBar Grid.Row="3" x:Name="Scroll" HorizontalAlignment="Stretch" Orientation="Horizontal"
+                   IsEnabled="True" ViewportSize="100" PreviewMouseLeftButtonUp="Scroll_OnPreviewMouseLeftButtonUp" />
     </Grid>
 </Window>
