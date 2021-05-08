@@ -29,7 +29,6 @@ namespace ComputerGraphics.Charts
             Smoothness = 1;
         }
 
-        // TODO add delta to Max and MIn value
         public double Max
         {
             get => _max;
@@ -66,11 +65,19 @@ namespace ComputerGraphics.Charts
             }
         }
 
-        public Geometry GetPoint => _point ? DefaultGeometries.Circle : DefaultGeometries.None;
+        // TODO don't work
+        public Geometry GetPoint => _point ? DefaultGeometries.None : DefaultGeometries.Circle;
 
         public bool SetPoint
         {
-            set => _point = value;
+            get => _point;
+            set
+            {
+                if (Equals(_point, value)) return;
+
+                _point = value;
+                OnPropertyChanged(nameof(GetPoint));
+            }
         }
     }
 }
