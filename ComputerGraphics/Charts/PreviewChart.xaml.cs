@@ -21,7 +21,7 @@ namespace ComputerGraphics.Charts
         {
             if (!(DataContext is BaseModel model)) throw new ArgumentException("Model is null");
 
-            WindowController.AddOscillogram(model);
+            WindowController.AddOscillogram(model.Id);
         }
     }
 }

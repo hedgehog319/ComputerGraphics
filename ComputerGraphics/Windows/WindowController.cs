@@ -35,17 +35,16 @@ namespace ComputerGraphics.Windows
             _navBar.Show();
         }
 
-        public static void AddOscillogram(BaseModel model)
+        public static void AddOscillogram(int modelId)
         {
             if (_oscillogramViewer == null)
             {
-                _oscillogramViewer = new OscillogramViewer {Owner = MainWindow};
+                _oscillogramViewer = new OscillogramViewer(_models) {Owner = MainWindow};
                 _oscillogramViewer.Closed += (s, e) => _oscillogramViewer = null;
                 _oscillogramViewer.Show();
             }
 
-            // TODO Not save!
-            _oscillogramViewer.AddOscillogram(model as OscillogramModel);
+            _oscillogramViewer.AddOscillogram(modelId);
         }
 
         public static bool ReadFile()
