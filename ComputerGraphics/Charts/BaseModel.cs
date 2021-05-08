@@ -11,6 +11,8 @@ namespace ComputerGraphics.Charts
 {
     public class BaseModel : INotifyPropertyChanged
     {
+        private static int _absoluteId = 0;
+
         private string _channelName;
         private double _from;
         private double _to;
@@ -21,6 +23,8 @@ namespace ComputerGraphics.Charts
 
         protected BaseModel(string name, string source, IEnumerable<double> values)
         {
+            Id = _absoluteId++;
+
             Values = values.AsGearedValues().WithQuality(Quality.Highest);
             ChannelName = name;
             Source = source;
@@ -36,6 +40,7 @@ namespace ComputerGraphics.Charts
             get => _from;
             set
             {
+                if (value < 0) value = 0;
                 if (Equals(_from, value)) return;
 
                 _from = value;
@@ -48,7 +53,10 @@ namespace ComputerGraphics.Charts
             get => _to;
             set
             {
-                if (Equals(_to, value)) return;
+                if (value > Values.Count) value = Values.Count;
+
+                if (Equals(_to, value)
+                    || _from + 10 > value) return;
 
                 _to = value;
                 OnPropertyChanged(nameof(To));
@@ -68,6 +76,8 @@ namespace ComputerGraphics.Charts
         }
 
         public GearedValues<double> Values { get; }
+
+        public int Id { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
