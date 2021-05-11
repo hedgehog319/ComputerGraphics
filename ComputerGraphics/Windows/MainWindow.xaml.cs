@@ -22,5 +22,10 @@ namespace ComputerGraphics.Windows
 
             WindowController.ShowNavBar();
         }
+
+        private void Information_OnClick(object sender, RoutedEventArgs e)
+        {
+            WindowController.ShowInfoWindow();
+        }
     }
 }

@@ -10,6 +10,7 @@
             <MenuItem Header="Файл">
                 <MenuItem Header="Открыть" Click="Open_OnClick" />
             </MenuItem>
+            <MenuItem Header="Информация о сигнале" Click="Information_OnClick" />
         </Menu>
     </Grid>
 </Window>

@@ -56,5 +56,10 @@ namespace ComputerGraphics.Windows
 
             return true;
         }
+
+        public static void ShowInfoWindow()
+        {
+            new InfoWindow(_chartModels) {Owner = MainWindow}.Show();
+        }
     }
 }
