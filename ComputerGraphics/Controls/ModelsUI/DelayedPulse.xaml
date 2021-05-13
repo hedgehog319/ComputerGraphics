@@ -1,0 +1,7 @@
+﻿<UserControl x:Class="ComputerGraphics.Controls.ModelsUI.DelayedPulse"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <TextBox Text="Test"/>
+    </Grid>
+</UserControl>
