@@ -17,11 +17,11 @@ namespace ComputerGraphics.Windows
         private readonly ChartModels _chartModels;
         private const double MinOscillogramHeight = 200;
 
-        public OscillogramViewer(ChartModels chartModels)
+        public OscillogramViewer()
         {
             InitializeComponent();
 
-            _chartModels = chartModels;
+            _chartModels = WindowController.ChartModels;
 
             Start.Text = _chartModels.StartTime.ToString(CultureInfo.InvariantCulture);
             Range.Text = _chartModels.Range.ToString();
@@ -89,6 +89,18 @@ namespace ComputerGraphics.Windows
             {
                 _chartModels[i].From = scroll.Value;
                 _chartModels[i].To = scroll.Value + range;
+            }
+        }
+
+        private void Scroll_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (!(sender is ScrollBar)) return;
+
+            var range = _chartModels.Range;
+            for (var i = 0; i < _chartModels.ChannelsNumber; i++)
+            {
+                _chartModels[i].From = e.NewValue;
+                _chartModels[i].To = e.NewValue + range;
             }
         }
     }

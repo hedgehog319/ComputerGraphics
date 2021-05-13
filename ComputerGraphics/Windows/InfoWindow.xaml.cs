@@ -1,14 +1,15 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using ComputerGraphics.Charts;
 
 namespace ComputerGraphics.Windows
 {
     public partial class InfoWindow : Window
     {
-        public InfoWindow(ChartModels models)
+        public InfoWindow()
         {
             InitializeComponent();
+
+            var models = WindowController.ChartModels;
 
             if (models?.OscillogramModels == null) return;
 
@@ -20,9 +21,7 @@ namespace ComputerGraphics.Windows
             Duration.Text += models.Duration;
 
             foreach (var model in models.OscillogramModels)
-            {
-                Grid.Items.Add(new {Id = model.Id, ChannelName = model.ChannelName, Source = model.Source});
-            }
+                Grid.Items.Add(new {model.Id, model.ChannelName, model.Source});
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

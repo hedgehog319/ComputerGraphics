@@ -89,6 +89,8 @@ namespace ComputerGraphics.Charts
 
         public OscillogramModel this[int i] => OscillogramModels[i];
 
+        public IEnumerator<OscillogramModel> GetEnumerator() => OscillogramModels.GetEnumerator();
+
         // TODO formatter
         public Func<double, string> Formatter { get; set; }
     }

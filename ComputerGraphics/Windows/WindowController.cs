@@ -14,7 +14,7 @@ namespace ComputerGraphics.Windows
         private static NavBar _navBar;
         private static OscillogramViewer _oscillogramViewer;
 
-        private static ChartModels _chartModels;
+        public static ChartModels ChartModels;
 
         static WindowController()
         {
@@ -30,7 +30,7 @@ namespace ComputerGraphics.Windows
         {
             if (_navBar != null) return;
 
-            _navBar = new NavBar(_chartModels) {Owner = MainWindow};
+            _navBar = new NavBar {Owner = MainWindow};
             _navBar.Closed += (s, e) => _navBar = null;
             _navBar.Show();
         }
@@ -39,7 +39,7 @@ namespace ComputerGraphics.Windows
         {
             if (_oscillogramViewer == null)
             {
-                _oscillogramViewer = new OscillogramViewer(_chartModels) {Owner = MainWindow};
+                _oscillogramViewer = new OscillogramViewer {Owner = MainWindow};
                 _oscillogramViewer.Closed += (s, e) => _oscillogramViewer = null;
                 _oscillogramViewer.Show();
             }
@@ -52,14 +52,14 @@ namespace ComputerGraphics.Windows
             var dialog = new OpenFileDialog();
             if (dialog.ShowDialog() != true) return false;
 
-            _chartModels = ChannelReader.ReadTxt(dialog.FileName);
+            ChartModels = ChannelReader.ReadTxt(dialog.FileName);
 
             return true;
         }
 
         public static void ShowInfoWindow()
         {
-            new InfoWindow(_chartModels) {Owner = MainWindow}.Show();
+            new InfoWindow {Owner = MainWindow}.Show();
         }
     }
 }
