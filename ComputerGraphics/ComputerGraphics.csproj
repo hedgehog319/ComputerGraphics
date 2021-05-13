@@ -13,6 +13,7 @@
         <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <WarningLevel>4</WarningLevel>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <LangVersion>9</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -75,6 +76,16 @@
         <Compile Include="Charts\PreviewChart.xaml.cs">
           <DependentUpon>PreviewChart.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Controls\ModelsUI\DelayedJump.xaml.cs">
+          <DependentUpon>DelayedJump.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Controls\ModelsUI\DelayedPulse.xaml.cs">
+          <DependentUpon>DelayedPulse.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Controls\ModelsUI\ISimulated.cs" />
+        <Compile Include="Controls\UpBar.xaml.cs">
+          <DependentUpon>UpBar.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Signal\ChannelReader.cs" />
         <Compile Include="Windows\InfoWindow.xaml.cs">
           <DependentUpon>InfoWindow.xaml</DependentUpon>
@@ -88,6 +99,12 @@
         </Compile>
         <Compile Include="Windows\OscillogramViewer.xaml.cs">
           <DependentUpon>OscillogramViewer.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Windows\Simulator.xaml.cs">
+          <DependentUpon>Simulator.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Windows\SimulatorModel.cs">
+          <DependentUpon>Simulator.xaml</DependentUpon>
         </Compile>
         <Compile Include="Windows\WindowController.cs" />
     </ItemGroup>
@@ -112,6 +129,9 @@
     <ItemGroup>
         <Page Include="Charts\OscillogramChart.xaml" />
         <Page Include="Charts\PreviewChart.xaml" />
+        <Page Include="Controls\ModelsUI\DelayedJump.xaml" />
+        <Page Include="Controls\ModelsUI\DelayedPulse.xaml" />
+        <Page Include="Controls\UpBar.xaml" />
         <Page Include="Windows\InfoWindow.xaml" />
         <Page Include="Windows\MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
@@ -119,6 +139,7 @@
         </Page>
         <Page Include="Windows\NavBar.xaml" />
         <Page Include="Windows\OscillogramViewer.xaml" />
+        <Page Include="Windows\Simulator.xaml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
