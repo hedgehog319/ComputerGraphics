@@ -21,6 +21,8 @@
             <RowDefinition Height="25" />
         </Grid.RowDefinitions>
 
+        <!-- <controls:UpBar Grid.Row="0" /> -->
+
         <Grid Grid.Row="0" Background="#B1CAFF" MouseDown="UIElement_OnMouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -72,8 +74,6 @@
         <Grid Grid.Row="3">
             <Grid.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="Content" Value="132" />
-
                     <Setter Property="BorderThickness" Value="0" />
                     <Setter Property="Margin" Value="2" />
                     <Setter Property="Background" Value="#FAFBFF" />
@@ -102,8 +102,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" />
-            <Button Grid.Column="1" />
+            <Button Grid.Column="0" Content="Ok" Click="Ok_OnClick"/>
+            <Button Grid.Column="1" Content="Cancel"/>
         </Grid>
     </Grid>
 </Window>

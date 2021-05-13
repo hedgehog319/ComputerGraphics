@@ -32,15 +32,19 @@ namespace ComputerGraphics.Windows
             if (sender is not ComboBox comboBox) return;
 
             _model.ChangeView((SimulatorModel.Simulations) comboBox.SelectedIndex);
+        }
+
+        private void Ok_OnClick(object sender, RoutedEventArgs e)
+        {
+            //TODO change name and source
             var view = _model.View as ISimulated;
             var simulation = view?.Simulation();
 
-            //TODO change name and source
             var oscillogramModel = new OscillogramModel("name", "Sim_Name", simulation);
             WindowController.ChartModels.OscillogramModels.Add(oscillogramModel);
 
             WindowController.AddOscillogram(oscillogramModel.Id);
-            Close();
+            // Close();
         }
     }
 }
