@@ -27,5 +27,10 @@ namespace ComputerGraphics.Windows
         {
             WindowController.ShowInfoWindow();
         }
+
+        private void Simulation_OnClick(object sender, RoutedEventArgs e)
+        {
+            new Simulator().Show();
+        }
     }
 }

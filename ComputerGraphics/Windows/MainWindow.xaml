@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" Title="MainWindow"
         MinHeight="512" Height="512" MinWidth="910" Width="910">
-    <Grid x:Name="Grid">
+
+    <Grid x:Name="Grid" Background="#B8B8B8">
         <Menu Height="18" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <MenuItem Header="Файл">
                 <MenuItem Header="Открыть" Click="Open_OnClick" />
             </MenuItem>
             <MenuItem Header="Информация о сигнале" Click="Information_OnClick" />
+            <MenuItem Header="Моделированае" Click="Simulation_OnClick" />
         </Menu>
     </Grid>
 </Window>
