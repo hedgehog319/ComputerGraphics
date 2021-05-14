@@ -49,6 +49,8 @@ namespace ComputerGraphics.Windows
             var view = _model.View as ISimulated;
             var simulation = view?.Simulation();
 
+            if (simulation == null) throw new ArgumentException($"The {nameof(simulation)} was null");
+
             var oscillogramModel = new OscillogramModel("name", "Sim_Name", simulation);
             WindowController.ChartModels.Add(oscillogramModel);
 
