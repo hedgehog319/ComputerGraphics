@@ -104,7 +104,7 @@ namespace ComputerGraphics.Charts
         public void Add(OscillogramModel model)
         {
             OscillogramModels.Add(model);
-            SamplesNumber++;
+            ChannelsNumber++;
         }
 
         public IEnumerator<OscillogramModel> GetEnumerator() => OscillogramModels.GetEnumerator();

@@ -82,19 +82,19 @@ namespace ComputerGraphics.Windows
 
         private void Scroll_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (!(sender is ScrollBar scroll)) return;
+            if (sender is not ScrollBar scroll) return;
 
             var range = _chartModels.Range;
-            for (var i = 0; i < _chartModels.ChannelsNumber; i++)
+            foreach (var model in _chartModels)
             {
-                _chartModels[i].From = scroll.Value;
-                _chartModels[i].To = scroll.Value + range;
+                model.From = scroll.Value;
+                model.To = scroll.Value + range;
             }
         }
 
         private void Scroll_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (!(sender is ScrollBar)) return;
+            if (sender is not ScrollBar) return;
 
             var range = _chartModels.Range;
             for (var i = 0; i < _chartModels.ChannelsNumber; i++)

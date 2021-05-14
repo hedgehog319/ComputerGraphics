@@ -66,7 +66,7 @@ namespace ComputerGraphics.Charts
         }
 
         // TODO don't work
-        public Geometry GetPoint => _point ? DefaultGeometries.None : DefaultGeometries.Circle;
+        public Geometry GetPoint => _point ? DefaultGeometries.Circle : DefaultGeometries.None;
 
         public bool SetPoint
         {
