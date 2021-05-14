@@ -19,6 +19,9 @@ namespace ComputerGraphics.Windows
             [Description("Пила")] Seven = 7,
             [Description("Пила")] Eight  = 8,
             [Description("Пила")] Nine = 9,
+            [Description("Белый Шум")] Ten = 10,
+            [Description("Белый Шум по нормальному закону")] Eleven = 11,
+
             
         }
 
@@ -45,7 +48,9 @@ namespace ComputerGraphics.Windows
             {
                 Simulations.Zero => new DelayedJump(),
                 Simulations.One => new DelayedPulse(),
-                Simulations.Two => new DiscretizedDecreasingExponent(),
+                // Simulations.Two => ,
+                Simulations.Ten => new WhiteNoise(),
+                Simulations.Eleven => new NormalWhiteNoise(),
                 _ => throw new ArgumentOutOfRangeException(nameof(model), model, null)
             };
         }
