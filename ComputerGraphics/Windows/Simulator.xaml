@@ -62,7 +62,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" Content="Ok" Click="Ok_OnClick" />
-            <Button Grid.Column="1" Content="Cancel" />
+            <Button Grid.Column="1" Content="Cancel" Click="Cancel_OnClick"/>
         </Grid>
     </Grid>
 </Window>

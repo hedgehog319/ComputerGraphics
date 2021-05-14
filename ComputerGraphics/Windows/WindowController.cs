@@ -76,5 +76,15 @@ namespace ComputerGraphics.Windows
             _simulator.Closed += (_, _) => _simulator = null;
             _simulator.Show();
         }
+
+        public static void CreateNewSignal()
+        {
+            var dialog = new NewSignalCreator {Owner = MainWindow};
+            if (dialog.ShowDialog() == true)
+            {
+                ChartModels = new ChartModels(dialog.SamplesNumber, dialog.SamplingRate);
+                // TODO close navbar and etc.
+            }
+        }
     }
 }

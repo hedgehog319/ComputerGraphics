@@ -55,5 +55,7 @@ namespace ComputerGraphics.Windows
             WindowController.AddOscillogram(oscillogramModel.Id);
             // Close();
         }
+
+        private void Cancel_OnClick(object sender, RoutedEventArgs e) => Close();
     }
 }

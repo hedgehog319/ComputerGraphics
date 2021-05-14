@@ -17,9 +17,7 @@ namespace ComputerGraphics.Charts
             SamplingRate = samplingRate;
             StartTime = startTime;
 
-            var duration = SamplesNumber / SamplingRate;
-            EndTime = StartTime + TimeSpan.FromSeconds(duration);
-            Duration = TimeSpan.FromSeconds(duration);
+            Duration = TimeSpan.FromSeconds(SamplesNumber / SamplingRate);
 
             OscillogramModels = new List<OscillogramModel>();
 
@@ -29,23 +27,37 @@ namespace ComputerGraphics.Charts
             From = 1;
             To = OscillogramModels[0].Values.Count; // Check -1 needs?
 
-            StartTime = startTime;
+            Formatter = x => StartTime.ToString("yyyy"); // it's ok?
+        }
+
+        public ChartModels(int samplesNumber, int samplingRate)
+        {
+            ChannelsNumber = 0;
+            SamplesNumber = samplesNumber;
             SamplingRate = samplingRate;
+            StartTime = DateTime.Now;
+
+            Duration = TimeSpan.FromSeconds(SamplesNumber / SamplingRate);
+
+            OscillogramModels = new List<OscillogramModel>();
+
+            From = 1;
+            To = OscillogramModels[0].Values.Count; // Check -1 needs?
 
             Formatter = x => StartTime.ToString("yyyy"); // it's ok?
         }
 
-        public int ChannelsNumber { get; }
-        public int SamplesNumber { get; } // кол-во отсчетов
+        public int ChannelsNumber { get; private set; }
+        public int SamplesNumber { get; private set; } // кол-во отсчетов
 
         // частота дискретизации в Герцах: fd = 1/T, где T – шаг между отсчетами в секундах
-        public double SamplingRate { get; }
+        public double SamplingRate { get; private set; }
 
-        public TimeSpan Duration { get; }
+        public TimeSpan Duration { get; private set; }
 
-        public DateTime StartTime { get; }
+        public DateTime StartTime { get; private set; }
 
-        public DateTime EndTime { get; }
+        public DateTime EndTime => StartTime + Duration;
         public List<OscillogramModel> OscillogramModels { get; }
 
         public double From
@@ -88,6 +100,12 @@ namespace ComputerGraphics.Charts
         }
 
         public OscillogramModel this[int i] => OscillogramModels[i];
+
+        public void Add(OscillogramModel model)
+        {
+            OscillogramModels.Add(model);
+            SamplesNumber++;
+        }
 
         public IEnumerator<OscillogramModel> GetEnumerator() => OscillogramModels.GetEnumerator();
 

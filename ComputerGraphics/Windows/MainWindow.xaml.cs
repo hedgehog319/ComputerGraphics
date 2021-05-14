@@ -30,12 +30,12 @@ namespace ComputerGraphics.Windows
 
         private void Simulation_OnClick(object sender, RoutedEventArgs e)
         {
-            new Simulator().Show();
+            WindowController.ShowSimulator();
         }
 
         private void NewSignal_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            WindowController.CreateNewSignal();
         }
     }
 }
