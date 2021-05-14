@@ -18,7 +18,7 @@ namespace ComputerGraphics.Windows
         {
             InitializeComponent();
             _model = DataContext as SimulatorModel;
-            
+
             ComboBox.ItemsSource =
                 (from SimulatorModel.Simulations value in Enum.GetValues(typeof(SimulatorModel.Simulations))
                     let fi = value.GetType().GetField(value.ToString())
@@ -50,7 +50,7 @@ namespace ComputerGraphics.Windows
             var simulation = view?.Simulation();
 
             var oscillogramModel = new OscillogramModel("name", "Sim_Name", simulation);
-            WindowController.ChartModels.OscillogramModels.Add(oscillogramModel);
+            WindowController.ChartModels.Add(oscillogramModel);
 
             WindowController.AddOscillogram(oscillogramModel.Id);
             // Close();
