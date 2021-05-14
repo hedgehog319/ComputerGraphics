@@ -42,7 +42,7 @@ namespace ComputerGraphics.Charts
             OscillogramModels = new List<OscillogramModel>();
 
             From = 1;
-            To = OscillogramModels[0].Values.Count; // Check -1 needs?
+            To = 10; // Check -1 needs?
 
             Formatter = x => StartTime.ToString("yyyy"); // it's ok?
         }
