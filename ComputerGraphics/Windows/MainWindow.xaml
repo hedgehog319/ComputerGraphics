@@ -12,7 +12,7 @@
                 <MenuItem Header="Открыть" Click="Open_OnClick" />
             </MenuItem>
             <MenuItem Header="Информация о сигнале" Click="Information_OnClick" />
-            <MenuItem Header="Моделированае" Click="Simulation_OnClick" />
+            <MenuItem Header="Моделирование" Click="Simulation_OnClick" />
         </Menu>
     </Grid>
 </Window>

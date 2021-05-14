@@ -10,7 +10,7 @@ namespace ComputerGraphics.Windows
         public enum Simulations
         {
             [Description("Ноль")] Zero = 0,
-            [Description("Один")] One = 1,
+            [Description("Белый Шум")] One = 1,
         }
 
         private object _view;
@@ -35,7 +35,7 @@ namespace ComputerGraphics.Windows
             View = model switch
             {
                 Simulations.Zero => new DelayedJump(),
-                Simulations.One => new DelayedPulse(),
+                Simulations.One => new WhiteNoise(),
                 _ => throw new ArgumentOutOfRangeException(nameof(model), model, null)
             };
         }
