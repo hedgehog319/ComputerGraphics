@@ -21,44 +21,7 @@
             <RowDefinition Height="25" />
         </Grid.RowDefinitions>
 
-        <!-- <controls:UpBar Grid.Row="0" /> -->
-
-        <Grid Grid.Row="0" Background="#B1CAFF" MouseDown="UIElement_OnMouseDown">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="25" />
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Column="0" HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Margin="25, -4, 0, 0"
-                       Foreground="Black" Height="25" FontSize="20"
-                       Text="Моделирование сигналов" />
-
-            <Button Grid.Column="1" Content="×" FontWeight="Normal" FontSize="30"
-                    Click="ButtonBase_OnClick">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#B1CAFF" />
-
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FF271C" />
-                                <Setter Property="Foreground" Value="#FFFFFF" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" Margin="0, -11, 0, 0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-        </Grid>
+        <controls:UpBar Grid.Row="0" Title="Моделирование" Background="#B1CAFF"/>
 
         <ComboBox Grid.Row="1" Height="25" Width="200" VerticalAlignment="Top"
                   Margin="0, 10"
@@ -102,8 +65,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Content="Ok" Click="Ok_OnClick"/>
-            <Button Grid.Column="1" Content="Cancel"/>
+            <Button Grid.Column="0" Content="Ok" Click="Ok_OnClick" />
+            <Button Grid.Column="1" Content="Cancel" />
         </Grid>
     </Grid>
 </Window>

@@ -83,10 +83,11 @@
           <DependentUpon>DelayedPulse.xaml</DependentUpon>
         </Compile>
         <Compile Include="Controls\ModelsUI\ISimulated.cs" />
-        <Compile Include="Controls\UpBar.xaml.cs">
-          <DependentUpon>UpBar.xaml</DependentUpon>
         <Compile Include="Controls\ModelsUI\WhiteNoise.xaml.cs">
           <DependentUpon>WhiteNoise.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Controls\UpBar.xaml.cs">
+          <DependentUpon>UpBar.xaml</DependentUpon>
         </Compile>
         <Compile Include="Signal\ChannelReader.cs" />
         <Compile Include="Windows\InfoWindow.xaml.cs">
@@ -133,8 +134,8 @@
         <Page Include="Charts\PreviewChart.xaml" />
         <Page Include="Controls\ModelsUI\DelayedJump.xaml" />
         <Page Include="Controls\ModelsUI\DelayedPulse.xaml" />
-        <Page Include="Controls\UpBar.xaml" />
         <Page Include="Controls\ModelsUI\WhiteNoise.xaml" />
+        <Page Include="Controls\UpBar.xaml" />
         <Page Include="Windows\InfoWindow.xaml" />
         <Page Include="Windows\MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
