@@ -26,10 +26,10 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Количество отсчётов" />
-            <TextBox x:Name="SamplesBox" Grid.Row="1" Grid.Column="0" />
+            <TextBox x:Name="SamplesBox" Grid.Row="1" Grid.Column="0" Text="100" />
 
             <TextBlock Grid.Row="0" Grid.Column="2" Text="Частота дискретизации" />
-            <TextBox x:Name="SamplingBox" Grid.Row="1" Grid.Column="2" />
+            <TextBox x:Name="SamplingBox" Grid.Row="1" Grid.Column="2" Text="1" />
         </Grid>
 
         <Grid Grid.Row="2">
