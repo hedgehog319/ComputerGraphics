@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,6 +18,12 @@ namespace ComputerGraphics.Windows
         {
             InitializeComponent();
             _model = DataContext as SimulatorModel;
+            
+            ComboBox.ItemsSource =
+                (from SimulatorModel.Simulations value in Enum.GetValues(typeof(SimulatorModel.Simulations))
+                    let fi = value.GetType().GetField(value.ToString())
+                    let attr = (DescriptionAttribute[]) fi.GetCustomAttributes(typeof(DescriptionAttribute), false)
+                    select attr.Length > 0 ? attr[0].Description : value.ToString()).ToList();
         }
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
