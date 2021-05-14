@@ -9,8 +9,17 @@ namespace ComputerGraphics.Windows
     {
         public enum Simulations
         {
-            [Description("Ноль")] Zero = 0,
-            [Description("Белый Шум")] One = 1,
+            [Description("Задержанный единичный импульс")] Zero = 0,
+            [Description("Задержанный единичный скачок ")] One = 1,
+            [Description("Дискретизированная убывающая экспонента")] Two = 2,
+            [Description("Синусоида")] Tree = 3,
+            [Description("Меандр")] Four = 4,
+            [Description("Пила")] Five = 5,
+            [Description("Пила")] Six = 6,
+            [Description("Пила")] Seven = 7,
+            [Description("Пила")] Eight  = 8,
+            [Description("Пила")] Nine = 9,
+            
         }
 
         private object _view;
@@ -35,7 +44,8 @@ namespace ComputerGraphics.Windows
             View = model switch
             {
                 Simulations.Zero => new DelayedJump(),
-                Simulations.One => new WhiteNoise(),
+                Simulations.One => new DelayedPulse(),
+                Simulations.Two => new DiscretizedDecreasingExponent(),
                 _ => throw new ArgumentOutOfRangeException(nameof(model), model, null)
             };
         }
