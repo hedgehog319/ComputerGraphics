@@ -32,5 +32,10 @@ namespace ComputerGraphics.Windows
         {
             new Simulator().Show();
         }
+
+        private void NewSignal_OnClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

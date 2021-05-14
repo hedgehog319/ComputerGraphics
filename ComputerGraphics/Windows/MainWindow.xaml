@@ -9,6 +9,7 @@
     <Grid x:Name="Grid" Background="#B8B8B8">
         <Menu Height="18" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <MenuItem Header="Файл">
+                <MenuItem Header="Новый сигнал" Click="NewSignal_OnClick" />
                 <MenuItem Header="Открыть" Click="Open_OnClick" />
             </MenuItem>
             <MenuItem Header="Информация о сигнале" Click="Information_OnClick" />
