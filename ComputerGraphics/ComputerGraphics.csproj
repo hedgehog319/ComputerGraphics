@@ -83,6 +83,8 @@
           <DependentUpon>DelayedPulse.xaml</DependentUpon>
         </Compile>
         <Compile Include="Controls\ModelsUI\ISimulated.cs" />
+        <Compile Include="Controls\UpBar.xaml.cs">
+          <DependentUpon>UpBar.xaml</DependentUpon>
         <Compile Include="Controls\ModelsUI\WhiteNoise.xaml.cs">
           <DependentUpon>WhiteNoise.xaml</DependentUpon>
         </Compile>
@@ -131,6 +133,7 @@
         <Page Include="Charts\PreviewChart.xaml" />
         <Page Include="Controls\ModelsUI\DelayedJump.xaml" />
         <Page Include="Controls\ModelsUI\DelayedPulse.xaml" />
+        <Page Include="Controls\UpBar.xaml" />
         <Page Include="Controls\ModelsUI\WhiteNoise.xaml" />
         <Page Include="Windows\InfoWindow.xaml" />
         <Page Include="Windows\MainWindow.xaml">
