@@ -33,7 +33,6 @@
         <Grid Grid.Row="3">
             <Grid.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="BorderThickness" Value="0" />
                     <Setter Property="Margin" Value="2" />
                     <Setter Property="Background" Value="#FAFBFF" />
 
@@ -62,7 +61,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" Content="Ok" Click="Ok_OnClick" />
-            <Button Grid.Column="1" Content="Cancel" Click="Cancel_OnClick"/>
+            <Button Grid.Column="1" Content="Cancel" Click="Cancel_OnClick" />
         </Grid>
     </Grid>
 </Window>

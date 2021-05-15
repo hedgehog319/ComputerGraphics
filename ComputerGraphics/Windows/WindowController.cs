@@ -72,6 +72,10 @@ namespace ComputerGraphics.Windows
         {
             if (_simulator != null) return;
 
+            // REDO check it
+            if (ChartModels == null)
+                CreateNewSignal();
+
             _simulator = new Simulator {Owner = MainWindow};
             _simulator.Closed += (_, _) => _simulator = null;
             _simulator.Show();
@@ -80,11 +84,13 @@ namespace ComputerGraphics.Windows
         public static void CreateNewSignal()
         {
             var dialog = new NewSignalCreator {Owner = MainWindow};
-            if (dialog.ShowDialog() == true)
-            {
-                ChartModels = new ChartModels(dialog.SamplesNumber, dialog.SamplingRate);
-                // TODO close navbar and etc.
-            }
+            if (dialog.ShowDialog() == false) return;
+
+            ChartModels = new ChartModels(dialog.SamplesNumber, dialog.SamplingRate);
+
+            if (_info?.IsVisible == true) _info.Close();
+            if (_oscillogramViewer?.IsVisible == true) _oscillogramViewer.Close();
+            if (_navBar?.IsVisible == true) _navBar.Close(); // TODO возможно лучше очищать
         }
     }
 }
