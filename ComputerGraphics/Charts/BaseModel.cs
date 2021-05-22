@@ -11,7 +11,7 @@ namespace ComputerGraphics.Charts
 {
     public class BaseModel : INotifyPropertyChanged
     {
-        private static int _absoluteId = 0;
+        public static int _absoluteId = 0;
 
         private string _channelName;
         private double _from;

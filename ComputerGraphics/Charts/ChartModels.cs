@@ -15,6 +15,7 @@ namespace ComputerGraphics.Charts
             ChannelsNumber = channelsNumber;
             SamplesNumber = samplesNumber;
             SamplingRate = samplingRate;
+            DeltaTime = 1 / SamplingRate;
             StartTime = startTime;
 
             Duration = TimeSpan.FromSeconds(SamplesNumber / SamplingRate);
@@ -32,9 +33,12 @@ namespace ComputerGraphics.Charts
 
         public ChartModels(int samplesNumber, int samplingRate)
         {
+            BaseModel._absoluteId = 0; // TODO del me!
+            
             ChannelsNumber = 0;
             SamplesNumber = samplesNumber;
             SamplingRate = samplingRate;
+            DeltaTime = 1 / SamplingRate;
             StartTime = DateTime.Now;
 
             Duration = TimeSpan.FromSeconds(SamplesNumber / SamplingRate);
@@ -52,6 +56,8 @@ namespace ComputerGraphics.Charts
 
         // частота дискретизации в Герцах: fd = 1/T, где T – шаг между отсчетами в секундах
         public double SamplingRate { get; private set; }
+
+        public double DeltaTime { get; private set; }
 
         public TimeSpan Duration { get; private set; }
 
