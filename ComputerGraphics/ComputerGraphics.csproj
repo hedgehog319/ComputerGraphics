@@ -79,15 +79,36 @@
         <Compile Include="Controls\BestTextBox.xaml.cs">
           <DependentUpon>BestTextBox.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Controls\ModelsUI\BalancedEnvelope.xaml.cs">
+          <DependentUpon>BalancedEnvelope.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Controls\ModelsUI\DelayedJump.xaml.cs">
           <DependentUpon>DelayedJump.xaml</DependentUpon>
         </Compile>
         <Compile Include="Controls\ModelsUI\DelayedPulse.xaml.cs">
           <DependentUpon>DelayedPulse.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Controls\ModelsUI\DiscretizedDecreasingExponent.xaml.cs">
+          <DependentUpon>DiscretizedDecreasingExponent.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Controls\ModelsUI\ExponentialEnvelope.xaml.cs">
+          <DependentUpon>ExponentialEnvelope.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Controls\ModelsUI\ISimulated.cs" />
-        <Compile Include="Controls\ModelsUI\NormalWhiteNoise.xaml.cs">
-          <DependentUpon>NormalWhiteNoise.xaml</DependentUpon>
+        <Compile Include="Controls\ModelsUI\LChM.xaml.cs">
+          <DependentUpon>LChM.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Controls\ModelsUI\Meandr.xaml.cs">
+          <DependentUpon>Meandr.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Controls\ModelsUI\Pila.xaml.cs">
+          <DependentUpon>Pila.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Controls\ModelsUI\Sinusoid.xaml.cs">
+          <DependentUpon>Sinusoid.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Controls\ModelsUI\TonalEnvelope.xaml.cs">
+          <DependentUpon>TonalEnvelope.xaml</DependentUpon>
         </Compile>
         <Compile Include="Controls\ModelsUI\WhiteNoise.xaml.cs">
           <DependentUpon>WhiteNoise.xaml</DependentUpon>
@@ -142,9 +163,16 @@
         <Page Include="Charts\OscillogramChart.xaml" />
         <Page Include="Charts\PreviewChart.xaml" />
         <Page Include="Controls\BestTextBox.xaml" />
+        <Page Include="Controls\ModelsUI\BalancedEnvelope.xaml" />
         <Page Include="Controls\ModelsUI\DelayedJump.xaml" />
         <Page Include="Controls\ModelsUI\DelayedPulse.xaml" />
-        <Page Include="Controls\ModelsUI\NormalWhiteNoise.xaml" />
+        <Page Include="Controls\ModelsUI\DiscretizedDecreasingExponent.xaml" />
+        <Page Include="Controls\ModelsUI\ExponentialEnvelope.xaml" />
+        <Page Include="Controls\ModelsUI\LChM.xaml" />
+        <Page Include="Controls\ModelsUI\Meandr.xaml" />
+        <Page Include="Controls\ModelsUI\Pila.xaml" />
+        <Page Include="Controls\ModelsUI\Sinusoid.xaml" />
+        <Page Include="Controls\ModelsUI\TonalEnvelope.xaml" />
         <Page Include="Controls\ModelsUI\WhiteNoise.xaml" />
         <Page Include="Controls\UpBar.xaml" />
         <Page Include="Windows\InfoWindow.xaml" />

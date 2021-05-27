@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ComputerGraphics.Controls.ModelsUI.DelayedJump"
+﻿<UserControl x:Class="ComputerGraphics.Controls.ModelsUI.DiscretizedDecreasingExponent"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
@@ -6,7 +6,7 @@
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Введите задержанный единичный импульс"/>
-        <TextBox Grid.Row="1" Name="parametr">1</TextBox>
+        <TextBlock Grid.Row="0" Text="Введите параметр A"/>
+        <TextBox Grid.Row="1" Name="parametr">0.99</TextBox>
     </Grid>
 </UserControl>

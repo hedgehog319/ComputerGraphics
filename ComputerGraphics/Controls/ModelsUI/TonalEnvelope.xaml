@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ComputerGraphics.Controls.ModelsUI.TonalEnvelope"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ComputerGraphics.Controls.ModelsUI"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Введите амплитуду"/>
+        <TextBox Grid.Row="1" Name="parametrA">1</TextBox>
+        <TextBlock Grid.Row="2" Text="Введите частоту огибающей"/>
+        <TextBox Grid.Row="3" Name="parametrFO">0.002</TextBox>
+        <TextBlock Grid.Row="4" Text="Введите частоту несущей"/>
+        <TextBox Grid.Row="5" Name="parametrFN">0.04</TextBox>
+        <TextBlock Grid.Row="6" Text="Введите начальную фазу [0;2pi]"/>
+        <TextBox Grid.Row="7" Name="parametrFi">3.14</TextBox>
+        <TextBlock Grid.Row="8" Text="Введите индекс глубины [0;2pi]"/>
+        <TextBox Grid.Row="9" Name="parametrM">0.5</TextBox>
+    </Grid>
+</UserControl>

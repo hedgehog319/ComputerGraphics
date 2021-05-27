@@ -52,7 +52,7 @@ namespace ComputerGraphics.Windows
             if (simulation == null) throw new ArgumentException($"The {nameof(simulation)} was null");
 
             var oscillogramModel = new OscillogramModel("name", "Sim_Name", simulation);
-            WindowController.ChartModels.Add(oscillogramModel);
+            WindowController.ChartModels.OscillogramModels.Add(oscillogramModel);
 
             WindowController.AddOscillogram(oscillogramModel.Id);
             // Close();

@@ -1,35 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
-using ComputerGraphics.Charts;
 using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class DelayedJump : UserControl, ISimulated
+    public partial class Meandr : UserControl,ISimulated
     {
-        public DelayedJump()
+        public Meandr()
         {
             InitializeComponent();
-            parametr.Text = Convert.ToInt32(WindowController.ChartModels.SamplesNumber * 0.3).ToString();
+            parametr.Text = (WindowController.ChartModels.SamplesNumber / 8).ToString();
         }
-
         public List<double> Simulation()
         {
-            int n0 = Convert.ToInt32(parametr.Text);
+            int l = Convert.ToInt32(parametr.Text);
             var list = new List<double>();
             for (int i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
             {
-                if (i == n0)
+                if (i % l < l/2 )
                 {
                     list.Add(1);
                 }
                 else
                 {
-                    list.Add(0);
+                    list.Add(-1);
                 }
             }
-
             return list;
         }
     }

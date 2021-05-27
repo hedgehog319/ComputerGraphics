@@ -15,13 +15,10 @@ namespace ComputerGraphics.Windows
             [Description("Синусоида")] Tree = 3,
             [Description("Меандр")] Four = 4,
             [Description("Пила")] Five = 5,
-            [Description("Пила")] Six = 6,
-            [Description("Пила")] Seven = 7,
-            [Description("Пила")] Eight  = 8,
-            [Description("Пила")] Nine = 9,
-            [Description("Белый Шум")] Ten = 10,
-            [Description("Белый Шум по нормальному закону")] Eleven = 11,
-
+            [Description("Экпоненциальная огибающая")] Six = 6,
+            [Description("Балансирующая огибающая")] Seven = 7,
+            [Description("Тональная Огибающая")] Eight  = 8,
+            [Description("Сигнал с линейной частотной модуляцией ")] Nine = 9,
             
         }
 
@@ -48,9 +45,14 @@ namespace ComputerGraphics.Windows
             {
                 Simulations.Zero => new DelayedJump(),
                 Simulations.One => new DelayedPulse(),
-                // Simulations.Two => ,
-                Simulations.Ten => new WhiteNoise(),
-                Simulations.Eleven => new NormalWhiteNoise(),
+                Simulations.Two => new DiscretizedDecreasingExponent(),
+                Simulations.Tree => new Sinusoid(),
+                Simulations.Four => new Meandr(),
+                Simulations.Five => new Pila(),
+                Simulations.Six => new ExponentialEnvelope(),
+                Simulations.Seven => new BalancedEnvelope(),
+                Simulations.Eight => new TonalEnvelope(),
+                Simulations.Nine => new LChM(),
                 _ => throw new ArgumentOutOfRangeException(nameof(model), model, null)
             };
         }
