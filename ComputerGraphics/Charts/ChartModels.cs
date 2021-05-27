@@ -34,7 +34,7 @@ namespace ComputerGraphics.Charts
         public ChartModels(int samplesNumber, int samplingRate)
         {
             BaseModel._absoluteId = 0; // TODO del me!
-            
+
             ChannelsNumber = 0;
             SamplesNumber = samplesNumber;
             SamplingRate = samplingRate;
@@ -52,16 +52,16 @@ namespace ComputerGraphics.Charts
         }
 
         public int ChannelsNumber { get; private set; }
-        public int SamplesNumber { get; private set; } // кол-во отсчетов
+        public int SamplesNumber { get; } // кол-во отсчетов
 
         // частота дискретизации в Герцах: fd = 1/T, где T – шаг между отсчетами в секундах
-        public double SamplingRate { get; private set; }
+        public double SamplingRate { get; }
 
-        public double DeltaTime { get; private set; }
+        public double DeltaTime { get; }
 
-        public TimeSpan Duration { get; private set; }
+        public TimeSpan Duration { get; }
 
-        public DateTime StartTime { get; private set; }
+        public DateTime StartTime { get; }
 
         public DateTime EndTime => StartTime + Duration;
         public List<OscillogramModel> OscillogramModels { get; }
@@ -107,6 +107,9 @@ namespace ComputerGraphics.Charts
 
         public OscillogramModel this[int i] => OscillogramModels[i];
 
+        // TODO formatter
+        public Func<double, string> Formatter { get; set; }
+
         public void Add(OscillogramModel model)
         {
             OscillogramModels.Add(model);
@@ -114,8 +117,5 @@ namespace ComputerGraphics.Charts
         }
 
         public IEnumerator<OscillogramModel> GetEnumerator() => OscillogramModels.GetEnumerator();
-
-        // TODO formatter
-        public Func<double, string> Formatter { get; set; }
     }
 }

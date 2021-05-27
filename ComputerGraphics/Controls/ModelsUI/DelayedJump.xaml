@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Введите задержанный единичный импульс"/>
-        <TextBox Grid.Row="1" Name="parametr">1</TextBox>
+        <TextBlock Grid.Row="0" Text="Введите задержанный единичный импульс" />
+        <TextBox Grid.Row="1" Name="Parameter">1</TextBox>
     </Grid>
 </UserControl>

@@ -1,8 +1,12 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Controls;
 using ComputerGraphics.Windows;
+
+#endregion
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
@@ -11,16 +15,16 @@ namespace ComputerGraphics.Controls.ModelsUI
         public Pila()
         {
             InitializeComponent();
-            parametr.Text = Convert.ToInt32(WindowController.ChartModels.SamplesNumber/8).ToString();
+            Parameter.Text = Convert.ToInt32(WindowController.ChartModels.SamplesNumber / 8).ToString();
         }
+
         public List<double> Simulation()
         {
-            var l = Convert.ToDouble(parametr.Text,CultureInfo.InvariantCulture);
+            var l = Convert.ToDouble(Parameter.Text, CultureInfo.InvariantCulture);
+            
             var list = new List<double>();
-            for (int i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
-            {
-                list.Add((i % l) / l);
-            }
+            for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++) list.Add(i % l / l);
+            
             return list;
         }
     }

@@ -12,10 +12,6 @@ namespace ComputerGraphics
     /// </summary>
     public partial class App
     {
-        public App() : base()
-        {
-        }
-
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
             WindowController.ShowMainWindow();

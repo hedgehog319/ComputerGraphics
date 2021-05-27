@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region
+
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -7,6 +8,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using ComputerGraphics.Charts;
 using ComputerGraphics.Controls.ModelsUI;
+
+#endregion
 
 namespace ComputerGraphics.Windows
 {
@@ -52,10 +55,7 @@ namespace ComputerGraphics.Windows
             if (simulation == null) throw new ArgumentException($"The {nameof(simulation)} was null");
 
             var oscillogramModel = new OscillogramModel("name", "Sim_Name", simulation);
-            WindowController.ChartModels.OscillogramModels.Add(oscillogramModel);
-
-            WindowController.AddOscillogram(oscillogramModel.Id);
-            // Close();
+            WindowController.AddSimulation(oscillogramModel);
         }
 
         private void Cancel_OnClick(object sender, RoutedEventArgs e) => Close();

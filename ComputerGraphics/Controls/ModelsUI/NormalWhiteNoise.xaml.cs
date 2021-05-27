@@ -23,7 +23,7 @@ namespace ComputerGraphics.Controls.ModelsUI
             }
             
             var values = new List<double>();
-            for (int i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
+            for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
             {
                 values.Add(middle + Math.Sqrt(sigma) * NormalRandomValue());
             }
@@ -34,7 +34,7 @@ namespace ComputerGraphics.Controls.ModelsUI
         private double NormalRandomValue()
         {
             double x = 0;
-            for (int i = 0; i < 12; i++) x += _rand.NextDouble();
+            for (var i = 0; i < 12; i++) x += _rand.NextDouble();
 
             return x - 6;
         }

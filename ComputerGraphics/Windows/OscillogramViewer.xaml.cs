@@ -14,8 +14,8 @@ namespace ComputerGraphics.Windows
 {
     public partial class OscillogramViewer : Window
     {
-        private readonly ChartModels _chartModels;
         private const double MinOscillogramHeight = 200;
+        private readonly ChartModels _chartModels;
 
         public OscillogramViewer()
         {

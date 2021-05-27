@@ -1,8 +1,12 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Controls;
 using ComputerGraphics.Windows;
+
+#endregion
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
@@ -15,19 +19,19 @@ namespace ComputerGraphics.Controls.ModelsUI
 
         public List<double> Simulation()
         {
-            var a = Convert.ToDouble(parametrA.Text,CultureInfo.InvariantCulture);
-            var fo = Convert.ToDouble(parametrFO.Text,CultureInfo.InvariantCulture);
-            var fi = Convert.ToDouble(parametrFi.Text,CultureInfo.InvariantCulture);
-            var fk = Convert.ToDouble(parametrFk.Text,CultureInfo.InvariantCulture);
-            var T_nab = WindowController.ChartModels.SamplesNumber * WindowController.ChartModels.DeltaTime;
-            var deltaF = (fk - fo) / T_nab;
+            var a = Convert.ToDouble(ParameterA.Text, CultureInfo.InvariantCulture);
+            var f0 = Convert.ToDouble(ParameterF0.Text, CultureInfo.InvariantCulture);
+            var fi = Convert.ToDouble(ParameterFi.Text, CultureInfo.InvariantCulture);
+            var fk = Convert.ToDouble(ParameterFk.Text, CultureInfo.InvariantCulture);
+            var deltaF = (fk - f0) /
+                         (WindowController.ChartModels.SamplesNumber * WindowController.ChartModels.DeltaTime);
+
             var list = new List<double>();
-            for (int i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
+            for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
             {
                 var t = i * WindowController.ChartModels.DeltaTime;
-                list.Add(a * Math.Cos(2 * Math.PI * (fo + deltaF * i) * i + fi));
+                list.Add(a * Math.Cos(2 * Math.PI * (f0 + deltaF * t) * t + fi));
             }
-
 
             return list;
         }

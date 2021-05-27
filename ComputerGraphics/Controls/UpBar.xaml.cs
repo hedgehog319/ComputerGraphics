@@ -3,7 +3,6 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 
 #endregion
@@ -12,23 +11,23 @@ namespace ComputerGraphics.Controls
 {
     public partial class UpBar : UserControl
     {
-        private Window _parent;
-
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(
             "Title",
             typeof(string),
             typeof(UpBar),
             new PropertyMetadata(string.Empty));
 
-        public string Title
-        {
-            get => (string) GetValue(TitleProperty);
-            set => SetValue(TitleProperty, value);
-        }
+        private Window _parent;
 
         public UpBar()
         {
             InitializeComponent();
+        }
+
+        public string Title
+        {
+            get => (string) GetValue(TitleProperty);
+            set => SetValue(TitleProperty, value);
         }
 
         private void UpBar_OnLoaded(object sender, RoutedEventArgs e)

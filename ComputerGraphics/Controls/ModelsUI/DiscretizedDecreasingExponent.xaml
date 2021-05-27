@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Введите параметр A"/>
-        <TextBox Grid.Row="1" Name="parametr">0.99</TextBox>
+        <TextBlock Grid.Row="0" Text="Введите параметр A" />
+        <TextBox Grid.Row="1" Name="Parameter">0.99</TextBox>
     </Grid>
 </UserControl>

@@ -1,7 +1,6 @@
 ﻿<Window x:Class="ComputerGraphics.Windows.OscillogramViewer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:charts="clr-namespace:ComputerGraphics.Charts"
         Title="OscillogramViewer" Name="OViewer"
         MinHeight="454" Height="454" MinWidth="700" Width="800"
         SizeChanged="OscillogramViewer_OnSizeChanged" PreviewMouseWheel="OscillogramViewer_OnMouseWheel">

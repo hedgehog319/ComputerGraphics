@@ -12,8 +12,12 @@ namespace ComputerGraphics.Windows
         public NavBar()
         {
             InitializeComponent();
+        }
 
-            foreach (var model in WindowController.ChartModels) Bar.Children.Add(new PreviewChart(model) {Height = 80});
+        public void AddOscillogram(int modelId)
+        {
+            Bar.Children.Add(new PreviewChart(WindowController.ChartModels[modelId])
+                {Height = 80});
         }
     }
 }

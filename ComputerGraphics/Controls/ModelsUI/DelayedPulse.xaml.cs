@@ -1,7 +1,11 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using ComputerGraphics.Windows;
+
+#endregion
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
@@ -10,24 +14,14 @@ namespace ComputerGraphics.Controls.ModelsUI
         public DelayedPulse()
         {
             InitializeComponent();
-            parametr.Text = Convert.ToInt32(WindowController.ChartModels.SamplesNumber * 0.3).ToString();
+            Parameter.Text = Convert.ToInt32(WindowController.ChartModels.SamplesNumber * 0.3).ToString();
         }
 
         public List<double> Simulation()
         {
-            int n0 = Convert.ToInt32(parametr.Text);
+            var n0 = Convert.ToInt32(Parameter.Text);
             var list = new List<double>();
-            for (int i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
-            {
-                if (i < n0)
-                {
-                    list.Add(0);
-                }
-                else
-                {
-                    list.Add(1);
-                }
-            }
+            for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++) list.Add(i < n0 ? 0 : 1);
 
             return list;
         }

@@ -37,16 +37,22 @@ namespace ComputerGraphics.Windows
             _navBar.Show();
         }
 
+        public static void ShowOscillogramViewer()
+        {
+            if (_oscillogramViewer != null) return;
+
+            _oscillogramViewer = new OscillogramViewer {Owner = MainWindow};
+            _oscillogramViewer.Closed += (s, e) => _oscillogramViewer = null;
+            _oscillogramViewer.Show();
+        }
+
         public static void AddOscillogram(int modelId)
         {
-            if (_oscillogramViewer == null)
-            {
-                _oscillogramViewer = new OscillogramViewer {Owner = MainWindow};
-                _oscillogramViewer.Closed += (s, e) => _oscillogramViewer = null;
-                _oscillogramViewer.Show();
-            }
+            ShowOscillogramViewer();
+            ShowNavBar();
 
             _oscillogramViewer.AddOscillogram(modelId);
+            _navBar.AddOscillogram(modelId);
         }
 
         public static bool ReadFile()
@@ -91,6 +97,13 @@ namespace ComputerGraphics.Windows
             if (_info?.IsVisible == true) _info.Close();
             if (_oscillogramViewer?.IsVisible == true) _oscillogramViewer.Close();
             if (_navBar?.IsVisible == true) _navBar.Close(); // TODO возможно лучше очищать
+        }
+
+        public static void AddSimulation(OscillogramModel model)
+        {
+            ChartModels.Add(model);
+
+            AddOscillogram(model.Id);
         }
     }
 }
