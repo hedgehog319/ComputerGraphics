@@ -1,7 +1,11 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ComputerGraphics.Controls.ModelsUI;
+
+#endregion
 
 namespace ComputerGraphics.Windows
 {
@@ -34,7 +38,7 @@ namespace ComputerGraphics.Windows
 
             [Description("Белый Шум по нормальному закону")]
             Eleven = 11,
-            [Description("АРСС")] Twelve = 12,
+            [Description("АРСС")] Twelve = 12
         }
 
         private object _view;

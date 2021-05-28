@@ -22,7 +22,7 @@ namespace ComputerGraphics.Controls.ModelsUI
             var a = Convert.ToDouble(ParameterA.Text, CultureInfo.InvariantCulture);
             var om = Convert.ToDouble(ParameterOm.Text, CultureInfo.InvariantCulture);
             var fi = Convert.ToDouble(ParameterFi.Text, CultureInfo.InvariantCulture);
-            
+
             var list = new List<double>();
             for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++) list.Add(a * Math.Sin(i * om + fi));
             return list;

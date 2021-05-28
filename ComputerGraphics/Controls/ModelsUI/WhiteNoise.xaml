@@ -3,32 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:ComputerGraphics.Controls.ModelsUI"
              xmlns:controls="clr-namespace:WpfMath.Controls;assembly=WpfMath"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="400">
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width='*'/>
-            <ColumnDefinition Width='*'/>
+            <ColumnDefinition Width='*' />
+            <ColumnDefinition Width='*' />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height='*'/>
-            <RowDefinition Height='*'/>
-            <RowDefinition Height='*'/>
+            <RowDefinition Height='*' />
+            <RowDefinition Height='*' />
+            <RowDefinition Height='*' />
         </Grid.RowDefinitions>
-        
-        
+
+
         <controls:FormulaControl Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center"
                                  HorizontalAlignment="Center" Formula="x(n) = R(a, b)" />
-        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="3" Text="Введите нижнюю границу"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="3" Text="Введите нижнюю границу" />
         <TextBox Grid.Row="2" Grid.Column="0" x:Name="TextA" VerticalAlignment="Top" Height="20"
-                 Text="0" Margin="3" PreviewTextInput="TextBoxBase_OnTextChanged"/>
-        
-        <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="3" Text="Введите верхнюю границу"/>
-        <TextBox Grid.Row="2" Grid.Column="1" x:Name="TextB" Height="20" VerticalAlignment="Top"  Margin="3"
-                 Text="0" PreviewTextInput="TextBoxBase_OnTextChanged"/>
+                 Text="0" Margin="3" PreviewTextInput="TextBoxBase_OnTextChanged" />
+
+        <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="3" Text="Введите верхнюю границу" />
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="TextB" Height="20" VerticalAlignment="Top" Margin="3"
+                 Text="0" PreviewTextInput="TextBoxBase_OnTextChanged" />
     </Grid>
-    
 </UserControl>

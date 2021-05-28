@@ -21,10 +21,10 @@ namespace ComputerGraphics.Controls.ModelsUI
         public List<double> Simulation()
         {
             var l = Convert.ToDouble(Parameter.Text, CultureInfo.InvariantCulture);
-            
+
             var list = new List<double>();
             for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++) list.Add(i % l / l);
-            
+
             return list;
         }
     }
