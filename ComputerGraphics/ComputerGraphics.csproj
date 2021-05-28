@@ -57,6 +57,10 @@
         <Reference Include="WindowsBase" />
         <Reference Include="PresentationCore" />
         <Reference Include="PresentationFramework" />
+        <Reference Include="WpfMath, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\WpfMath.0.9.0\lib\net452\WpfMath.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
         <ApplicationDefinition Include="App.xaml">
@@ -82,6 +86,9 @@
         <Compile Include="Controls\ModelsUI\BalancedEnvelope.xaml.cs">
           <DependentUpon>BalancedEnvelope.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Controls\ModelsUI\APCC.xaml.cs">
+          <DependentUpon>APCC.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Controls\ModelsUI\DelayedJump.xaml.cs">
           <DependentUpon>DelayedJump.xaml</DependentUpon>
         </Compile>
@@ -100,6 +107,9 @@
         </Compile>
         <Compile Include="Controls\ModelsUI\Meandr.xaml.cs">
           <DependentUpon>Meandr.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Controls\ModelsUI\NormalWhiteNoise.xaml.cs">
+          <DependentUpon>NormalWhiteNoise.xaml</DependentUpon>
         </Compile>
         <Compile Include="Controls\ModelsUI\Pila.xaml.cs">
           <DependentUpon>Pila.xaml</DependentUpon>
@@ -164,12 +174,14 @@
         <Page Include="Charts\PreviewChart.xaml" />
         <Page Include="Controls\BestTextBox.xaml" />
         <Page Include="Controls\ModelsUI\BalancedEnvelope.xaml" />
+        <Page Include="Controls\ModelsUI\APCC.xaml" />
         <Page Include="Controls\ModelsUI\DelayedJump.xaml" />
         <Page Include="Controls\ModelsUI\DelayedPulse.xaml" />
         <Page Include="Controls\ModelsUI\DiscretizedDecreasingExponent.xaml" />
         <Page Include="Controls\ModelsUI\ExponentialEnvelope.xaml" />
         <Page Include="Controls\ModelsUI\LChM.xaml" />
         <Page Include="Controls\ModelsUI\Meandr.xaml" />
+        <Page Include="Controls\ModelsUI\NormalWhiteNoise.xaml" />
         <Page Include="Controls\ModelsUI\Pila.xaml" />
         <Page Include="Controls\ModelsUI\Sinusoid.xaml" />
         <Page Include="Controls\ModelsUI\TonalEnvelope.xaml" />

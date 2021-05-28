@@ -1,11 +1,7 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ComputerGraphics.Controls.ModelsUI;
-
-#endregion
 
 namespace ComputerGraphics.Windows
 {
@@ -37,7 +33,8 @@ namespace ComputerGraphics.Windows
             [Description("Белый Шум")] Ten = 10,
 
             [Description("Белый Шум по нормальному закону")]
-            Eleven = 11
+            Eleven = 11,
+            [Description("АРСС")] Twelve = 12,
         }
 
         private object _view;
@@ -73,6 +70,9 @@ namespace ComputerGraphics.Windows
                 Simulations.Seven => new BalancedEnvelope(),
                 Simulations.Eight => new TonalEnvelope(),
                 Simulations.Nine => new LChM(),
+                Simulations.Ten => new WhiteNoise(),
+                Simulations.Eleven => new NormalWhiteNoise(),
+                Simulations.Twelve => new APCC(),
                 _ => throw new ArgumentOutOfRangeException(nameof(model), model, null)
             };
         }
