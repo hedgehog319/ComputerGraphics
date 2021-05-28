@@ -33,6 +33,7 @@ namespace ComputerGraphics.Controls.ModelsUI
 
         private double NormalRandomValue()
         {
+            // Random _rand = new Random();
             double x = 0;
             for (var i = 0; i < 12; i++) x += _rand.NextDouble();
 
