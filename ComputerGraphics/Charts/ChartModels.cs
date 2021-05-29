@@ -116,6 +116,6 @@ namespace ComputerGraphics.Charts
             ChannelsNumber++;
         }
 
-        public IEnumerator<OscillogramModel> GetEnumerator() => OscillogramModels.GetEnumerator();
+        public IEnumerator<OscillogramModel> GetEnumerator() => OscillogramModels?.GetEnumerator();
     }
 }
