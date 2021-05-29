@@ -3,6 +3,7 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 #endregion
@@ -32,7 +33,20 @@ namespace ComputerGraphics.Controls
 
         private void UpBar_OnLoaded(object sender, RoutedEventArgs e)
         {
-            TitleBox.Text = Title;
+            var titleBind = new Binding
+            {
+                Path = new PropertyPath(nameof(Title)),
+                Source = this,
+            };
+
+            var backgroundBind = new Binding
+            {
+                Path = new PropertyPath(nameof(Background)),
+                Source = this,
+            };
+
+            TitleBox.SetBinding(TextBlock.TextProperty, titleBind);
+            Grid.SetBinding(Panel.BackgroundProperty, backgroundBind);
 
             _parent = Window.GetWindow(this);
             if (_parent == null)
@@ -46,7 +60,8 @@ namespace ComputerGraphics.Controls
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            _parent.DragMove();
+            if (e.LeftButton == MouseButtonState.Pressed)
+                _parent.DragMove();
         }
     }
 }

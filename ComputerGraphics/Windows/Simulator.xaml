@@ -4,8 +4,8 @@
         xmlns:controls="clr-namespace:ComputerGraphics.Controls"
         xmlns:windows="clr-namespace:ComputerGraphics.Windows"
         WindowStyle="None" ResizeMode="NoResize"
-        MinHeight="95" MinWidth="200"
-        Height="95" Width="200">
+        MinHeight="95" MinWidth="210"
+        Height="95" Width="210">
 
     <Window.DataContext>
         <windows:SimulatorModel />

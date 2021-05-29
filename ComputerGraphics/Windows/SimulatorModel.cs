@@ -87,7 +87,7 @@ namespace ComputerGraphics.Windows
             View = control;
         }
 
-        private double _width = 200;
+        private double _width = 210;
 
         public double Width
         {

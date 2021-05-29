@@ -6,20 +6,24 @@
              MinHeight="25" Height="25" MaxHeight="25"
              Loaded="UpBar_OnLoaded"
              mc:Ignorable="d" d:DesignWidth="300">
-    <Grid Background="{Binding BackGround}" MouseDown="UIElement_OnMouseDown">
+
+    <Grid x:Name="Grid" MouseDown="UIElement_OnMouseDown">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="25" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2"
+        <!--TODO icon-->
+
+        <TextBlock Grid.Column="1"
                    x:Name="TitleBox"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    Margin="0, -4, 0, 0"
                    Foreground="Black" Height="25" FontSize="20" />
 
-        <Button Grid.Column="1" Content="×" FontWeight="Normal" FontSize="30"
-                Click="Close_OnClick">
+        <Button Grid.Column="2" Content="×" FontWeight="Normal" FontSize="30"
+                Click="Close_OnClick" x:Name="Button">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Background" Value="{Binding Background}" />
