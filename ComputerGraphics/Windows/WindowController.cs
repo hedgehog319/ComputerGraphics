@@ -1,5 +1,8 @@
 ﻿#region
 
+using System;
+using System.IO;
+using System.Linq;
 using ComputerGraphics.Charts;
 using ComputerGraphics.Signal;
 using Microsoft.Win32;
@@ -57,7 +60,7 @@ namespace ComputerGraphics.Windows
 
         public static bool ReadFile()
         {
-            var dialog = new OpenFileDialog();
+            var dialog = new OpenFileDialog {Filter = "Text files | *.txt | All files | *.*"};
             if (dialog.ShowDialog() != true) return false;
 
             ChartModels = ChannelReader.ReadTxt(dialog.FileName);
@@ -104,6 +107,51 @@ namespace ComputerGraphics.Windows
             ChartModels.Add(model);
 
             AddOscillogram(model.Id);
+        }
+
+        public static void SaveSignal()
+        {
+            var saveWindow = new SaveWindow();
+
+            if (saveWindow.ShowDialog() != true) return;
+
+            var dialog = new SaveFileDialog {Filter = "Text files | *.txt | All files | *.*"};
+            if (dialog.ShowDialog() != true) return;
+
+            var name = dialog.FileName;
+
+            if (!File.Exists(name))
+                File.Create(name).Close();
+
+            using (var writer = new StreamWriter(name))
+            {
+                writer.WriteLine("# channels number");
+                writer.WriteLine($"{saveWindow.ChannelsNumber}");
+
+                writer.WriteLine("# samples number");
+                writer.WriteLine($"{saveWindow.To - saveWindow.From}");
+
+                writer.WriteLine("# sampling rate");
+                writer.WriteLine($"{ChartModels.SamplingRate}");
+
+                writer.WriteLine("# start date");
+                writer.WriteLine($"{ChartModels.StartTime}");
+
+                writer.WriteLine("# start time");
+                writer.WriteLine($"{ChartModels.StartTime}");
+
+                writer.WriteLine("# channels names");
+                var names = saveWindow.Channels.Aggregate(string.Empty,
+                    (current, i) => current + $"{ChartModels[i].ChannelName};");
+                writer.WriteLine(names);
+
+                for (var i = saveWindow.From; i < saveWindow.To; i++)
+                {
+                    var vals = saveWindow.Channels.Aggregate(string.Empty,
+                        (current, channel) => current + $"{ChartModels[channel][i]} ");
+                    writer.WriteLine(vals);
+                }
+            }
         }
     }
 }

@@ -77,6 +77,8 @@ namespace ComputerGraphics.Charts
 
         public GearedValues<double> Values { get; }
 
+        public double this[int i] => Values[i];
+
         public int Id { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
