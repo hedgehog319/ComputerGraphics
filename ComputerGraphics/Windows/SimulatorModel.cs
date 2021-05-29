@@ -3,6 +3,7 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Controls;
 using ComputerGraphics.Controls.ModelsUI;
 
 #endregion
@@ -62,7 +63,7 @@ namespace ComputerGraphics.Windows
 
         public void ChangeView(Simulations model)
         {
-            View = model switch
+            UserControl control = model switch
             {
                 Simulations.Zero => new DelayedJump(),
                 Simulations.One => new DelayedPulse(),
@@ -79,6 +80,33 @@ namespace ComputerGraphics.Windows
                 Simulations.Twelve => new APCC(),
                 _ => throw new ArgumentOutOfRangeException(nameof(model), model, null)
             };
+
+            Height = control.Height;
+            Width = control.Width;
+
+            View = control;
+        }
+
+        private double _width = 200;
+
+        public double Width
+        {
+            get => _width;
+            private set
+            {
+                if (!Equals(_width, value)) _width = value;
+            }
+        }
+
+        private double _height = 95;
+
+        public double Height
+        {
+            get => _height;
+            private set
+            {
+                if (!Equals(_height, 95 + value)) _height = 95 + value;
+            }
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)

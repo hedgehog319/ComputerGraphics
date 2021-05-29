@@ -1,13 +1,11 @@
 ﻿<Window x:Class="ComputerGraphics.Windows.Simulator"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:controls="clr-namespace:ComputerGraphics.Controls"
         xmlns:windows="clr-namespace:ComputerGraphics.Windows"
-        mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
-        Height="300" Width="300">
+        MinHeight="95" MinWidth="200"
+        Height="95" Width="200">
 
     <Window.DataContext>
         <windows:SimulatorModel />
@@ -28,7 +26,7 @@
                   x:Name="ComboBox"
                   SelectionChanged="Selector_OnSelected" />
 
-        <ContentControl Grid.Row="2" Content="{Binding View}" />
+        <ContentControl Grid.Row="2" x:Name="Control" Content="{Binding View}" />
 
         <Grid Grid.Row="3">
             <Grid.Resources>

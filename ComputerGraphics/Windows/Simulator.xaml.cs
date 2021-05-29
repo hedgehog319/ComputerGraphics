@@ -29,21 +29,14 @@ namespace ComputerGraphics.Windows
                     select attr.Length > 0 ? attr[0].Description : value.ToString()).ToList();
         }
 
-        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
         private void Selector_OnSelected(object sender, RoutedEventArgs e)
         {
             if (sender is not ComboBox comboBox) return;
 
             _model.ChangeView((SimulatorModel.Simulations) comboBox.SelectedIndex);
+
+            Height = _model.Height;
+            Width = _model.Width;
         }
 
         private void Ok_OnClick(object sender, RoutedEventArgs e)
