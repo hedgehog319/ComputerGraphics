@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:WpfMath.Controls;assembly=WpfMath"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="400">
+             Height="100" Width="350">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,6 +27,6 @@
 
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="3" Text="Введите верхнюю границу" />
         <TextBox Grid.Row="2" Grid.Column="1" x:Name="TextB" Height="20" VerticalAlignment="Top" Margin="3"
-                 Text="0" PreviewTextInput="TextBoxBase_OnTextChanged" />
+                 Text="5" PreviewTextInput="TextBoxBase_OnTextChanged" />
     </Grid>
 </UserControl>

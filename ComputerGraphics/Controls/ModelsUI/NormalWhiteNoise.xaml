@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:WpfMath.Controls;assembly=WpfMath"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="400">
+             Height="100" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width='*' />
@@ -21,10 +21,10 @@
                                  HorizontalAlignment="Center" Formula="x(n) = N(a, \sigma^2)" />
         <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="3" Text="Введите среднее" />
         <TextBox x:Name="TextMiddle" Grid.Column="0" Grid.Row="2" Height="20" VerticalAlignment="Top"
-                 Text="0" Margin="3" />
+                 Text="2" Margin="3" />
 
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="3" Text="Введите дисперсию" />
         <TextBox x:Name="TestSigma" Grid.Column="1" Grid.Row="2" Height="20" VerticalAlignment="Top"
-                 Text="0" Margin="3" />
+                 Text="1" Margin="3" />
     </Grid>
 </UserControl>

@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:WpfMath.Controls;assembly=WpfMath"
              mc:Ignorable="d"
-             Height="300" Width="500"
-             d:DesignHeight="300" d:DesignWidth="300">
+             Height="300" Width="500">
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -16,7 +15,7 @@
                 <ColumnDefinition Width='*' />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
+                <RowDefinition Height="1" />
                 <RowDefinition Height="70" />
                 <RowDefinition Height="35" />
                 <RowDefinition Height="35" />
@@ -24,7 +23,6 @@
             </Grid.RowDefinitions>
 
 
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="АРСС" FontSize="20" HorizontalAlignment="Center" />
             <controls:FormulaControl Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0"
                                      Scale="15"
                                      HorizontalAlignment="Center"
@@ -34,7 +32,7 @@
             
             <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        Margin="3" Text="Введите дисперсию(сигма):" />
-            <TextBox Grid.Row="2" Grid.Column="2" x:Name="Sigma" VerticalAlignment="Bottom" />
+            <TextBox Grid.Row="2" Grid.Column="2" x:Name="Sigma" VerticalAlignment="Bottom" Text="1"/>
             
             <TextBlock Grid.Row="3" Grid.Column="0" Margin="3 10 0 3" Text="Введите P:" />
             <TextBox x:Name="PValue" Grid.Column="1" Grid.Row="3" Height="20" VerticalAlignment="Top"
