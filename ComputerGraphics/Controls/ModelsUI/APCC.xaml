@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:WpfMath.Controls;assembly=WpfMath"
              mc:Ignorable="d"
+             Height="300" Width="500"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid>
