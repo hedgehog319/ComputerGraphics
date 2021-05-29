@@ -21,7 +21,9 @@ namespace ComputerGraphics.Controls.ModelsUI
         {
             var a = Convert.ToDouble(Parameter.Text, CultureInfo.InvariantCulture);
             var list = new List<double>();
-            for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++) list.Add(Math.Pow(a, i));
+
+            for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
+                list.Add(Math.Pow(a, i * WindowController.ChartModels.DeltaTime));
 
             return list;
         }

@@ -28,7 +28,10 @@ namespace ComputerGraphics.Controls.ModelsUI
 
             var list = new List<double>();
             for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
-                list.Add(a * Math.Exp(-i / r) * Math.Cos(2 * Math.PI * i * f + fi));
+            {
+                var t = i * WindowController.ChartModels.DeltaTime;
+                list.Add(a * Math.Exp(-t / r) * Math.Cos(2 * Math.PI * t * f + fi));
+            }
 
             return list;
         }
