@@ -152,6 +152,9 @@
         <Compile Include="Windows\SimulatorModel.cs">
           <DependentUpon>Simulator.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Windows\Statistics.xaml.cs">
+          <DependentUpon>Statistics.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Windows\WindowController.cs" />
     </ItemGroup>
     <ItemGroup>
@@ -200,6 +203,7 @@
         <Page Include="Windows\OscillogramViewer.xaml" />
         <Page Include="Windows\SaveWindow.xaml" />
         <Page Include="Windows\Simulator.xaml" />
+        <Page Include="Windows\Statistics.xaml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
