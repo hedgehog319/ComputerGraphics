@@ -37,5 +37,11 @@ namespace ComputerGraphics.Windows
         {
             WindowController.CreateNewSignal();
         }
+
+        private void Statistic_OnClick(object sender, RoutedEventArgs e)
+        {
+            WindowController.ShowStatistics();
+
+        }
     }
 }
