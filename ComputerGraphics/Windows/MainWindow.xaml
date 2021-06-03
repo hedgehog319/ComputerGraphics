@@ -11,6 +11,7 @@
             <MenuItem Header="Файл">
                 <MenuItem Header="Новый сигнал" Click="NewSignal_OnClick" />
                 <MenuItem Header="Открыть" Click="Open_OnClick" />
+                <MenuItem Header="Сохранить" Click="Save_OnClick" />
             </MenuItem>
             <MenuItem Header="Информация о сигнале" Click="Information_OnClick" />
             <MenuItem Header="Инструменты">

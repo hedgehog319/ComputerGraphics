@@ -6,9 +6,6 @@ using System.Windows;
 
 namespace ComputerGraphics.Windows
 {
-    /// <summary>
-    ///     Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow
     {
         public MainWindow()
@@ -36,6 +33,11 @@ namespace ComputerGraphics.Windows
         private void NewSignal_OnClick(object sender, RoutedEventArgs e)
         {
             WindowController.CreateNewSignal();
+        }
+
+        private void Save_OnClick(object sender, RoutedEventArgs e)
+        {
+            WindowController.SaveSignal();
         }
 
         private void Statistic_OnClick(object sender, RoutedEventArgs e)

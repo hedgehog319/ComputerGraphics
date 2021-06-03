@@ -5,41 +5,51 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:WpfMath.Controls;assembly=WpfMath"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             Height="300" Width="500">
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70" />
                 <ColumnDefinition Width='*' />
-                <ColumnDefinition Width='*' />
-                <ColumnDefinition Width='*' />
+                <ColumnDefinition Width="70" />
                 <ColumnDefinition Width='*' />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
+                <RowDefinition Height="1" />
                 <RowDefinition Height="70" />
+                <RowDefinition Height="35" />
                 <RowDefinition Height="35" />
                 <RowDefinition Height='*' />
             </Grid.RowDefinitions>
 
 
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="АРСС" FontSize="20" HorizontalAlignment="Center" />
             <controls:FormulaControl Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0"
                                      Scale="15"
+                                     HorizontalAlignment="Center"
                                      Formula="
                                         y(n) = x(n) + \sum_{i=1}^Q b_i x(n - i) - \sum_{i=1}^P a_i y(n - i) \\
                                         x(n) \sim N(0, \sigma^2)" />
-            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0 10 0 3" Text="Введите P:" />
-            <TextBox x:Name="TextMiddle" Grid.Column="1" Grid.Row="2" Height="20" VerticalAlignment="Top"
-                     Text="0" Margin="0 10 5 3" />
+            
+            <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                       Margin="3" Text="Введите дисперсию(сигма):" />
+            <TextBox Grid.Row="2" Grid.Column="2" x:Name="Sigma" VerticalAlignment="Bottom" Text="1"/>
+            
+            <TextBlock Grid.Row="3" Grid.Column="0" Margin="3 10 0 3" Text="Введите P:" />
+            <TextBox x:Name="PValue" Grid.Column="1" Grid.Row="3" Height="20" VerticalAlignment="Top"
+                     Margin="0 10 3 3" />
+            <TextBlock Grid.Row="4" Grid.Column="0" Margin="3" Text="Введите А:"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Margin="3 15 0 0" Text="(через пробел)" FontSize="9" FontStyle="Italic"/>
+            <TextBox Grid.Column="1" Grid.Row="4" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"
+                     x:Name="ANumbers" Margin="0 0 3 10"/>
 
-            <TextBlock Grid.Row="2" Grid.Column="2" Margin="5 10 0 3" Text="Введите Q:" />
-            <TextBox x:Name="TestSigma" Grid.Column="3" Grid.Row="2" Height="20"
-                     Text="0" Margin="0 10 0 3" />
-
-            <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"
-                     x:Name="NumbersA" />
-            <TextBox Grid.Column="3" Grid.Row="3" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"
-                     x:Name="NumbersB" />
+            
+            <TextBlock Grid.Row="3" Grid.Column="2" Margin="5 10 0 3" Text="Введите Q:" />
+            <TextBox x:Name="QValue" Grid.Column="3" Grid.Row="3" Height="20"
+                     Margin="0 10 5 3" />
+            <TextBlock Grid.Row="4" Grid.Column="2" Margin="5 3 0 0" Text="Введите B:"/>
+            <TextBlock Grid.Row="4" Grid.Column="2" Margin="5 15 0 0" Text="(через пробел)" FontSize="9" FontStyle="Italic"/>
+            <TextBox Grid.Row="4" Grid.Column="3"  TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"
+                     x:Name="BNumbers" Margin="0 0 5 10" />
         </Grid>
     </Grid>
 </UserControl>

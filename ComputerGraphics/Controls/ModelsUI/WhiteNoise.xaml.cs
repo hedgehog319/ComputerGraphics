@@ -19,8 +19,8 @@ namespace ComputerGraphics.Controls.ModelsUI
 
         public List<double> Simulation()
         {
-            if (!double.TryParse(TextA.Text, out var numberA) || numberA < 0 ||
-                !double.TryParse(TextB.Text, out var numberB) || numberB < 0)
+            if (!double.TryParse(TextA.Text, out var numberA) ||
+                !double.TryParse(TextB.Text, out var numberB))
                 return null;
 
             var rand = new Random();

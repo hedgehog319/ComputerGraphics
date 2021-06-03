@@ -1,5 +1,6 @@
 ﻿#region
 
+using System.Linq;
 using System.Windows;
 using ComputerGraphics.Charts;
 
@@ -18,6 +19,8 @@ namespace ComputerGraphics.Windows
 
         public void AddOscillogram(int modelId)
         {
+            if (Bar.Children.Cast<PreviewChart>().Any(chart => chart.GetModel.Id == modelId)) return;
+
             Bar.Children.Add(new PreviewChart(WindowController.ChartModels[modelId])
                 {Height = 80});
         }

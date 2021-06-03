@@ -19,9 +19,13 @@ namespace ComputerGraphics.Charts
 
         private void Oscillogram_OnClick(object sender, RoutedEventArgs e)
         {
-            if (!(DataContext is BaseModel model)) throw new ArgumentException("Model is null");
+            if (DataContext is not BaseModel model) throw new ArgumentException("Model is null");
 
             WindowController.AddOscillogram(model.Id);
         }
+        
+        public BaseModel GetModel => DataContext as BaseModel;
+
+        public void Dispose() => GetModel?.Values.Dispose();
     }
 }

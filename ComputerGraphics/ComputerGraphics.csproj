@@ -143,6 +143,9 @@
         <Compile Include="Windows\OscillogramViewer.xaml.cs">
           <DependentUpon>OscillogramViewer.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Windows\SaveWindow.xaml.cs">
+          <DependentUpon>SaveWindow.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Windows\Simulator.xaml.cs">
           <DependentUpon>Simulator.xaml</DependentUpon>
         </Compile>
@@ -195,6 +198,7 @@
         <Page Include="Windows\NavBar.xaml" />
         <Page Include="Windows\NewSignalCreator.xaml" />
         <Page Include="Windows\OscillogramViewer.xaml" />
+        <Page Include="Windows\SaveWindow.xaml" />
         <Page Include="Windows\Simulator.xaml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,83 @@
+﻿<Window x:Class="ComputerGraphics.Windows.SaveWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:ComputerGraphics.Controls"
+        Title="SaveWindow" Height="400" Width="300" Background="#FAFBFF"
+        ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+
+        <controls:UpBar Grid.Row="0" Title="Сохранение" Background="#B1CAFF" />
+
+        <ListBox Grid.Row="1" x:Name="ChannelsList" SelectionMode="Multiple" Margin="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl Content="{Binding ChannelName}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+
+            <CheckBox x:Name="All" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                      HorizontalAlignment="Center" Content="Весь сигнал"
+                      Checked="All_OnChecked" Unchecked="All_OnUnchecked" />
+
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="От:" Margin="2" />
+            <TextBox Grid.Column="0" Grid.Row="1" Text="0" Margin="20, 2, 5, 2"
+                     x:Name="FromBox" />
+
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="До:" Margin="2" />
+            <TextBox Grid.Column="1" Grid.Row="1" Text="100" Margin="20, 2, 5, 2"
+                     x:Name="ToBox" />
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="2" />
+                    <Setter Property="Background" Value="#FAFBFF" />
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#7178FF" />
+                            <Setter Property="Foreground" Value="#FFF" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Ok" Margin="2" Click="Ok_OnClick" />
+            <Button Grid.Column="1" Content="Cancel" Margin="2" Click="Cancel_OnClick" />
+        </Grid>
+    </Grid>
+</Window>
