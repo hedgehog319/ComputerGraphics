@@ -10,8 +10,9 @@ using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class Pila : UserControl, ISimulated
+    public partial class Pila : UserControl, ISimulated, INamed
     {
+        private static int _id = 0;
         public Pila()
         {
             InitializeComponent();
@@ -25,7 +26,10 @@ namespace ComputerGraphics.Controls.ModelsUI
             var list = new List<double>();
             for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++) list.Add(i % l / l);
 
+            _id++;
             return list;
         }
+        
+        public string GetName() => $"Пила {_id}";
     }
 }

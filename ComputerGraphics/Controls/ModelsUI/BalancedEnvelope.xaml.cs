@@ -10,8 +10,9 @@ using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class BalancedEnvelope : UserControl, ISimulated
+    public partial class BalancedEnvelope : UserControl, ISimulated, INamed
     {
+        private static int _id = 0;
         public BalancedEnvelope()
         {
             InitializeComponent();
@@ -28,7 +29,10 @@ namespace ComputerGraphics.Controls.ModelsUI
             for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
                 list.Add(a * Math.Cos(2 * Math.PI * f0 * i) * Math.Cos(2 * Math.PI * fn * i + fi));
 
+            _id++;
             return list;
         }
+        
+        public string GetName() => $"Балансирующая огибающая {_id}";
     }
 }

@@ -10,8 +10,9 @@ using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class WhiteNoise : UserControl, ISimulated
+    public partial class WhiteNoise : UserControl, ISimulated, INamed
     {
+        private static int _id = 0;
         public WhiteNoise()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace ComputerGraphics.Controls.ModelsUI
             for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
                 values.Add(numberA + (numberB - numberA) * rand.NextDouble());
 
+            _id++;
             return values;
         }
 
@@ -35,5 +37,7 @@ namespace ComputerGraphics.Controls.ModelsUI
         {
             if (sender is not TextBox textBox) return;
         }
+
+        public string GetName() => $"Белый шум {_id}";
     }
 }

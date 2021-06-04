@@ -10,8 +10,9 @@ using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class Sinusoid : UserControl, ISimulated
+    public partial class Sinusoid : UserControl, ISimulated, INamed
     {
+        private static int _id = 0;
         public Sinusoid()
         {
             InitializeComponent();
@@ -30,7 +31,10 @@ namespace ComputerGraphics.Controls.ModelsUI
                 list.Add(a * Math.Sin(t * om + fi));
             }
 
+            _id++;
             return list;
         }
+        
+        public string GetName() => $"Синусоида {_id}";
     }
 }

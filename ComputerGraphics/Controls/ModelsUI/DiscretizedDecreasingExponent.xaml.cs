@@ -10,8 +10,9 @@ using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class DiscretizedDecreasingExponent : UserControl, ISimulated
+    public partial class DiscretizedDecreasingExponent : UserControl, ISimulated, INamed
     {
+        private static int _id = 0;
         public DiscretizedDecreasingExponent()
         {
             InitializeComponent();
@@ -25,7 +26,10 @@ namespace ComputerGraphics.Controls.ModelsUI
             for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
                 list.Add(Math.Pow(a, i * WindowController.ChartModels.DeltaTime));
 
+            _id++;
             return list;
         }
+        
+        public string GetName() => $"Убывающая экспонента {_id}";
     }
 }

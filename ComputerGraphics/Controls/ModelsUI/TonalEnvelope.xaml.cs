@@ -10,8 +10,9 @@ using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class TonalEnvelope : UserControl, ISimulated
+    public partial class TonalEnvelope : UserControl, ISimulated, INamed
     {
+        private static int _id = 0;
         public TonalEnvelope()
         {
             InitializeComponent();
@@ -32,7 +33,10 @@ namespace ComputerGraphics.Controls.ModelsUI
                 list.Add(a * (1 + m * Math.Cos(2 * Math.PI * fo * t)) * Math.Cos(2 * Math.PI * fn * t + fi));
             }
 
+            _id++;
             return list;
         }
+        
+        public string GetName() => $"Тональная Огибающая {_id}";
     }
 }

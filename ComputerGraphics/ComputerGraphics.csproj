@@ -101,6 +101,7 @@
         <Compile Include="Controls\ModelsUI\ExponentialEnvelope.xaml.cs">
           <DependentUpon>ExponentialEnvelope.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Controls\ModelsUI\INamed.cs" />
         <Compile Include="Controls\ModelsUI\ISimulated.cs" />
         <Compile Include="Controls\ModelsUI\LChM.xaml.cs">
           <DependentUpon>LChM.xaml</DependentUpon>
@@ -116,6 +117,9 @@
         </Compile>
         <Compile Include="Controls\ModelsUI\Sinusoid.xaml.cs">
           <DependentUpon>Sinusoid.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Controls\ModelsUI\Superposition.xaml.cs">
+          <DependentUpon>Superposition.xaml</DependentUpon>
         </Compile>
         <Compile Include="Controls\ModelsUI\TonalEnvelope.xaml.cs">
           <DependentUpon>TonalEnvelope.xaml</DependentUpon>
@@ -187,6 +191,7 @@
         <Page Include="Controls\ModelsUI\NormalWhiteNoise.xaml" />
         <Page Include="Controls\ModelsUI\Pila.xaml" />
         <Page Include="Controls\ModelsUI\Sinusoid.xaml" />
+        <Page Include="Controls\ModelsUI\Superposition.xaml" />
         <Page Include="Controls\ModelsUI\TonalEnvelope.xaml" />
         <Page Include="Controls\ModelsUI\WhiteNoise.xaml" />
         <Page Include="Controls\UpBar.xaml" />

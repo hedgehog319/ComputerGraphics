@@ -9,8 +9,9 @@ using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class DelayedPulse : UserControl, ISimulated
+    public partial class DelayedPulse : UserControl, ISimulated, INamed
     {
+        private static int _id = 0;
         public DelayedPulse()
         {
             InitializeComponent();
@@ -23,7 +24,10 @@ namespace ComputerGraphics.Controls.ModelsUI
             var list = new List<double>();
             for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++) list.Add(i < n0 ? 0 : 1);
 
+            _id++;
             return list;
         }
+        
+        public string GetName() => $"Ед. скачок {_id}";
     }
 }

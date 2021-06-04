@@ -9,9 +9,10 @@ using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class NormalWhiteNoise : UserControl, ISimulated
+    public partial class NormalWhiteNoise : UserControl, ISimulated, INamed
     {
         private readonly Random _rand = new Random();
+        private static int _id = 0;
 
         public NormalWhiteNoise()
         {
@@ -28,6 +29,7 @@ namespace ComputerGraphics.Controls.ModelsUI
             for (var i = 0; i < WindowController.ChartModels.SamplesNumber; i++)
                 values.Add(middle + Math.Sqrt(sigma) * NormalRandomValue());
 
+            _id++;
             return values;
         }
 
@@ -39,5 +41,7 @@ namespace ComputerGraphics.Controls.ModelsUI
 
             return x - 6;
         }
+        
+        public string GetName() => $"Белый Шум по нормальному закону {_id}";
     }
 }

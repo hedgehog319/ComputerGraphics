@@ -10,8 +10,9 @@ using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class LChM : UserControl, ISimulated
+    public partial class LChM : UserControl, ISimulated, INamed
     {
+        private static int _id = 0;
         public LChM()
         {
             InitializeComponent();
@@ -33,7 +34,10 @@ namespace ComputerGraphics.Controls.ModelsUI
                 list.Add(a * Math.Cos(2 * Math.PI * (f0 + deltaF * t) * t + fi));
             }
 
+            _id++;
             return list;
         }
+        
+        public string GetName() => $"Сигнал с л.ч. модуляцией {_id}";
     }
 }

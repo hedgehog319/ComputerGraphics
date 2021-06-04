@@ -14,32 +14,20 @@ namespace ComputerGraphics.Windows
     {
         public enum Simulations
         {
-            [Description("Задержанный единичный импульс")]
-            Zero = 0,
-
-            [Description("Задержанный единичный скачок ")]
-            One = 1,
-
-            [Description("Дискретизированная убывающая экспонента")]
-            Two = 2,
+            [Description("Задержанный единичный импульс")] Zero = 0,
+            [Description("Задержанный единичный скачок")] One = 1,
+            [Description("Дискретизированная убывающая экспонента")] Two = 2,
             [Description("Синусоида")] Tree = 3,
             [Description("Меандр")] Four = 4,
             [Description("Пила")] Five = 5,
-
-            [Description("Экпоненциальная огибающая")]
-            Six = 6,
-
-            [Description("Балансирующая огибающая")]
-            Seven = 7,
+            [Description("Экпоненциальная огибающая")] Six = 6,
+            [Description("Балансирующая огибающая")] Seven = 7,
             [Description("Тональная Огибающая")] Eight = 8,
-
-            [Description("Сигнал с линейной частотной модуляцией ")]
-            Nine = 9,
+            [Description("Сигнал с линейной частотной модуляцией")] Nine = 9,
             [Description("Белый Шум")] Ten = 10,
-
-            [Description("Белый Шум по нормальному закону")]
-            Eleven = 11,
-            [Description("АРСС")] Twelve = 12
+            [Description("Белый Шум по нормальному закону")] Eleven = 11,
+            [Description("АРСС")] Twelve = 12,
+            [Description("Суперпозиция")] Thirteen = 13,
         }
 
         private object _view;
@@ -78,6 +66,7 @@ namespace ComputerGraphics.Windows
                 Simulations.Ten => new WhiteNoise(),
                 Simulations.Eleven => new NormalWhiteNoise(),
                 Simulations.Twelve => new APCC(),
+                Simulations.Thirteen => new Superposition(),
                 _ => throw new ArgumentOutOfRangeException(nameof(model), model, null)
             };
 

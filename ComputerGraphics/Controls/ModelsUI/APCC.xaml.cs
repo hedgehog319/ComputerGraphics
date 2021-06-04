@@ -10,9 +10,10 @@ using ComputerGraphics.Windows;
 
 namespace ComputerGraphics.Controls.ModelsUI
 {
-    public partial class APCC : UserControl, ISimulated
+    public partial class APCC : UserControl, ISimulated, INamed
     {
         private readonly Random _rand = new Random();
+        private static int _id = 0;
 
         public APCC()
         {
@@ -39,9 +40,10 @@ namespace ComputerGraphics.Controls.ModelsUI
                     yValues.Add(xValues[i] + Sum(ref bValues, xValues) - Sum(ref aValues, yValues));
                 }
 
+                _id++;
                 return yValues;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -63,5 +65,7 @@ namespace ComputerGraphics.Controls.ModelsUI
 
             return ans;
         }
+        
+        public string GetName() => $"АРСС {_id}";
     }
 }
