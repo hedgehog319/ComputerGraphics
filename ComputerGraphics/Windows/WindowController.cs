@@ -153,5 +153,10 @@ namespace ComputerGraphics.Windows
                 }
             }
         }
+
+        public static void ShowStatistics()
+        {
+            new Statistics().Show();
+        }
     }
 }
