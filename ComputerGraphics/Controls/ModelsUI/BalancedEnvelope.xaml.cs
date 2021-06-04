@@ -33,6 +33,6 @@ namespace ComputerGraphics.Controls.ModelsUI
             return list;
         }
         
-        public string GetName() => $"Балансирующая огибающая {_id}";
+        public string GetName() => $"Б. огибающая {_id}";
     }
 }
