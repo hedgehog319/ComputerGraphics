@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using ComputerGraphics.Charts;
@@ -148,7 +149,8 @@ namespace ComputerGraphics.Windows
                 for (var i = saveWindow.From; i < saveWindow.To; i++)
                 {
                     var vals = saveWindow.Channels.Aggregate(string.Empty,
-                        (current, channel) => current + $"{ChartModels[channel][i]} ");
+                        (current, channel) =>
+                            current + $"{ChartModels[channel][i]} ");
                     writer.WriteLine(vals);
                 }
             }
