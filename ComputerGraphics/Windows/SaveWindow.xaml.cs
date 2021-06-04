@@ -39,7 +39,7 @@ namespace ComputerGraphics.Windows
             if (AllSignal.IsChecked == true)
             {
                 From = 0;
-                To = WindowController.ChartModels.ChannelsNumber;
+                To = WindowController.ChartModels.SamplesNumber;
             }
             else
             {

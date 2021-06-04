@@ -60,7 +60,7 @@ namespace ComputerGraphics.Windows
 
         public static bool ReadFile()
         {
-            var dialog = new OpenFileDialog {Filter = "Text files | *.txt | All files | *.*"};
+            var dialog = new OpenFileDialog {Filter = "Text files|*.txt|All files|*.*"};
             if (dialog.ShowDialog() != true) return false;
 
             ChartModels = ChannelReader.ReadTxt(dialog.FileName);
@@ -115,7 +115,7 @@ namespace ComputerGraphics.Windows
 
             if (saveWindow.ShowDialog() != true) return;
 
-            var dialog = new SaveFileDialog {Filter = "Text files | *.txt | All files | *.*"};
+            var dialog = new SaveFileDialog {Filter = "Text files|*.txt|All files|*.*"};
             if (dialog.ShowDialog() != true) return;
 
             var name = dialog.FileName;
