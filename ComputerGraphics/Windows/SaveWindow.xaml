@@ -33,8 +33,12 @@
                 <RowDefinition Height="25" />
             </Grid.RowDefinitions>
 
-            <CheckBox x:Name="All" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+            <CheckBox x:Name="AllSignal" Grid.Row="0" Grid.Column="0"
                       HorizontalAlignment="Center" Content="Весь сигнал"
+                      Checked="All_OnChecked" Unchecked="All_OnUnchecked" />
+            
+            <CheckBox x:Name="AllSignals" Grid.Row="0" Grid.Column="1"
+                      HorizontalAlignment="Center" Content="Все сигналы"
                       Checked="All_OnChecked" Unchecked="All_OnUnchecked" />
 
             <TextBlock Grid.Column="0" Grid.Row="1" Text="От:" Margin="2" />

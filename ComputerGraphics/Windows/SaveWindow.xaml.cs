@@ -24,10 +24,22 @@ namespace ComputerGraphics.Windows
 
         private void Ok_OnClick(object sender, RoutedEventArgs e)
         {
-            if (All.IsChecked == true)
+            if (ChannelsList.SelectedItems.Count == 0 && AllSignals.IsChecked != true)
+            {
+                var res = MessageBox.Show("Вы не выбрали ни одного сигнала. Хртите закрыть окно?",
+                    "Внимание!", MessageBoxButton.YesNo);
+
+                if (res != MessageBoxResult.Yes) return;
+
+                DialogResult = false;
+                Close();
+                return;
+            }
+
+            if (AllSignal.IsChecked == true)
             {
                 From = 0;
-                To = WindowController.ChartModels.ChannelsNumber;
+                To = WindowController.ChartModels.SamplesNumber;
             }
             else
             {
@@ -35,10 +47,18 @@ namespace ComputerGraphics.Windows
                 To = Convert.ToInt32(ToBox.Text);
             }
 
-            foreach (OscillogramModel item in ChannelsList.SelectedItems)
+            if (AllSignals.IsChecked != true)
+                foreach (OscillogramModel item in ChannelsList.SelectedItems)
+                {
+                    Channels.Add(item.Id);
+                    ChannelsNumber++;
+                }
+            else
             {
-                Channels.Add(item.Id);
-                ChannelsNumber++;
+                for (var i = 0; i < WindowController.ChartModels.ChannelsNumber; i++)
+                    Channels.Add(i);
+
+                ChannelsNumber = WindowController.ChartModels.ChannelsNumber;
             }
 
             DialogResult = true;

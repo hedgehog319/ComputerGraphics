@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Globalization;
 using System.Windows;
 
 #endregion
@@ -15,12 +16,12 @@ namespace ComputerGraphics.Windows
         }
 
         public int SamplesNumber { get; private set; }
-        public int SamplingRate { get; private set; }
+        public double SamplingRate { get; private set; }
 
         private void Ok_OnClick(object sender, RoutedEventArgs e)
         {
             SamplesNumber = Convert.ToInt32(SamplesBox.Text);
-            SamplingRate = Convert.ToInt32(SamplingBox.Text);
+            SamplingRate = Convert.ToDouble(SamplingBox.Text, CultureInfo.InvariantCulture);
 
             DialogResult = true;
             Close();
