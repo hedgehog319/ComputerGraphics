@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:ComputerGraphics.Controls"
         WindowStyle="None" ResizeMode="NoResize"
-        Height="391" MaxHeight="391" Width="500">
+        Height="500" MaxHeight="500" Width="500">
 
     <!-- TODO Height-->
 
@@ -13,10 +13,15 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <controls:UpBar Grid.Row="0"  Background="#B1CAFF" Title ="Информация о сигнале"/>
+        <controls:UpBar Grid.Row="0" Background="#B1CAFF" Title="Статистика сигнала" />
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
@@ -24,7 +29,6 @@
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
                 <RowDefinition Height="20" />
-                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -38,83 +42,56 @@
                 </Style>
             </Grid.Resources>
 
-            <ComboBox x:Name="box"></ComboBox>
+            <ComboBox Grid.ColumnSpan="2" x:Name="box" SelectionChanged="Box_OnSelectionChanged" />
             <TextBlock Grid.Row="1" Grid.Column="0" FontSize="13" Height="20"
-                       Text="Общее число каналов -" />
+                       Text="Среднее -" />
 
-            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="ChannelNumber" FontSize="13" Height="20" />
+            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="Average" FontSize="13" Height="20" />
 
             <TextBlock Grid.Row="2" Grid.Column="0" FontSize="13" Height="20"
-                       Text="Количество отсчётов в канале -" />
+                       Text="Диспресия -" />
 
-            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="SamplesNumber" FontSize="13" Height="20" />
+            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="Dispersion" FontSize="13" Height="20" />
 
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="Частота дискретизации -" FontSize="13" Height="20" />
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Среднеквадратичное отклонение -" FontSize="13" Height="20" />
 
-            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="SamplingRate" FontSize="13" Height="20" />
+            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="StandardDeviation" FontSize="13" Height="20" />
 
-            <TextBlock Grid.Row="4" Grid.Column="0" Text="Дата и время начала записи -" FontSize="13" Height="20" />
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Коэффициент вариации -" FontSize="13" Height="20" />
 
-            <TextBlock Grid.Row="4" Grid.Column="1" x:Name="StartTime" FontSize="13" Height="20" />
+            <TextBlock Grid.Row="4" Grid.Column="1" x:Name="CoefficientVariation" FontSize="13" Height="20" />
 
-            <TextBlock Grid.Row="5" Grid.Column="0" Text="Дата и время окончания записи -" FontSize="13" Height="20" />
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Коэффициент асимметрии -" FontSize="13" Height="20" />
 
-            <TextBlock Grid.Row="5" Grid.Column="1" x:Name="EndTime" FontSize="13" Height="20" />
+            <TextBlock Grid.Row="5" Grid.Column="1" x:Name="SkewnessCoefficient" FontSize="13" Height="20" />
 
-            <TextBlock Grid.Row="6" Grid.Column="0" Text="Длительность -" FontSize="13" Height="20" />
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Коэффициент эксцесса -" FontSize="13" Height="20" />
 
-            <TextBlock Grid.Row="6" Grid.Column="1" x:Name="Duration" FontSize="13" Height="20" />
+            <TextBlock Grid.Row="6" Grid.Column="1" x:Name="KurtosisCoefficient" FontSize="13" Height="20" />
 
-            <TextBlock Grid.Row="7" Grid.Column="0" Text="Информация о каналах" FontSize="14" FontWeight="Medium"
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="Минимальное значение сигнала -" FontSize="13" Height="20" />
+
+            <TextBlock Grid.Row="7" Grid.Column="1" x:Name="MinimumSignalValue" FontSize="13" Height="20" />
+
+            <TextBlock Grid.Row="8" Grid.Column="0" Text="Максимальное значение сигнала -" FontSize="13" Height="20" />
+
+            <TextBlock Grid.Row="8" Grid.Column="1" x:Name="MaximumSignalValue" FontSize="13" Height="20" />
+
+            <TextBlock Grid.Row="9" Grid.Column="0" Text="Квантиль порядка 0.05 -" FontSize="13" Height="20" />
+
+            <TextBlock Grid.Row="9" Grid.Column="1" x:Name="Quantile05" FontSize="13" Height="20" />
+
+            <TextBlock Grid.Row="10" Grid.Column="0" Text="Квантиль порядка 0.95 -" FontSize="13" Height="20" />
+
+            <TextBlock Grid.Row="10" Grid.Column="1" x:Name="Quantile95" FontSize="13" Height="20" />
+
+            <TextBlock Grid.Row="11" Grid.Column="0" Text="Медиана -" FontSize="13" Height="20" />
+
+            <TextBlock Grid.Row="11" Grid.Column="1" x:Name="Median" FontSize="13" Height="20" />
+
+            <TextBlock Grid.Row="12" Grid.ColumnSpan="2" Text="Гистограмма распределения значений сигнала"
+                       FontSize="14" FontWeight="Medium"
                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" />
-
-            <DataGrid Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"
-                      x:Name="Grid" Background="DarkGray"
-                      AutoGenerateColumns="False"
-                      VerticalGridLinesBrush="#E0E0E0" HorizontalGridLinesBrush="#E0E0E0"
-                      HorizontalScrollBarVisibility="Auto"
-                      VerticalAlignment="Top">
-
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="DataGridColumnHeader">
-                                    <Border Height="{TemplateBinding Height}"
-                                            Width="{TemplateBinding Width}"
-                                            Background="#F2F2F2" BorderThickness="1" BorderBrush="#E0E0E0">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-
-                        <Setter Property="Height" Value="22" />
-                    </Style>
-                </DataGrid.ColumnHeaderStyle>
-
-                <DataGrid.CellStyle>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type DataGridCell}">
-                                    <Grid Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
-                                    </Grid>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Property="Height" Value="22" />
-                        <Setter Property="Focusable" Value="False" />
-                    </Style>
-                </DataGrid.CellStyle>
-
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="N" Binding="{Binding Path=Id}" Width="25" />
-                    <DataGridTextColumn Header="Имя" Binding="{Binding Path=ChannelName}" Width="*" />
-                    <DataGridTextColumn Header="Источник" Binding="{Binding Path=Source}" Width="*" />
-                </DataGrid.Columns>
-            </DataGrid>
         </Grid>
     </Grid>
 </Window>
