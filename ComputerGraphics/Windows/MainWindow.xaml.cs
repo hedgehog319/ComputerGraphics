@@ -17,6 +17,7 @@ namespace ComputerGraphics.Windows
         {
             if (!WindowController.ReadFile()) return;
 
+            WindowController.CloseNavBar();
             WindowController.ShowNavBar();
         }
 

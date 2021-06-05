@@ -41,6 +41,11 @@ namespace ComputerGraphics.Windows
             _navBar.Show();
         }
 
+        public static void CloseNavBar()
+        {
+            _navBar?.Close();
+        }
+
         public static void ShowOscillogramViewer()
         {
             if (_oscillogramViewer != null) return;
@@ -150,7 +155,7 @@ namespace ComputerGraphics.Windows
                 {
                     var vals = saveWindow.Channels.Aggregate(string.Empty,
                         (current, channel) =>
-                            current + $"{ChartModels[channel][i]} ");
+                            current + $"{ChartModels[channel][i].ToString(CultureInfo.InvariantCulture)} ");
                     writer.WriteLine(vals);
                 }
             }
