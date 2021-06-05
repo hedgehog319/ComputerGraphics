@@ -24,11 +24,11 @@ namespace ComputerGraphics.Controls.ModelsUI
         {
             try
             {
-                double sigma = Double.Parse(Sigma.Text);
-                int p = Int32.Parse(PValue.Text);
-                int q = Int32.Parse(QValue.Text);
-                var aValues = Array.ConvertAll(ANumbers.Text.Split(' '), Double.Parse);
-                var bValues = Array.ConvertAll(BNumbers.Text.Split(' '), Double.Parse);
+                double sigma = double.Parse(Sigma.Text);
+                int p = int.Parse(PValue.Text);
+                int q = int.Parse(QValue.Text);
+                var aValues = Array.ConvertAll(ANumbers.Text.Replace('.', ',').Split(' '), double.Parse);
+                var bValues = Array.ConvertAll(BNumbers.Text.Replace('.', ',').Split(' '), double.Parse);
                 if (p != aValues.Length || q != bValues.Length)
                     throw new Exception();
 
