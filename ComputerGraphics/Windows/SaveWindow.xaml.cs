@@ -71,16 +71,28 @@ namespace ComputerGraphics.Windows
             Close();
         }
 
-        private void All_OnChecked(object sender, RoutedEventArgs e)
+        private void AllSignal_OnChecked(object sender, RoutedEventArgs e)
         {
             FromBox.IsEnabled = false;
             ToBox.IsEnabled = false;
         }
 
-        private void All_OnUnchecked(object sender, RoutedEventArgs e)
+        private void AllSignal_OnUnchecked(object sender, RoutedEventArgs e)
         {
             FromBox.IsEnabled = true;
             ToBox.IsEnabled = true;
+        }
+        
+        private void AllSignals_OnChecked(object sender, RoutedEventArgs e)
+        {
+            ChannelsList.IsEnabled = false;
+            ChannelsList.SelectAll();
+        }
+
+        private void AllSignals_OnUnchecked(object sender, RoutedEventArgs e)
+        {
+            ChannelsList.IsEnabled = true;
+            ChannelsList.UnselectAll();
         }
     }
 }

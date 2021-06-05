@@ -35,11 +35,11 @@
 
             <CheckBox x:Name="AllSignal" Grid.Row="0" Grid.Column="0"
                       HorizontalAlignment="Center" Content="Весь сигнал"
-                      Checked="All_OnChecked" Unchecked="All_OnUnchecked" />
+                      Checked="AllSignal_OnChecked" Unchecked="AllSignal_OnUnchecked" />
             
             <CheckBox x:Name="AllSignals" Grid.Row="0" Grid.Column="1"
                       HorizontalAlignment="Center" Content="Все сигналы"
-                      Checked="All_OnChecked" Unchecked="All_OnUnchecked" />
+                      Checked="AllSignals_OnChecked" Unchecked="AllSignals_OnUnchecked" />
 
             <TextBlock Grid.Column="0" Grid.Row="1" Text="От:" Margin="2" />
             <TextBox Grid.Column="0" Grid.Row="1" Text="0" Margin="20, 2, 5, 2"
