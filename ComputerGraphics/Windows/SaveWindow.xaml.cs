@@ -20,6 +20,9 @@ namespace ComputerGraphics.Windows
 
             foreach (var model in WindowController.ChartModels)
                 ChannelsList.Items.Add(model);
+
+            FromBox.Text = Convert.ToInt32(WindowController.ChartModels.From).ToString();
+            ToBox.Text = Convert.ToInt32(WindowController.ChartModels.To).ToString();
         }
 
         private void Ok_OnClick(object sender, RoutedEventArgs e)
