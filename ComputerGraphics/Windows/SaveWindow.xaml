@@ -34,7 +34,7 @@
             </Grid.RowDefinitions>
 
             <CheckBox x:Name="AllSignal" Grid.Row="0" Grid.Column="0"
-                      HorizontalAlignment="Center" Content="Весь сигнал"
+                      HorizontalAlignment="Center" Content="Весь Интервал"
                       Checked="AllSignal_OnChecked" Unchecked="AllSignal_OnUnchecked" />
             
             <CheckBox x:Name="AllSignals" Grid.Row="0" Grid.Column="1"
