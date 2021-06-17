@@ -43,6 +43,8 @@
         <Menu Grid.Row="0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <MenuItem Header="Point" Click="Point_OnClick" />
             <MenuItem Header="Smoothness" Click="Smoothness_OnClick" />
+            <MenuItem Header="Интервал" Click="Zoom_OnClick" />
+            <MenuItem Header="Весь интервал" Click="All_OnClick" />
         </Menu>
 
         <TextBlock Grid.Row="1" x:Name="Start" HorizontalAlignment="Left" />

@@ -26,6 +26,7 @@ namespace ComputerGraphics.Windows
             Start.Text = _chartModels.StartTime.ToString(CultureInfo.InvariantCulture);
             Range.Text = _chartModels.Range.ToString();
             End.Text = _chartModels.EndTime.ToString(CultureInfo.InvariantCulture);
+            ChangeThumbSize(_chartModels.Range);
         }
 
         public void AddOscillogram(int modelId)
@@ -85,11 +86,9 @@ namespace ComputerGraphics.Windows
             if (sender is not ScrollBar scroll) return;
 
             var range = _chartModels.Range;
-            foreach (var model in _chartModels)
-            {
-                model.From = scroll.Value;
-                model.To = scroll.Value + range;
-            }
+
+            _chartModels.From = scroll.Value;
+            _chartModels.To = scroll.Value + range;
         }
 
         private void Scroll_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -97,16 +96,35 @@ namespace ComputerGraphics.Windows
             if (sender is not ScrollBar) return;
 
             var range = _chartModels.Range;
-            for (var i = 0; i < _chartModels.ChannelsNumber; i++)
-            {
-                _chartModels[i].From = e.NewValue;
-                _chartModels[i].To = e.NewValue + range;
-            }
+            _chartModels.From = e.NewValue;
+            _chartModels.To = e.NewValue + range;
         }
 
         public void RemoveModel(OscillogramChart chart)
         {
             Panel.Children.Remove(chart);
+        }
+
+        private void Zoom_OnClick(object sender, RoutedEventArgs e)
+        {
+            var zoom = new ZoomBox();
+
+            if (zoom.ShowDialog() != true) return;
+
+            _chartModels.From = zoom.From;
+            _chartModels.To = zoom.To;
+
+            Range.Text = _chartModels.Range.ToString();
+            ChangeThumbSize(_chartModels.Range);
+        }
+
+        private void All_OnClick(object sender, RoutedEventArgs e)
+        {
+            _chartModels.From = 0;
+            _chartModels.To = _chartModels.SamplesNumber;
+
+            Range.Text = _chartModels.Range.ToString();
+            ChangeThumbSize(_chartModels.Range);
         }
     }
 }
