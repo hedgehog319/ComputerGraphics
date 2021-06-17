@@ -103,5 +103,10 @@ namespace ComputerGraphics.Windows
                 _chartModels[i].To = e.NewValue + range;
             }
         }
+
+        public void RemoveModel(OscillogramChart chart)
+        {
+            Panel.Children.Remove(chart);
+        }
     }
 }

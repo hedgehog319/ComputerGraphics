@@ -9,11 +9,18 @@
         <local:OscillogramModel />
     </UserControl.DataContext>
 
+    <UserControl.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Удалить" Click="Delete_OnClick" />
+        </ContextMenu>
+    </UserControl.ContextMenu>
+    
     <Grid>
         <!-- <Border BorderBrush="Black" BorderThickness="1"> -->
         <lvc:CartesianChart DisableAnimations="True"
                             Hoverable="False"
-                            LegendLocation="Left">
+                            LegendLocation="Left"
+                            DataTooltip="{x:Null}">
 
             <lvc:CartesianChart.Series>
                 <geared:GLineSeries Title="{Binding ChannelName, Mode=OneWay}"

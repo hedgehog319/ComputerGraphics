@@ -165,5 +165,10 @@ namespace ComputerGraphics.Windows
         {
             new Statistics().Show();
         }
+
+        public static void RemoveFromViewer(OscillogramChart chart)
+        {
+            _oscillogramViewer.RemoveModel(chart);
+        }
     }
 }
