@@ -12,6 +12,8 @@ namespace ComputerGraphics.Charts
         public ChartModels(int channelsNumber, int samplesNumber, double samplingRate, DateTime startTime,
             IReadOnlyList<List<double>> values, IReadOnlyList<string> channelsNames, string fileName)
         {
+            BaseModel._absoluteId = 0; // TODO del me!
+
             ChannelsNumber = channelsNumber;
             SamplesNumber = samplesNumber;
             SamplingRate = samplingRate;
@@ -31,7 +33,7 @@ namespace ComputerGraphics.Charts
             Formatter = x => StartTime.ToString("yyyy"); // it's ok?
         }
 
-        public ChartModels(int samplesNumber, int samplingRate)
+        public ChartModels(int samplesNumber, double samplingRate)
         {
             BaseModel._absoluteId = 0; // TODO del me!
 

@@ -42,6 +42,6 @@ namespace ComputerGraphics.Controls.ModelsUI
             return x - 6;
         }
         
-        public string GetName() => $"Белый Шум по нормальному закону {_id}";
+        public string GetName() => $"Белый Шум по н.з. {_id}";
     }
 }

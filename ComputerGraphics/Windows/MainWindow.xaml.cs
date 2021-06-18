@@ -17,6 +17,7 @@ namespace ComputerGraphics.Windows
         {
             if (!WindowController.ReadFile()) return;
 
+            WindowController.CloseNavBar();
             WindowController.ShowNavBar();
         }
 
@@ -43,7 +44,11 @@ namespace ComputerGraphics.Windows
         private void Statistic_OnClick(object sender, RoutedEventArgs e)
         {
             WindowController.ShowStatistics();
+        }
 
+        private void Navigation_OnClick(object sender, RoutedEventArgs e)
+        {
+            WindowController.ShowNavBar();
         }
     }
 }

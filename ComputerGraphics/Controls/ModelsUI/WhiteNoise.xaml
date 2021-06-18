@@ -27,6 +27,6 @@
 
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="3" Text="Введите верхнюю границу" />
         <TextBox Grid.Row="2" Grid.Column="1" x:Name="TextB" Height="20" VerticalAlignment="Top" Margin="3"
-                 Text="5" PreviewTextInput="TextBoxBase_OnTextChanged" />
+                 Text="1" PreviewTextInput="TextBoxBase_OnTextChanged" />
     </Grid>
 </UserControl>

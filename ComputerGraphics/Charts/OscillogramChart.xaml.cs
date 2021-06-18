@@ -1,6 +1,8 @@
 ﻿#region
 
 using System;
+using System.Windows;
+using ComputerGraphics.Windows;
 
 #endregion
 
@@ -18,5 +20,10 @@ namespace ComputerGraphics.Charts
         public OscillogramModel GetModel => DataContext as OscillogramModel;
 
         public void Dispose() => GetModel?.Values.Dispose();
+
+        private void Delete_OnClick(object sender, RoutedEventArgs e)
+        {
+            WindowController.RemoveFromViewer(this);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using ComputerGraphics.Charts;
@@ -38,6 +39,11 @@ namespace ComputerGraphics.Windows
             _navBar = new NavBar {Owner = MainWindow};
             _navBar.Closed += (_, _) => _navBar = null;
             _navBar.Show();
+        }
+
+        public static void CloseNavBar()
+        {
+            _navBar?.Close();
         }
 
         public static void ShowOscillogramViewer()
@@ -148,7 +154,8 @@ namespace ComputerGraphics.Windows
                 for (var i = saveWindow.From; i < saveWindow.To; i++)
                 {
                     var vals = saveWindow.Channels.Aggregate(string.Empty,
-                        (current, channel) => current + $"{ChartModels[channel][i]} ");
+                        (current, channel) =>
+                            current + $"{ChartModels[channel][i].ToString(CultureInfo.InvariantCulture)} ");
                     writer.WriteLine(vals);
                 }
             }
@@ -157,6 +164,11 @@ namespace ComputerGraphics.Windows
         public static void ShowStatistics()
         {
             new Statistics().Show();
+        }
+
+        public static void RemoveFromViewer(OscillogramChart chart)
+        {
+            _oscillogramViewer.RemoveModel(chart);
         }
     }
 }
