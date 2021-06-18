@@ -160,6 +160,9 @@
           <DependentUpon>Statistics.xaml</DependentUpon>
         </Compile>
         <Compile Include="Windows\WindowController.cs" />
+        <Compile Include="Windows\ZoomBox.xaml.cs">
+          <DependentUpon>ZoomBox.xaml</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs">
