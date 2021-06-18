@@ -16,15 +16,15 @@
     <UserControl.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Осцилограмма" Click="Oscillogram_OnClick" />
-            <MenuItem Header="Спектр Фурье" IsEnabled="False" />
-            <MenuItem Header="Вейвлетограмма" IsEnabled="False" />
-            <MenuItem Header="Спектограмма" IsEnabled="False" />
-            <Separator />
-            <MenuItem Header="Скрыть" />
-            <MenuItem Header="Скрыть всё кроме этого" />
-            <MenuItem Header="Показать всё" />
-            <Separator />
-            <MenuItem Header="Фильтрация" />
+            <MenuItem Header="Спектр Фурье" Click="SF_OnClick" />
+            <!-- <MenuItem Header="Вейвлетограмма" IsEnabled="False" /> -->
+            <!-- <MenuItem Header="Спектограмма" IsEnabled="False" /> -->
+            <!-- <Separator /> -->
+            <!-- <MenuItem Header="Скрыть" /> -->
+            <!-- <MenuItem Header="Скрыть всё кроме этого" /> -->
+            <!-- <MenuItem Header="Показать всё" /> -->
+            <!-- <Separator /> -->
+            <!-- <MenuItem Header="Фильтрация" /> -->
         </ContextMenu>
     </UserControl.ContextMenu>
 
