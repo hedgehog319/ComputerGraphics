@@ -50,6 +50,7 @@
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
+        <Reference Include="System.Numerics" />
         <Reference Include="System.Xml" />
         <Reference Include="System.Xaml">
             <RequiredTargetFramework>4.0</RequiredTargetFramework>
@@ -130,6 +131,7 @@
         <Compile Include="Controls\UpBar.xaml.cs">
           <DependentUpon>UpBar.xaml</DependentUpon>
         </Compile>
+        <Compile Include="FFTW\FFTW.cs" />
         <Compile Include="Signal\ChannelReader.cs" />
         <Compile Include="Windows\InfoWindow.xaml.cs">
           <DependentUpon>InfoWindow.xaml</DependentUpon>
@@ -212,6 +214,7 @@
         <Page Include="Windows\SaveWindow.xaml" />
         <Page Include="Windows\Simulator.xaml" />
         <Page Include="Windows\Statistics.xaml" />
+        <Page Include="Windows\ZoomBox.xaml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
