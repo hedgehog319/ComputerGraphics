@@ -4,28 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:ComputerGraphics.Charts"
-             xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.DataContext>
         <local:OscillogramModel />
     </UserControl.DataContext>
-    
-    <Grid>
-        <!-- <Border BorderBrush="Black" BorderThickness="1"> -->
-        <wpf:CartesianChart DisableAnimations="True"
-                            Hoverable="False"
-                            LegendLocation="Left"
-                            DataTooltip="{x:Null}">
 
-            <wpf:CartesianChart.Series>
-                <geared:GColumnSeries Title="{Binding ChannelName, Mode=OneWay}"
-                                    Values="{Binding Values, Mode=OneTime}"
-                                    MaxColumnWidth="1"
-                                    Fill="Gray"/>
-            </wpf:CartesianChart.Series>
-        </wpf:CartesianChart>
-        <!-- </Border> -->
+    <Grid>
+        <lvc:CartesianChart Series="{Binding SeriesCollection}" />
     </Grid>
 </UserControl>

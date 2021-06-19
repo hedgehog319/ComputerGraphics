@@ -11,12 +11,15 @@ namespace ComputerGraphics.Controls.ModelsUI
 {
     public partial class DelayedPulse : UserControl, ISimulated, INamed
     {
-        private static int _id = 0;
+        private static int _id;
+
         public DelayedPulse()
         {
             InitializeComponent();
             Parameter.Text = Convert.ToInt32(WindowController.ChartModels.SamplesNumber * 0.3).ToString();
         }
+
+        public string GetName() => $"Ед. скачок {_id}";
 
         public List<double> Simulation()
         {
@@ -27,7 +30,5 @@ namespace ComputerGraphics.Controls.ModelsUI
             _id++;
             return list;
         }
-        
-        public string GetName() => $"Ед. скачок {_id}";
     }
 }

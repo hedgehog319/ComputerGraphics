@@ -12,11 +12,14 @@ namespace ComputerGraphics.Controls.ModelsUI
 {
     public partial class WhiteNoise : UserControl, ISimulated, INamed
     {
-        private static int _id = 0;
+        private static int _id;
+
         public WhiteNoise()
         {
             InitializeComponent();
         }
+
+        public string GetName() => $"Белый шум {_id}";
 
         public List<double> Simulation()
         {
@@ -37,7 +40,5 @@ namespace ComputerGraphics.Controls.ModelsUI
         {
             if (sender is not TextBox textBox) return;
         }
-
-        public string GetName() => $"Белый шум {_id}";
     }
 }

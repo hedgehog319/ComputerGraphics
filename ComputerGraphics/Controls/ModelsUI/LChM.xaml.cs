@@ -12,11 +12,14 @@ namespace ComputerGraphics.Controls.ModelsUI
 {
     public partial class LChM : UserControl, ISimulated, INamed
     {
-        private static int _id = 0;
+        private static int _id;
+
         public LChM()
         {
             InitializeComponent();
         }
+
+        public string GetName() => $"Сигнал с л.ч. модуляцией {_id}";
 
         public List<double> Simulation()
         {
@@ -37,7 +40,5 @@ namespace ComputerGraphics.Controls.ModelsUI
             _id++;
             return list;
         }
-        
-        public string GetName() => $"Сигнал с л.ч. модуляцией {_id}";
     }
 }

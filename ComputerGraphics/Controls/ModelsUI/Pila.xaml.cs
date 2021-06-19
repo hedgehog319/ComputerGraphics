@@ -12,12 +12,15 @@ namespace ComputerGraphics.Controls.ModelsUI
 {
     public partial class Pila : UserControl, ISimulated, INamed
     {
-        private static int _id = 0;
+        private static int _id;
+
         public Pila()
         {
             InitializeComponent();
             Parameter.Text = Convert.ToInt32(WindowController.ChartModels.SamplesNumber / 8).ToString();
         }
+
+        public string GetName() => $"Пила {_id}";
 
         public List<double> Simulation()
         {
@@ -29,7 +32,5 @@ namespace ComputerGraphics.Controls.ModelsUI
             _id++;
             return list;
         }
-        
-        public string GetName() => $"Пила {_id}";
     }
 }

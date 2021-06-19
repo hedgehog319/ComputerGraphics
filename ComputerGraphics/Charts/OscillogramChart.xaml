@@ -15,7 +15,7 @@
             <MenuItem Header="Статистика" Click="Statistic_OnClick" />
         </ContextMenu>
     </UserControl.ContextMenu>
-    
+
     <Grid>
         <!-- <Border BorderBrush="Black" BorderThickness="1"> -->
         <lvc:CartesianChart DisableAnimations="True"

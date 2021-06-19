@@ -29,6 +29,18 @@ namespace ComputerGraphics.Windows
             ChangeThumbSize(_chartModels.Range);
         }
 
+        public OscillogramViewer(ChartModels models)
+        {
+            InitializeComponent();
+
+            _chartModels = models;
+
+            Start.Text = _chartModels.StartTime.ToString(CultureInfo.InvariantCulture);
+            Range.Text = _chartModels.Range.ToString();
+            End.Text = _chartModels.EndTime.ToString(CultureInfo.InvariantCulture);
+            ChangeThumbSize(_chartModels.Range);
+        }
+
         public void AddOscillogram(int modelId)
         {
             if (Panel.Children.Cast<OscillogramChart>().Any(chart => chart.GetModel.Id == modelId)) return;
@@ -89,6 +101,8 @@ namespace ComputerGraphics.Windows
 
             _chartModels.From = scroll.Value;
             _chartModels.To = scroll.Value + range;
+
+            WindowController.RecalculateStatistics();
         }
 
         private void Scroll_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

@@ -12,11 +12,14 @@ namespace ComputerGraphics.Controls.ModelsUI
 {
     public partial class BalancedEnvelope : UserControl, ISimulated, INamed
     {
-        private static int _id = 0;
+        private static int _id;
+
         public BalancedEnvelope()
         {
             InitializeComponent();
         }
+
+        public string GetName() => $"Б. огибающая {_id}";
 
         public List<double> Simulation()
         {
@@ -32,7 +35,5 @@ namespace ComputerGraphics.Controls.ModelsUI
             _id++;
             return list;
         }
-        
-        public string GetName() => $"Б. огибающая {_id}";
     }
 }

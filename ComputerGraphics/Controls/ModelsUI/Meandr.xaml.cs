@@ -11,12 +11,15 @@ namespace ComputerGraphics.Controls.ModelsUI
 {
     public partial class Meandr : UserControl, ISimulated, INamed
     {
-        private static int _id = 0;
+        private static int _id;
+
         public Meandr()
         {
             InitializeComponent();
             Parameter.Text = (WindowController.ChartModels.SamplesNumber / 8).ToString();
         }
+
+        public string GetName() => $"Меандр {_id}";
 
         public List<double> Simulation()
         {
@@ -28,7 +31,5 @@ namespace ComputerGraphics.Controls.ModelsUI
             _id++;
             return list;
         }
-        
-        public string GetName() => $"Меандр {_id}";
     }
 }

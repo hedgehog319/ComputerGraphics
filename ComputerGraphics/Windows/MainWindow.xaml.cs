@@ -41,11 +41,6 @@ namespace ComputerGraphics.Windows
             WindowController.SaveSignal();
         }
 
-        private void Statistic_OnClick(object sender, RoutedEventArgs e)
-        {
-            WindowController.ShowStatistics();
-        }
-
         private void Navigation_OnClick(object sender, RoutedEventArgs e)
         {
             WindowController.ShowNavBar();

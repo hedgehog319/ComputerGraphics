@@ -72,6 +72,9 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Include="Charts\AxisX.xaml.cs">
+          <DependentUpon>AxisX.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Charts\BaseModel.cs" />
         <Compile Include="Charts\ChartModels.cs" />
         <Compile Include="Charts\ColumnChart.xaml.cs">
@@ -87,6 +90,7 @@
         <Compile Include="Controls\BestTextBox.xaml.cs">
           <DependentUpon>BestTextBox.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Controls\MaterialButton.xaml.cs" />
         <Compile Include="Controls\ModelsUI\BalancedEnvelope.xaml.cs">
           <DependentUpon>BalancedEnvelope.xaml</DependentUpon>
         </Compile>
@@ -188,12 +192,14 @@
         <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
+        <Page Include="Charts\AxisX.xaml" />
         <Page Include="Charts\ColumnChart.xaml" />
         <Page Include="Charts\OscillogramChart.xaml" />
         <Page Include="Charts\PreviewChart.xaml" />
         <Page Include="Controls\BestTextBox.xaml" />
         <Page Include="Controls\ModelsUI\BalancedEnvelope.xaml" />
         <Page Include="Controls\ModelsUI\APCC.xaml" />
+        <Page Include="Controls\MaterialButton.xaml" />
         <Page Include="Controls\ModelsUI\DelayedJump.xaml" />
         <Page Include="Controls\ModelsUI\DelayedPulse.xaml" />
         <Page Include="Controls\ModelsUI\DiscretizedDecreasingExponent.xaml" />

@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using ComputerGraphics.Charts;
 using ComputerGraphics.Controls.ModelsUI;
 

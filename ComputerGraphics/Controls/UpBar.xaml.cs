@@ -36,13 +36,13 @@ namespace ComputerGraphics.Controls
             var titleBind = new Binding
             {
                 Path = new PropertyPath(nameof(Title)),
-                Source = this,
+                Source = this
             };
 
             var backgroundBind = new Binding
             {
                 Path = new PropertyPath(nameof(Background)),
-                Source = this,
+                Source = this
             };
 
             TitleBox.SetBinding(TextBlock.TextProperty, titleBind);

@@ -1,6 +1,5 @@
 ﻿#region
 
-using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -19,6 +18,8 @@ namespace ComputerGraphics.Windows
         private static OscillogramViewer _oscillogramViewer;
         private static InfoWindow _info;
         private static Simulator _simulator;
+        private static Statistics _statistics;
+        private static OscillogramViewer _FFT;
 
         public static ChartModels ChartModels;
 
@@ -163,12 +164,28 @@ namespace ComputerGraphics.Windows
 
         public static void ShowStatistics(OscillogramChart chart)
         {
-            new Statistics(chart).Show();
+            if (_statistics != null) return;
+
+            _statistics = new Statistics(chart) {Owner = MainWindow};
+            _statistics.Closed += (_, _) => _statistics = null;
+            _statistics.Show();
+        }
+
+        public static void RecalculateStatistics()
+        {
+            _statistics?.Recalculate();
         }
 
         public static void RemoveFromViewer(OscillogramChart chart)
         {
             _oscillogramViewer.RemoveModel(chart);
+        }
+
+        public static void FFTShow(ChartModels models)
+        {
+            _FFT = new OscillogramViewer(models) {Owner = MainWindow};
+            _FFT.Closed += (_, _) => _FFT = null;
+            _FFT.Show();
         }
     }
 }

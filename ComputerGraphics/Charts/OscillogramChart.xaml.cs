@@ -14,6 +14,7 @@ namespace ComputerGraphics.Charts
         {
             InitializeComponent();
         }
+
         public OscillogramChart(OscillogramModel model)
         {
             InitializeComponent();

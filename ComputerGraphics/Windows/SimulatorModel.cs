@@ -14,23 +14,40 @@ namespace ComputerGraphics.Windows
     {
         public enum Simulations
         {
-            [Description("Задержанный единичный импульс")] Zero = 0,
-            [Description("Задержанный единичный скачок")] One = 1,
-            [Description("Дискретизированная убывающая экспонента")] Two = 2,
+            [Description("Задержанный единичный импульс")]
+            Zero = 0,
+
+            [Description("Задержанный единичный скачок")]
+            One = 1,
+
+            [Description("Дискретизированная убывающая экспонента")]
+            Two = 2,
             [Description("Синусоида")] Tree = 3,
             [Description("Меандр")] Four = 4,
             [Description("Пила")] Five = 5,
-            [Description("Экпоненциальная огибающая")] Six = 6,
-            [Description("Балансирующая огибающая")] Seven = 7,
+
+            [Description("Экпоненциальная огибающая")]
+            Six = 6,
+
+            [Description("Балансирующая огибающая")]
+            Seven = 7,
             [Description("Тональная Огибающая")] Eight = 8,
-            [Description("Сигнал с линейной частотной модуляцией")] Nine = 9,
+
+            [Description("Сигнал с линейной частотной модуляцией")]
+            Nine = 9,
             [Description("Белый Шум")] Ten = 10,
-            [Description("Белый Шум по нормальному закону")] Eleven = 11,
+
+            [Description("Белый Шум по нормальному закону")]
+            Eleven = 11,
             [Description("АРСС")] Twelve = 12,
-            [Description("Суперпозиция")] Thirteen = 13,
+            [Description("Суперпозиция")] Thirteen = 13
         }
 
+        private double _height = 95;
+
         private object _view;
+
+        private double _width = 210;
 
         public SimulatorModel()
         {
@@ -44,6 +61,24 @@ namespace ComputerGraphics.Windows
             {
                 _view = value;
                 OnPropertyChanged(nameof(View));
+            }
+        }
+
+        public double Width
+        {
+            get => _width;
+            private set
+            {
+                if (!Equals(_width, value)) _width = value;
+            }
+        }
+
+        public double Height
+        {
+            get => _height;
+            private set
+            {
+                if (!Equals(_height, 95 + value)) _height = 95 + value;
             }
         }
 
@@ -74,28 +109,6 @@ namespace ComputerGraphics.Windows
             Width = control.Width;
 
             View = control;
-        }
-
-        private double _width = 210;
-
-        public double Width
-        {
-            get => _width;
-            private set
-            {
-                if (!Equals(_width, value)) _width = value;
-            }
-        }
-
-        private double _height = 95;
-
-        public double Height
-        {
-            get => _height;
-            private set
-            {
-                if (!Equals(_height, 95 + value)) _height = 95 + value;
-            }
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)

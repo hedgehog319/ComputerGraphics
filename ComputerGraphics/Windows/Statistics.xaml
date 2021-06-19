@@ -43,7 +43,7 @@
                     <Setter Property="Margin" Value="5, 0, 0, 0" />
                 </Style>
             </Grid.Resources>
-            
+
             <TextBlock Grid.Row="1" Grid.Column="0" FontSize="13" Height="20"
                        Text="Среднее -" />
 
@@ -93,7 +93,7 @@
             <TextBlock Grid.Row="12" Grid.ColumnSpan="2" Text="Гистограмма распределения значений сигнала"
                        FontSize="14" FontWeight="Medium"
                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" />
-            <charts:ColumnChart x:Name="Oscillogram" Grid.Row="13" Grid.ColumnSpan="12"/>
+            <charts:ColumnChart x:Name="Oscillogram" Grid.Row="13" Grid.ColumnSpan="2" Grid.Column="0" />
         </Grid>
     </Grid>
 </Window>

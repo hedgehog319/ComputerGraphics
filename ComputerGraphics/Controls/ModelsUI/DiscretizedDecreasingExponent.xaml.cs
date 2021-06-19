@@ -12,11 +12,14 @@ namespace ComputerGraphics.Controls.ModelsUI
 {
     public partial class DiscretizedDecreasingExponent : UserControl, ISimulated, INamed
     {
-        private static int _id = 0;
+        private static int _id;
+
         public DiscretizedDecreasingExponent()
         {
             InitializeComponent();
         }
+
+        public string GetName() => $"Убывающая экспонента {_id}";
 
         public List<double> Simulation()
         {
@@ -29,7 +32,5 @@ namespace ComputerGraphics.Controls.ModelsUI
             _id++;
             return list;
         }
-        
-        public string GetName() => $"Убывающая экспонента {_id}";
     }
 }

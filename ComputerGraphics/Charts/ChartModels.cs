@@ -27,7 +27,7 @@ namespace ComputerGraphics.Charts
             for (var i = 0; i < channelsNumber; i++)
                 OscillogramModels.Add(new OscillogramModel(channelsNames[i], fileName, values[i]));
 
-            From = 1;
+            From = 0;
             To = OscillogramModels[0].Values.Count; // Check -1 needs?
 
             Formatter = x => StartTime.ToString("yyyy"); // it's ok?
@@ -47,7 +47,7 @@ namespace ComputerGraphics.Charts
 
             OscillogramModels = new List<OscillogramModel>();
 
-            From = 1;
+            From = 0;
             To = 10; // Check -1 needs?
 
             Formatter = x => StartTime.ToString("yyyy"); // it's ok?

@@ -11,13 +11,15 @@ namespace ComputerGraphics.Controls.ModelsUI
 {
     public partial class NormalWhiteNoise : UserControl, ISimulated, INamed
     {
+        private static int _id;
         private readonly Random _rand = new Random();
-        private static int _id = 0;
 
         public NormalWhiteNoise()
         {
             InitializeComponent();
         }
+
+        public string GetName() => $"Белый Шум по н.з. {_id}";
 
         public List<double> Simulation()
         {
@@ -41,7 +43,5 @@ namespace ComputerGraphics.Controls.ModelsUI
 
             return x - 6;
         }
-        
-        public string GetName() => $"Белый Шум по н.з. {_id}";
     }
 }

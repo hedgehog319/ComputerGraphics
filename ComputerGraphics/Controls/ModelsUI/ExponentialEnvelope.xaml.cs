@@ -12,13 +12,16 @@ namespace ComputerGraphics.Controls.ModelsUI
 {
     public partial class ExponentialEnvelope : UserControl, ISimulated, INamed
     {
-        private static int _id = 0;
+        private static int _id;
+
         public ExponentialEnvelope()
         {
             InitializeComponent();
             ParameterR.Text = Convert.ToInt32(WindowController.ChartModels.SamplesNumber / 4).ToString();
             ParameterF.Text = Convert.ToInt32(WindowController.ChartModels.SamplesNumber * 2).ToString();
         }
+
+        public string GetName() => $"Экп. огибающая {_id}";
 
         public List<double> Simulation()
         {
@@ -37,7 +40,5 @@ namespace ComputerGraphics.Controls.ModelsUI
             _id++;
             return list;
         }
-        
-        public string GetName() => $"Экп. огибающая {_id}";
     }
 }

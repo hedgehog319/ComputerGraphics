@@ -16,7 +16,6 @@
             <MenuItem Header="Инструменты">
                 <MenuItem Header="Окно навигации" Click="Navigation_OnClick" />
                 <MenuItem Header="Моделирование" Click="Simulation_OnClick" />
-                <MenuItem Header="Статистика" Click="Statistic_OnClick" />
             </MenuItem>
             <MenuItem Header="Информация о сигнале" Click="Information_OnClick" />
         </Menu>

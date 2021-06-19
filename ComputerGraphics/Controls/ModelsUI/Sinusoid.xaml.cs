@@ -12,11 +12,14 @@ namespace ComputerGraphics.Controls.ModelsUI
 {
     public partial class Sinusoid : UserControl, ISimulated, INamed
     {
-        private static int _id = 0;
+        private static int _id;
+
         public Sinusoid()
         {
             InitializeComponent();
         }
+
+        public string GetName() => $"Синусоида {_id}";
 
         public List<double> Simulation()
         {
@@ -34,7 +37,5 @@ namespace ComputerGraphics.Controls.ModelsUI
             _id++;
             return list;
         }
-        
-        public string GetName() => $"Синусоида {_id}";
     }
 }
