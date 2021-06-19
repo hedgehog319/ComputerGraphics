@@ -74,6 +74,9 @@
         </Compile>
         <Compile Include="Charts\BaseModel.cs" />
         <Compile Include="Charts\ChartModels.cs" />
+        <Compile Include="Charts\ColumnChart.xaml.cs">
+          <DependentUpon>ColumnChart.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Charts\OscillogramChart.xaml.cs">
           <DependentUpon>OscillogramChart.xaml</DependentUpon>
         </Compile>
@@ -185,6 +188,7 @@
         <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
+        <Page Include="Charts\ColumnChart.xaml" />
         <Page Include="Charts\OscillogramChart.xaml" />
         <Page Include="Charts\PreviewChart.xaml" />
         <Page Include="Controls\BestTextBox.xaml" />
