@@ -43,7 +43,7 @@ namespace ComputerGraphics.Charts
             var len = Convert.ToInt32(Math.Pow(2, degree));
 
             var values = new Complex[len];
-            for (var i = 0; i < len; i++) values[i] = model.Values[i + begin];
+            for (var i = 0; i < end; i++) values[i] = model.Values[i + begin];
 
             var ft = FFT.FFT.fft(values);
 
