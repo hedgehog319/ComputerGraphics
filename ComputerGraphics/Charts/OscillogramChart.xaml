@@ -12,6 +12,7 @@
     <UserControl.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Удалить" Click="Delete_OnClick" />
+            <MenuItem Header="Статистика" Click="Statistic_OnClick" />
         </ContextMenu>
     </UserControl.ContextMenu>
     

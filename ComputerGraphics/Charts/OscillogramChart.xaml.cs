@@ -10,6 +10,10 @@ namespace ComputerGraphics.Charts
 {
     public partial class OscillogramChart : IDisposable
     {
+        public OscillogramChart()
+        {
+            InitializeComponent();
+        }
         public OscillogramChart(OscillogramModel model)
         {
             InitializeComponent();
@@ -24,6 +28,11 @@ namespace ComputerGraphics.Charts
         private void Delete_OnClick(object sender, RoutedEventArgs e)
         {
             WindowController.RemoveFromViewer(this);
+        }
+
+        private void Statistic_OnClick(object sender, RoutedEventArgs e)
+        {
+            WindowController.ShowStatistics(this);
         }
     }
 }

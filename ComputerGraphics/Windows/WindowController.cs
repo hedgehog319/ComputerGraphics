@@ -161,9 +161,9 @@ namespace ComputerGraphics.Windows
             }
         }
 
-        public static void ShowStatistics()
+        public static void ShowStatistics(OscillogramChart chart)
         {
-            new Statistics().Show();
+            new Statistics(chart).Show();
         }
 
         public static void RemoveFromViewer(OscillogramChart chart)

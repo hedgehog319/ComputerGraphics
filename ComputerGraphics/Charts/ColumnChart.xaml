@@ -22,22 +22,9 @@
             <wpf:CartesianChart.Series>
                 <geared:GColumnSeries Title="{Binding ChannelName, Mode=OneWay}"
                                     Values="{Binding Values, Mode=OneTime}"
-                                    StrokeThickness="1"
                                     MaxColumnWidth="1"
                                     Fill="Gray"/>
             </wpf:CartesianChart.Series>
-
-            <wpf:CartesianChart.AxisX>
-                <!-- LabelFormatter="{Binding Formatter, Mode=OneWay}" -->
-                <wpf:Axis MinValue="{Binding From, Mode=OneWay}"
-                          MaxValue="{Binding To, Mode=OneWay}"
-                          MaxRange="{Binding Values.Count, Mode=OneWay}" />
-            </wpf:CartesianChart.AxisX>
-
-            <wpf:CartesianChart.AxisY>
-                <wpf:Axis MinValue="{Binding Min, Mode=OneWay}"
-                          MaxValue="{Binding Max, Mode=OneWay}" />
-            </wpf:CartesianChart.AxisY>
         </wpf:CartesianChart>
         <!-- </Border> -->
     </Grid>

@@ -4,6 +4,10 @@ namespace ComputerGraphics.Charts
 {
     public partial class ColumnChart : UserControl
     {
+        public ColumnChart()
+        {
+            InitializeComponent();
+        }
         public ColumnChart(OscillogramModel model)
         {
             InitializeComponent();
