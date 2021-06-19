@@ -34,6 +34,7 @@ namespace ComputerGraphics.Windows
             Quantile05.Text = Func05(model).ToString(CultureInfo.InvariantCulture);
             Quantile95.Text = Func95(model).ToString(CultureInfo.InvariantCulture);
             Median.Text = FuncMedian(model).ToString(CultureInfo.InvariantCulture);
+            FuncHisto(model);
         }
 
         private double FuncAverage(BaseModel model)
@@ -155,7 +156,7 @@ namespace ComputerGraphics.Windows
                 mass[i] = count;
             }
 
-            var model_ = new OscillogramModel("123", "123", mass);
+            var model_ = new OscillogramModel(model.ChannelName, "123", mass);
             Oscillogram.DataContext = model_;
         }
 
