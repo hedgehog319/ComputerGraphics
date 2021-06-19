@@ -40,7 +40,7 @@ namespace ComputerGraphics.Charts
             var degree = Math.Ceiling(Math.Log(end - begin, 2));
 
 
-            var len = Convert.ToInt32(Math.Pow(2, degree));
+            var len = Convert.ToInt32(Math.Pow(2, degree)) + 1;
 
             var values = new Complex[len];
             for (var i = 0; i < len; i++) values[i] = model.Values[i + begin];
@@ -53,13 +53,17 @@ namespace ComputerGraphics.Charts
             for (var i = 0; i < ft.Length; i++) asd[i] = WindowController.ChartModels.DeltaTime * Complex.Abs(ft[i]);
 
             var oscillogramModel = new OscillogramModel("asd", "Моделирование", asd);
-            WindowController.AddSimulation(oscillogramModel);
 
             var psd = new double[ft.Length];
             for (var i = 0; i < ft.Length; i++) psd[i] = Math.Pow(asd[i], 2);
 
             var oscillogramModel2 = new OscillogramModel("psd", "Моделирование", psd);
-            WindowController.AddSimulation(oscillogramModel2);
+
+            var models = new ChartModels(ft.Length, WindowController.ChartModels.SamplingRate);
+            models.Add(oscillogramModel);
+            models.Add(oscillogramModel2);
+
+            WindowController.FFTShow(models);
         }
     }
 }

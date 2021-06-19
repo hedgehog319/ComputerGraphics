@@ -35,6 +35,11 @@ namespace ComputerGraphics.Windows
 
             _chartModels = models;
 
+            foreach (var model in _chartModels)
+            {
+                Panel.Children.Add(new OscillogramChart(model));
+            }
+
             Start.Text = _chartModels.StartTime.ToString(CultureInfo.InvariantCulture);
             Range.Text = _chartModels.Range.ToString();
             End.Text = _chartModels.EndTime.ToString(CultureInfo.InvariantCulture);
