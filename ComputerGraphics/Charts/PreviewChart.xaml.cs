@@ -37,10 +37,10 @@ namespace ComputerGraphics.Charts
                 end = WindowController.ChartModels.SamplesNumber / 2;
 
             var model = GetModel;
-            var degree = Math.Ceiling(Math.Log(end - begin, 2));
+            var degree = Math.Ceiling(Math.Log(end - begin, 2)) + 1;
 
 
-            var len = Convert.ToInt32(Math.Pow(2, degree)) + 1;
+            var len = Convert.ToInt32(Math.Pow(2, degree));
 
             var values = new Complex[len];
             for (var i = 0; i < len; i++) values[i] = model.Values[i + begin];
