@@ -13,6 +13,10 @@
     </UserControl.DataContext>
 
     <Grid>
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" />
+        <lvc:CartesianChart DataTooltip="{x:Null}">
+            <lvc:CartesianChart.Series>
+                <geared:GColumnSeries Values="{Binding Values, Mode=OneWay}"/>
+            </lvc:CartesianChart.Series>
+        </lvc:CartesianChart>
     </Grid>
 </UserControl>
