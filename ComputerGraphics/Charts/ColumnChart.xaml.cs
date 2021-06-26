@@ -2,6 +2,7 @@
 
 using System.Windows.Controls;
 using LiveCharts;
+using LiveCharts.Geared;
 using LiveCharts.Wpf;
 
 #endregion
@@ -24,18 +25,13 @@ namespace ComputerGraphics.Charts
 
         public void SetModel(OscillogramModel model)
         {
-            SeriesCollection = new SeriesCollection
-            {
-                new ColumnSeries
-                {
-                    Values = model.Values,
-                }
-            };
-
+            Values = model.Values;
             DataContext = this;
         }
 
         public SeriesCollection SeriesCollection { get; set; }
+        
+        public GearedValues<double> Values { get; set; }
 
         public OscillogramModel GetModel => DataContext as OscillogramModel;
 
