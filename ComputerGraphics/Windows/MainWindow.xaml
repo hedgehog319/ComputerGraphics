@@ -18,7 +18,7 @@
                 <MenuItem Header="Моделирование" Click="Simulation_OnClick" />
             </MenuItem>
             <MenuItem Header="Информация о сигнале" Click="Information_OnClick" />
-            <MenuItem Header="О программе"/>
+            <MenuItem Header="О программе" Click="MenuItem_OnClick"/>
         </Menu>
     </Grid>
 </Window>

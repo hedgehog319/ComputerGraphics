@@ -12,8 +12,8 @@ namespace ComputerGraphics.Windows
     public partial class Statistics : Window
     {
         private double _aver, _dispersion, _deviation;
-        private readonly int _end = Convert.ToInt32(WindowController.ChartModels.To);
-        private readonly int _start = Convert.ToInt32(WindowController.ChartModels.From);
+        private int _end;
+        private int _start;
 
         private readonly BaseModel _model;
 
@@ -27,6 +27,9 @@ namespace ComputerGraphics.Windows
 
         public void Recalculate()
         {
+            _start = Convert.ToInt32(WindowController.ChartModels.From);
+            _end = Convert.ToInt32(WindowController.ChartModels.To);
+
             Average.Text = FuncAverage(_model).ToString(CultureInfo.InvariantCulture);
             Dispersion.Text = FuncDispersion(_model).ToString(CultureInfo.InvariantCulture);
             StandardDeviation.Text = FuncDeviation().ToString(CultureInfo.InvariantCulture);

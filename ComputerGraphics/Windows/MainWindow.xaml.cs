@@ -45,5 +45,17 @@ namespace ComputerGraphics.Windows
         {
             WindowController.ShowNavBar();
         }
+
+        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(
+                "Разработчики программы:\n" +
+                "Торжков Александр\n" +
+                "Просин Андрей\n" +
+                "Антипов Данил\n" +
+                "Немиро Максим\n\n" +
+                "Программа DSP предназначена для визуализации многоканальных сигналов"
+                , "О программе");
+        }
     }
 }
