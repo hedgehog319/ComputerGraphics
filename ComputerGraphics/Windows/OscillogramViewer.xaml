@@ -1,7 +1,7 @@
 ﻿<Window x:Class="ComputerGraphics.Windows.OscillogramViewer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="OscillogramViewer" Name="OViewer"
+        Title="OscillogramViewer"
         MinHeight="454" Height="454" MinWidth="700" Width="800"
         SizeChanged="OscillogramViewer_OnSizeChanged" PreviewMouseWheel="OscillogramViewer_OnMouseWheel">
 

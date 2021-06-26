@@ -35,7 +35,7 @@ namespace ComputerGraphics.Windows
 
         public static void ShowNavBar()
         {
-            if (_navBar != null) return;
+            if (_navBar != null || ChartModels == null) return;
 
             _navBar = new NavBar {Owner = MainWindow};
             _navBar.Closed += (_, _) => _navBar = null;
@@ -118,8 +118,9 @@ namespace ComputerGraphics.Windows
 
         public static void SaveSignal()
         {
-            var saveWindow = new SaveWindow();
+            if (ChartModels == null) return;
 
+            var saveWindow = new SaveWindow();
             if (saveWindow.ShowDialog() != true) return;
 
             var dialog = new SaveFileDialog {Filter = "Text files|*.txt|All files|*.*"};

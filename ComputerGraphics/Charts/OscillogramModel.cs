@@ -77,6 +77,7 @@ namespace ComputerGraphics.Charts
 
                 _point = value;
                 OnPropertyChanged(nameof(GetPoint));
+                OnPropertyChanged(nameof(SetPoint));
             }
         }
     }

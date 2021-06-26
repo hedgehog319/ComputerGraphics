@@ -25,12 +25,13 @@ namespace ComputerGraphics.Charts
 
         public void SetModel(OscillogramModel model)
         {
-            Values = model.Values;
+            // Values = model.Values;
+            Series.Values = model.Values;
             DataContext = this;
         }
 
         public SeriesCollection SeriesCollection { get; set; }
-        
+
         public GearedValues<double> Values { get; set; }
 
         public OscillogramModel GetModel => DataContext as OscillogramModel;

@@ -33,6 +33,8 @@ namespace ComputerGraphics.Windows
         {
             InitializeComponent();
 
+            Title = "Fourier";
+            
             _chartModels = models;
 
             foreach (var model in _chartModels)
@@ -77,6 +79,7 @@ namespace ComputerGraphics.Windows
 
             Range.Text = _chartModels.Range.ToString();
             ChangeThumbSize(_chartModels.Range);
+            WindowController.RecalculateStatistics();
         }
 
         private void ChangeThumbSize(int range)
@@ -90,10 +93,8 @@ namespace ComputerGraphics.Windows
             Scroll.ViewportSize = size;
         }
 
-        private void Point_OnClick(object sender, RoutedEventArgs e)
-        {
+        private void Point_OnClick(object sender, RoutedEventArgs e) =>
             _chartModels.Point = !_chartModels.Point;
-        }
 
         private void Smoothness_OnClick(object sender, RoutedEventArgs e) =>
             _chartModels.Smoothness = _chartModels.Smoothness > 0 ? 0 : 1;

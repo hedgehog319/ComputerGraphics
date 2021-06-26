@@ -33,33 +33,32 @@ namespace ComputerGraphics.Charts
         {
             var begin = Convert.ToInt32(WindowController.ChartModels.From);
             var end = Convert.ToInt32(WindowController.ChartModels.To);
-            if (end > WindowController.ChartModels.SamplesNumber / 2)
-                end = WindowController.ChartModels.SamplesNumber / 2;
 
             var model = GetModel;
-            var degree = Math.Ceiling(Math.Log(end - begin, 2)) + 1;
+            var degree = Math.Ceiling(Math.Log(end - begin, 2));
 
 
             var len = Convert.ToInt32(Math.Pow(2, degree));
 
             var values = new Complex[len];
-            for (var i = 0; i < end; i++) values[i] = model.Values[i + begin];
+            for (var i = 0; i < len && i + begin < end; i++) values[i] = model.Values[i + begin];
 
             var ft = FFT.FFT.fft(values);
 
             //SamplesCount = ft.Length / 2;
 
-            var asd = new double[ft.Length];
-            for (var i = 0; i < ft.Length; i++) asd[i] = WindowController.ChartModels.DeltaTime * Complex.Abs(ft[i]);
+            len = ft.Length / 2;
+            var asd = new double[len];
+            for (var i = 0; i < len; i++) asd[i] = WindowController.ChartModels.DeltaTime * Complex.Abs(ft[i]);
 
             var oscillogramModel = new OscillogramModel("asd", "Моделирование", asd);
 
-            var psd = new double[ft.Length];
-            for (var i = 0; i < ft.Length; i++) psd[i] = Math.Pow(asd[i], 2);
+            var psd = new double[len];
+            for (var i = 0; i < len; i++) psd[i] = Math.Pow(asd[i], 2);
 
             var oscillogramModel2 = new OscillogramModel("psd", "Моделирование", psd);
 
-            var models = new ChartModels(ft.Length, WindowController.ChartModels.SamplingRate);
+            var models = new ChartModels(len, WindowController.ChartModels.SamplingRate);
             models.Add(oscillogramModel);
             models.Add(oscillogramModel2);
 

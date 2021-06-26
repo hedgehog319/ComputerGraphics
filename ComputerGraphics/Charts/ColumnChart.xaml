@@ -13,9 +13,9 @@
     </UserControl.DataContext>
 
     <Grid>
-        <lvc:CartesianChart DataTooltip="{x:Null}">
+        <lvc:CartesianChart>
             <lvc:CartesianChart.Series>
-                <geared:GColumnSeries Values="{Binding Values, Mode=OneWay}"/>
+                <geared:GColumnSeries x:Name="Series" />
             </lvc:CartesianChart.Series>
         </lvc:CartesianChart>
     </Grid>

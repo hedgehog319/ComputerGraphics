@@ -85,7 +85,7 @@ namespace ComputerGraphics.Windows
         private double FuncMin(BaseModel model)
         {
             var min = model.Values[_start];
-            for (var i = _start + 1; i < _end; i++)
+            for (var i = _start; i < _end; i++)
                 if (model.Values[i] < min)
                     min = model.Values[i];
 
@@ -133,20 +133,23 @@ namespace ComputerGraphics.Windows
         {
             const int k = 15;
             var mass = new double[k];
-            var h = Math.Round((FuncMax(model) - FuncMin(model)) / k);
+            var min = FuncMin(model);
+
+            var h = (FuncMax(model) - min) / k;
+
+
             for (var i = 0; i < k; i++)
             {
                 var count = 0;
                 for (var j = 0; j < _end - _start; j++)
-                    if (model.Values[j] >= +FuncMin(model) + i * h &&
-                        model.Values[j] <= +FuncMin(model) + (i + 1) * h)
+                    if (model.Values[_start + j] >= min + i * h &&
+                        model.Values[_start + j] <= min + (i + 1) * h)
                         count++;
 
                 mass[i] = count;
             }
 
-            var model_ = new OscillogramModel(model.ChannelName, "123", mass);
-            Oscillogram.SetModel(model_);
+            Oscillogram.SetModel(new OscillogramModel(model.ChannelName, "123", mass));
         }
     }
 }
